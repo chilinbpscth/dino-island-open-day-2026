@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-06T17:40:59.399Z",
+  "testedAt": "2026-09-06T17:47:09.589Z",
   "browser": "Chromium desktop with iPad-like viewport; not physical iPad",
   "passed": [
     "Welcome creates participant; island has 11 freely selectable stones",

@@ -1,0 +1,12 @@
+{
+  "testedAt": "2026-09-06T14:52:13.095Z",
+  "environment": "Chromium service worker with simulated network offline, GitHub Pages-like /school/ subpath",
+  "passed": [
+    "Precache activation",
+    "Offline reload and 11 map stones",
+    "All 11 game routes and their rendered images cached",
+    "Complete computing station offline and retain outbox",
+    "Offline ordinary certificate generation using seeded six-station eligibility",
+    "No runtime errors"
+  ]
+}

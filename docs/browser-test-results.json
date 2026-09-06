@@ -1,0 +1,28 @@
+{
+  "testedAt": "2026-09-06T08:04:45.877Z",
+  "browser": "Chromium desktop with iPad-like viewport; not physical iPad",
+  "passed": [
+    "Welcome creates participant; island has 11 freely selectable stones",
+    "Certificate direct route denied below 6 stations",
+    "english playable with images only, text restriction intact",
+    "mandarin playable with images only, text restriction intact",
+    "Math requires each apple, wrong food does not advance",
+    "Weather requires both hat and water, then umbrella and coat",
+    "Science requires observing clue before treatment",
+    "Sharing and turn taking complete with only one baby dino",
+    "Six completions unlock real 1600px certificate image",
+    "Computing enforces water then leaf, maximum 2 steps",
+    "All 山水木 strokes traced successfully through pointer input",
+    "Art requires finger painting then matching 3 shapes",
+    "Music light sequences playable without audio",
+    "PE rejects short press after 5 seconds; continuous 3-second hold advances",
+    "All 11 stations completed through real interactions",
+    "Completed station locked through map and direct route",
+    "Camera captures; no download QR fabricated when Google is unconfigured",
+    "Next participant confirmation clears active progress and private pending photo",
+    "Phone welcome has no horizontal overflow",
+    "TV top 10, remaining count, full HD geometry verified with synthetic local data",
+    "No browser runtime errors"
+  ],
+  "errors": []
+}

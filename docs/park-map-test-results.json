@@ -1,0 +1,14 @@
+{
+  "testedAt": "2026-09-06T14:53:40.610Z",
+  "environment": "Chromium iPad-sized viewports; not physical iPad",
+  "passed": [
+    "11 distinct selectable park targets",
+    "All habitats fit 1024x768 and 1194x834 with >=64px targets",
+    "Habitat centers route to correct subject",
+    "Any order with animated guides, delayed game entry and double-tap protection",
+    "Phone scroll layout without page overflow",
+    "Completed parks disabled and direct route guarded",
+    "Six completions unlock certificate",
+    "No runtime errors"
+  ]
+}

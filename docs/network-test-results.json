@@ -1,0 +1,9 @@
+{
+  "testedAt": "2026-09-06T07:47:08.762Z",
+  "environment": "Mock Google-shaped cross-origin iframe; NOT live Apps Script",
+  "passed": [
+    "Bridge handshake and RPC acknowledgement",
+    "Newer queued version survives older acknowledgement",
+    "Pending record removed after matching acknowledgement"
+  ]
+}

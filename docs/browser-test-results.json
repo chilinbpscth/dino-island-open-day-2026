@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-06T08:04:45.877Z",
+  "testedAt": "2026-09-06T17:40:59.399Z",
   "browser": "Chromium desktop with iPad-like viewport; not physical iPad",
   "passed": [
     "Welcome creates participant; island has 11 freely selectable stones",
@@ -15,13 +15,12 @@
     "All 山水木 strokes traced successfully through pointer input",
     "Art requires finger painting then matching 3 shapes",
     "Music light sequences playable without audio",
-    "PE rejects short press after 5 seconds; continuous 3-second hold advances",
-    "All 11 stations completed through real interactions",
+    "Any 10 stations reach full score; the unchosen 11th station locks",
     "Completed station locked through map and direct route",
     "Camera captures; no download QR fabricated when Google is unconfigured",
     "Next participant confirmation clears active progress and private pending photo",
     "Phone welcome has no horizontal overflow",
-    "TV top 10, remaining count, full HD geometry verified with synthetic local data",
+    "TV ranks 10-point explorers by total time with one of 11 stations unchosen",
     "No browser runtime errors"
   ],
   "errors": []

@@ -16,4 +16,6 @@
 @keyframes guide-step{from{transform:translateY(0) rotate(-5deg)}to{transform:translateY(-7px) rotate(5deg)}}
 .guide-status{text-align:center;font-size:17px;font-weight:700;color:var(--green);margin-top:10px;min-height:28px}
 .stone.travelling .park-label{background:#f4d884;box-shadow:0 0 0 5px #fff4bb}
+.stone.locked{opacity:.72}
+.stone.locked .park-label{background:#e4e2d8;border-color:#7b877c}
 .map-island[aria-busy="true"] .stone{cursor:wait}

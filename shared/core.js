@@ -1,4 +1,4 @@
-export const SCHOOL='佛教志蓮小學', TITLE='智取恐龍島', DATE='2026.09.13';
+export const SCHOOL='佛教志蓮小學', TITLE='智取恐龍島', DATE='2026.09.13', SCORE_TARGET=10, CERT_TARGET=6;
 export const ZONES=[
  ['chinese','中文','write','xiaolian-write','用正確筆順寫字，幫小龍起屋同搵水。','有山洞、有清水、有樹蔭，小龍住得更安全！'],
  ['english','英文','ear',null,'聽英文，用行動照顧小龍。','有水飲、食得飽，小龍安心休息！'],
@@ -18,9 +18,9 @@ export function cleanName(s){return String(s).normalize('NFC').trim().replace(/[
 export function validName(s){return !!cleanName(s)&&nameLength(cleanName(s))<=8;}
 export const uid=()=>crypto.randomUUID();
 export function newPlayer(name){if(!validName(name))throw Error('請輸入一至八個字嘅暱稱');return {id:uid(),name:cleanName(name),version:1,zones:{},createdAt:Date.now()};}
-export function totals(p){const ids=ZONES.map(z=>z.id).filter(id=>p?.zones[id]?.complete);return {zoneIds:ids,zonesCompleted:ids.length,totalMs:ids.reduce((s,id)=>s+Math.min(180000,Math.max(0,p.zones[id].ms||0)),0),certReady:ids.length>=6};}
-export function snapshot(p){return {id:p.id,name:p.name,version:p.version,zones:Object.fromEntries(Object.entries(p.zones).filter(([,v])=>v.complete).map(([id,v])=>[id,Math.min(180000,Math.round(v.ms||0))]))};}
-export function completeZone(p,id){if(!zoneById(id))throw Error('未知站點');if(p.zones[id]?.complete)return false;p.zones[id]={...p.zones[id],complete:true,ms:Math.min(180000,p.zones[id]?.ms||0)};p.version++;return true;}
+export function totals(p){const entries=Object.entries(p?.zones||{}).filter(([id,v])=>zoneById(id)&&v?.complete).slice(0,SCORE_TARGET),ids=entries.map(([id])=>id);return {zoneIds:ids,zonesCompleted:ids.length,totalMs:entries.reduce((s,[,v])=>s+Math.min(180000,Math.max(0,v.ms||0)),0),certReady:ids.length>=CERT_TARGET,scoreReady:ids.length===SCORE_TARGET};}
+export function snapshot(p){return {id:p.id,name:p.name,version:p.version,zones:Object.fromEntries(Object.entries(p.zones).filter(([id,v])=>zoneById(id)&&v.complete).slice(0,SCORE_TARGET).map(([id,v])=>[id,Math.min(180000,Math.round(v.ms||0))]))};}
+export function completeZone(p,id){if(!zoneById(id))throw Error('未知站點');if(p.zones[id]?.complete||totals(p).scoreReady)return false;p.zones[id]={...p.zones[id],complete:true,ms:Math.min(180000,p.zones[id]?.ms||0)};p.version++;return true;}
 export const formatTime=ms=>`${String(Math.floor(ms/60000)).padStart(2,'0')}:${String(Math.floor(ms/1000)%60).padStart(2,'0')}`;
 export function rank(players){return [...players].sort((a,b)=>b.zonesCompleted-a.zonesCompleted||a.totalMs-b.totalMs||a.reachedAt-b.reachedAt||a.id.localeCompare(b.id));}
 export class ActiveClock{constructor(onTick,now=()=>performance.now()){this.onTick=onTick;this.now=now;this.start=null;}resume(){if(this.start===null)this.start=this.now();}checkpoint(){if(this.start!==null){let t=this.now();this.onTick(Math.max(0,t-this.start));this.start=t;}}pause(){this.checkpoint();this.start=null;}}

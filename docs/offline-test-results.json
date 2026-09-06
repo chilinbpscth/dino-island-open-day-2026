@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-06T14:52:13.095Z",
+  "testedAt": "2026-09-06T17:41:02.616Z",
   "environment": "Chromium service worker with simulated network offline, GitHub Pages-like /school/ subpath",
   "passed": [
     "Precache activation",

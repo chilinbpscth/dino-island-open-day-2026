@@ -1,13 +1,13 @@
 # 學校部署及開場設定
 
-呢份套件係靜態遊戲加 Google 後台。程式已提供；未有學校授權嘅 Google 部署，唔會假裝全場排名同下載已經接通。未配置時可本機試玩，電視頁清楚標示「本機預覽」。
+呢份套件係靜態遊戲加 Google 後台。ITSUPPORT 帳戶已建立 Apps Script 專案、私人試算表、私人證書資料夾、10 組裝置憑證及每小時清理排程；Web App 公開部署及正式網址仍待完成。未接通時可本機試玩，電視頁清楚標示「本機預覽」。
 
 ## 1. 建立學校 Google 後台
 
 1. 用學校管理帳戶開 Google Apps Script，建立空白專案。
 2. 將 `apps-script/Code.gs`、`Bridge.html`、`Certificate.html` 加入專案。
 3. 在專案設定顯示 `appsscript.json`，貼上套件同名設定；啟用 Drive API v3 進階服務。若使用自訂 Google Cloud 專案，亦要在該專案啟用 Drive API。
-4. 在編輯器選 `setup_` 執行一次，由校方授權 Sheets、Drive 及時間觸發器。會建立私人「智取恐龍島 2026-09-13」試算表及「智取恐龍島 私人證書」資料夾。
+4. 在編輯器選 `setup` 執行一次，由校方授權 Sheets、Drive 及時間觸發器。會建立私人「智取恐龍島 2026-09-13」試算表及「智取恐龍島 私人證書」資料夾。本專案已於 2026-09-07 用 `itsupport@chilinbps.edu.hk` 完成此步。
 5. 試算表 `DeviceSetup` 有 10 個私人裝置憑證。只交老師；唔放上 GitHub、唔印喺公開 QR、唔分享整個試算表。
 6. 在指令碼屬性將 `ALLOWED_ORIGINS` 設成 JSON 陣列，例如 `["https://school.github.io"]`。填 origin，唔帶專案路徑。測試用本機地址需另外加入。
 7. 部署 → 新部署 → 網頁應用程式；執行身分：自己（校方部署者）；存取者：任何人。若學校政策無此選項，請管理員處理，唔改成要求家長登入。

@@ -1,4 +1,4 @@
-# 交付驗證 — 2026-09-06
+# 交付驗證 — 2026-09-07
 
 ## 本機已完成
 
@@ -6,6 +6,7 @@
 - A 校園繪本小蓮小志：14 個動作 PNG；兩人正側背及表情參考板。唯一小龍 3 個動作、角色板、3 個地標、島圖、證書框、榜裝飾。
 - 學校提供 logo 原圖已套入；沒有 AI 重畫校徽。
 - Apps Script / Sheets / 私人 Drive 後台原始碼、部署及現場操作說明。
+- ITSUPPORT Apps Script 已建立並完成 `setup`：實際 Google Sheet 有 `Players`、`Certificates`、`DeviceSetup`，10 組裝置憑證齊全；私人證書資料夾及 `cleanupExpired_` 時間觸發器已核對。
 - 44 項離線快取資源（含頁面入口）；預載後可斷網重開。
 
 ## 已通過的驗證及範圍
@@ -20,7 +21,7 @@
 
 ## 尚未完成，正式活動前必須處理
 
-- 學校 Google 帳戶部署、Apps Script 正式網址及裝置憑證；目前榜只做同一瀏覽器本機預覽，未接通跨 iPad 成績。
+- Apps Script Web App 公開部署、正式 `/exec` 網址及前端接駁；Google 後台資料結構與裝置憑證已建立，但目前榜仍未接通跨 iPad 成績。
 - 正式 HTTPS / GitHub Pages 網址；原始碼已有私人 GitHub repository，但尚未公開或啟用正式 Pages。
 - 真實 Google 上傳、家長免登入掃碼下載、七日期限及排程刪除實測。程式及 mock 有覆蓋，仍不能代替實際 Google/Safari 測試。
 - 10 部實體 iPad 同時成績及相片上傳；95% 10 秒內更新或出碼是待測目標，尚無實測數據。

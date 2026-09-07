@@ -1,6 +1,6 @@
 # 學校部署及開場設定
 
-呢份套件係靜態遊戲加 Google 後台。ITSUPPORT 帳戶已建立 Apps Script 專案、私人試算表、私人證書資料夾、10 組裝置憑證及每小時清理排程；Web App 公開部署及正式網址仍待完成。未接通時可本機試玩，電視頁清楚標示「本機預覽」。
+呢份套件係靜態遊戲加 Google 後台。ITSUPPORT 帳戶已建立 Apps Script 專案、私人試算表、私人證書資料夾、10 組裝置憑證及每小時清理排程；Web App v2 已公開部署並預設寫入前端。正式 GitHub Pages 網址及現場實機仍待完成。
 
 ## 1. 建立學校 Google 後台
 
@@ -12,6 +12,8 @@
 6. 在指令碼屬性將 `ALLOWED_ORIGINS` 設成 JSON 陣列，例如 `["https://school.github.io"]`。填 origin，唔帶專案路徑。測試用本機地址需另外加入。
 7. 部署 → 新部署 → 網頁應用程式；執行身分：自己（校方部署者）；存取者：任何人。若學校政策無此選項，請管理員處理，唔改成要求家長登入。
 8. 保存正式 `/exec` 網址。編輯後須建立新版本並更新部署；`/dev` 只供編輯者，唔可以作家長領證網址。
+
+本專案正式後台：`https://script.google.com/macros/s/AKfycbz0amXv0kfIBOGC4hX-4E8YShyAoukHgmMMAJoDpJ7vIwZpGWm1SWSYesakoECgU5pP/exec`（v2）。
 
 來源及技術邊界：[Web Apps](https://developers.google.com/apps-script/guides/web)、[HTML bridge/server calls](https://developers.google.com/apps-script/guides/html/communication)、[Apps Script quotas](https://developers.google.com/apps-script/guides/services/quotas)。橋接以允許來源、隨機通道及回應 ID 配對；必須實測 Safari 嵌入頁行為，唔將本機 mock 當 Google 實測。
 
@@ -26,8 +28,8 @@
 
 ## 3. 每部機開場前
 
-1. 老師開 `BASE/setup/`；填 Apps Script `/exec` 網址。
-2. iPad 填各自裝置憑證；電視只填網址，唔填寫入憑證。
+1. 老師開 `BASE/setup/`；正式 Apps Script `/exec` 網址已預填。
+2. iPad 只需填各自裝置憑證；電視毋須填憑證。
 3. 按「儲存設定」、「測試榜連線」、「準備離線遊戲」。
 4. 發佈新版本後先關閉所有同站分頁，再重新開啟，讓新離線版本啟用。唔喺小朋友玩緊時換版本。
 5. iPad 開 `BASE/hub/`，電視開 `BASE/board/` 全螢幕。首次容許鏡頭，確保正面拍攝，唔收音。

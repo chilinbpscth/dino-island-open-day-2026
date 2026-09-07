@@ -8,7 +8,9 @@
 
 ## 開啟
 
-在呢個資料夾執行 `npm ci`、`npm run serve`，開啟終端顯示嘅 `/hub/` 網址。不要直接雙擊 HTML：模組、相機及離線功能需要 localhost 或 HTTPS。
+正式網站：<https://chilinbpscth.github.io/dino-island-open-day-2026/>
+
+本機開發可在呢個資料夾執行 `npm ci`、`npm run serve`，開啟終端顯示嘅 `/hub/` 網址。不要直接雙擊 HTML：模組、相機及離線功能需要 localhost 或 HTTPS。
 
 - `/hub/`：iPad 遊戲；hash `#/map`、`#/play/<id>`、`#/cert`。
 - `/board/`：1920×1080 大字探險榜，每 5 秒查詢。
@@ -26,12 +28,12 @@
 
 ## 尚待正式交付資料及實機驗收
 
-學校 Google 帳戶部署權限／網址、英文及普通話批准錄音、現場 iPad 與手機及電視測試，唔會由本機測試取代。錄音規格見 `docs/AUDIO.md`。預設無正式語音檔時，聽覺站用圖示提示仍可完成。
+英文及普通話批准錄音、現場 iPad 與手機及電視測試，唔會由桌面測試取代。Google 後台同 GitHub Pages 正式網址已接通。錄音規格見 `docs/AUDIO.md`。預設無正式語音檔時，聽覺站用圖示提示仍可完成。
 
 所有角色係本次重新生成嘅原創素材；原參考圖唔包含喺網站發佈包。QR 工具使用 qrcode-generator 2.0.4（MIT，原始碼保留版權聲明）。
 
 ## 最新玩法及示範入口
 
-- `/hub/?demo=1#/map`：直接睇分岔彎路、11 個恐龍園區，可以點入試玩。示範進度獨立保存，不上傳。
-- `/board/?demo=1`：10 行合成名字及時間，清楚標示示範資料；不寫入正式排名。
+- [地圖示範](https://chilinbpscth.github.io/dino-island-open-day-2026/hub/?demo=1#/map)：直接睇分岔彎路、11 個恐龍園區，可以點入試玩。示範進度獨立保存，不上傳。
+- [排行榜示範](https://chilinbpscth.github.io/dino-island-open-day-2026/board/?demo=1)：10 行合成名字及時間，清楚標示示範資料；不寫入正式排名。
 - 正式玩法：11 科任選 10 科；每過一關得 1 分，10 分滿分。完成 6 分可領證，取得 10 分後按十關總有效時間排名；第 11 個未選園區鎖定。未滿 10 分者只計探險中人數。

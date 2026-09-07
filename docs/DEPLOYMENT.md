@@ -1,6 +1,6 @@
 # 學校部署及開場設定
 
-呢份套件係靜態遊戲加 Google 後台。ITSUPPORT 帳戶已建立 Apps Script 專案、私人試算表、私人證書資料夾、10 組裝置憑證及每小時清理排程；Web App v2 已公開部署並預設寫入前端。正式 GitHub Pages 網址及現場實機仍待完成。
+呢份套件係靜態遊戲加 Google 後台。ITSUPPORT 帳戶已建立 Apps Script 專案、私人試算表、私人證書資料夾、10 組裝置憑證及每小時清理排程；Web App v2 同 GitHub Pages 已公開部署及接通。現場實機仍待完成。
 
 ## 1. 建立學校 Google 後台
 
@@ -19,6 +19,7 @@
 
 ## 2. 發佈靜態遊戲
 
+- 正式網站：`https://chilinbpscth.github.io/dino-island-open-day-2026/`；repository 已設為公開，HTTPS 強制啟用。
 - 已有 `dist/` 可部署資料夾。將其內容放進學校 GitHub Pages repository，使用 HTTPS。
 - 日後改動原始碼或素材：在套件根目錄 `npm ci`，再 `npm run build`，重新上傳 `dist/` 全部內容。唔只覆蓋單張圖片而忘記重建離線清單。
 - 可用 GitHub Actions（`.github/workflows/pages.yml`）建置及部署。流程預設只接受手動啟動；校方確認 repository 公開範圍及 Pages 設定後才執行。
@@ -28,11 +29,11 @@
 
 ## 3. 每部機開場前
 
-1. 老師開 `BASE/setup/`；正式 Apps Script `/exec` 網址已預填。
+1. 老師開 `https://chilinbpscth.github.io/dino-island-open-day-2026/setup/`；正式 Apps Script `/exec` 網址已預填。
 2. iPad 只需填各自裝置憑證；電視毋須填憑證。
 3. 按「儲存設定」、「測試榜連線」、「準備離線遊戲」。
 4. 發佈新版本後先關閉所有同站分頁，再重新開啟，讓新離線版本啟用。唔喺小朋友玩緊時換版本。
-5. iPad 開 `BASE/hub/`，電視開 `BASE/board/` 全螢幕。首次容許鏡頭，確保正面拍攝，唔收音。
+5. iPad 開 `https://chilinbpscth.github.io/dino-island-open-day-2026/hub/`，電視開 `https://chilinbpscth.github.io/dino-island-open-day-2026/board/` 全螢幕。首次容許鏡頭，確保正面拍攝，唔收音。
 6. 真正關 Wi-Fi，重新載入並完成一站，恢復連線，確認榜出現；本機 `localStorage` 唔好用私人瀏覽，唔喺活動中清 Safari 網站資料。
 
 ## 4. 正式連線驗收（仍待校方實機）

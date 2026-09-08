@@ -1,5 +1,5 @@
 {
-  "version": "ca4900510f42",
+  "version": "4fe840e62a1e",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -36,6 +36,7 @@
     "hub/modules/humanities.js",
     "hub/modules/mandarin.js",
     "hub/modules/math.js",
+    "hub/modules/music.js",
     "hub/park-guides.js",
     "index.html",
     "setup/index.html",

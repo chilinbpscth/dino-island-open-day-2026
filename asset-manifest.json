@@ -1,5 +1,5 @@
 {
-  "version": "bfb58c59c25d",
+  "version": "ba07f4fae73a",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -49,12 +49,19 @@
     "shared/game-state.js",
     "shared/icons.js",
     "shared/img/school-logo.png",
+    "shared/models/pose-landmarker-lite-v1.task",
     "shared/network.js",
+    "shared/pose-camera.js",
     "shared/qrcode.js",
     "shared/recorder.js",
     "shared/sequence.js",
     "shared/storage.js",
     "shared/style.css",
+    "shared/vendor/mediapipe/vision-bundle.js",
+    "shared/vendor/mediapipe/wasm/vision_wasm_internal.js",
+    "shared/vendor/mediapipe/wasm/vision_wasm_internal.wasm",
+    "shared/vendor/mediapipe/wasm/vision_wasm_nosimd_internal.js",
+    "shared/vendor/mediapipe/wasm/vision_wasm_nosimd_internal.wasm",
     "hub/",
     "board/",
     "setup/"

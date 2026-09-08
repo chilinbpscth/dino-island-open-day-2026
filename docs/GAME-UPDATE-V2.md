@@ -117,3 +117,11 @@
 - 29 項單元測試通過，新增背景切換、同時多個等待原因、重複 resume、舊 callback 隔離驗證。
 - `node tests/permission-clock-browser.mjs` 通過：模擬未回覆權限、hidden／visible／pageshow、拒絕後恢復計時、地圖不計時。此為可重現瀏覽器事件模擬，不代表已完成 iPad 系統權限實測。
 - 建置含 57 個離線資產；PoseDetector 本身及英文／體育新版仍待完成，沒有用計時修正代替姿態辨識交付。
+
+## 姿態引擎首輪技術驗證
+- 固定 MediaPipe Tasks Vision 0.10.32、Pose Landmarker Lite float16 v1，模型與 SIMD／非 SIMD WASM 存在 shared 下，加入建置快取；SDK LICENSE 已保留。
+- 新增共用模型載入 Promise 及 PoseCamera。VIDEO 模式、最多回傳兩人供後續排除多人、100ms 最短運算間隔、無 segmentation、音訊關閉；不儲存或上傳影像／關鍵點。
+- 鏡頭停止會取消運算與終止 tracks；載入完成太遲不會再開鏡頭。背景切換會停止，返回後需由遊戲重新啟動。
+- `node tests/pose-camera-browser.mjs` 已使用真正本機模型、Chromium 虛擬攝影機及 SwiftShader 跑兩次 inference，驗證單一模型、子目錄網址、零外站請求、停止釋放及載入中取消。初次測試因 headless WebGL 設定失敗，加入測試端軟件繪圖設定後通過。
+- 29 項單元測試通過，建置 64 個離線資產。此證據不是人體動作準確度或實機離線驗收；英文／體育 UI、校準、動作判定及親子替代流程尚待接入。
+- 版本、來源、檔案大小及 SHA256 保存於 docs/pose-dependencies.json；模型本身發布條款仍待核對，不以 SDK license 替代模型條款。正式站未發布。

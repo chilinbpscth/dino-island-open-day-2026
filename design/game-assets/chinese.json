@@ -1,0 +1,75 @@
+{
+  "game": "chinese",
+  "existingAssets": [
+    "hub/img/chars/xiaolian-write.png",
+    "hub/img/chars/dino-baby.png",
+    "hub/img/chars/dino-baby-eat.png"
+  ],
+  "requiredAssets": [
+    {
+      "id": "mountain",
+      "file": "hub/img/games/chinese/mountain.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: mountain. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered chinese game background. No text or buttons."
+    },
+    {
+      "id": "river",
+      "file": "hub/img/games/chinese/river.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: river. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered chinese game background. No text or buttons."
+    },
+    {
+      "id": "volcano",
+      "file": "hub/img/games/chinese/volcano.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: volcano. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered chinese game background. No text or buttons."
+    },
+    {
+      "id": "forest",
+      "file": "hub/img/games/chinese/forest.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: forest. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered chinese game background. No text or buttons."
+    },
+    {
+      "id": "day",
+      "file": "hub/img/games/chinese/day.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: day. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered chinese game background. No text or buttons."
+    },
+    {
+      "id": "night",
+      "file": "hub/img/games/chinese/night.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: night. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered chinese game background. No text or buttons."
+    },
+    {
+      "id": "dino-walking",
+      "file": "hub/img/games/chinese/dino-walking.png",
+      "status": "pending",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino walking. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for chinese gameplay. No ground shadow."
+    },
+    {
+      "id": "dino-drinking",
+      "file": "hub/img/games/chinese/dino-drinking.png",
+      "status": "pending",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino drinking. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for chinese gameplay. No ground shadow."
+    }
+  ],
+  "vectorAssets": [
+    {
+      "id": "six-stroke-paths",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    }
+  ]
+}

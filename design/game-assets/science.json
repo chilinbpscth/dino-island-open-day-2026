@@ -1,0 +1,68 @@
+{
+  "game": "science",
+  "existingAssets": [
+    "hub/img/chars/dino-baby.png"
+  ],
+  "requiredAssets": [
+    {
+      "id": "excavation",
+      "file": "hub/img/games/science/excavation.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: excavation. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered science game background. No text or buttons."
+    },
+    {
+      "id": "xiaolian-scientist",
+      "file": "hub/img/games/science/xiaolian-scientist.png",
+      "status": "pending",
+      "kind": "sprite",
+      "reference": "hub/img/chars/xiaolian-welcome.png",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: xiaolian scientist. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for science gameplay. No ground shadow."
+    },
+    {
+      "id": "xiaozhi-scientist",
+      "file": "hub/img/games/science/xiaozhi-scientist.png",
+      "status": "pending",
+      "kind": "sprite",
+      "reference": "hub/img/chars/xiaozhi-welcome.png",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: xiaozhi scientist. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for science gameplay. No ground shadow."
+    }
+  ],
+  "vectorAssets": [
+    {
+      "id": "fossil-head",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "fossil-body",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "fossil-legs",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "fossil-tail",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "skeleton-target",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "brush",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "soil-mask",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    }
+  ]
+}

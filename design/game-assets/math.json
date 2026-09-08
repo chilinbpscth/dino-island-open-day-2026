@@ -1,0 +1,57 @@
+{
+  "game": "math",
+  "existingAssets": [
+    "hub/img/chars/dino-baby.png",
+    "hub/img/chars/dino-baby-eat.png"
+  ],
+  "requiredAssets": [
+    {
+      "id": "feeding-garden",
+      "file": "hub/img/games/math/feeding-garden.webp",
+      "status": "pending",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: feeding garden. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered math game background. No text or buttons."
+    },
+    {
+      "id": "friend-longneck",
+      "file": "hub/img/games/math/friend-longneck.png",
+      "status": "pending",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: friend longneck. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for math gameplay. No ground shadow."
+    },
+    {
+      "id": "friend-triceratops",
+      "file": "hub/img/games/math/friend-triceratops.png",
+      "status": "pending",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: friend triceratops. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for math gameplay. No ground shadow."
+    },
+    {
+      "id": "dino-hungry",
+      "file": "hub/img/games/math/dino-hungry.png",
+      "status": "pending",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino hungry. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for math gameplay. No ground shadow."
+    }
+  ],
+  "vectorAssets": [
+    {
+      "id": "leaf",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "fruit",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    },
+    {
+      "id": "plate",
+      "status": "pending",
+      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+    }
+  ]
+}

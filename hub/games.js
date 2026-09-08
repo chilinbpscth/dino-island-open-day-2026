@@ -1,9 +1,18 @@
+import {mountMandarin} from './modules/mandarin.js';
+import {prepareGameState} from '../shared/game-state.js';
 import {CHARACTERS,tracePass} from '../shared/core.js';
 import {icon,escapeHTML} from '../shared/icons.js';
 import {CONFIG} from '../shared/config.js';
 const items={water:'水',apple:'蘋果',leaf:'菜葉',sleep:'枕頭',umbrella:'傘',hat:'帽',coat:'外套',bath:'浴盆',circle:'圓形',square:'正方形',triangle:'三角形'};
 const char=(name,cls='companion')=>`<img class="character ${cls}" src="img/chars/${name}.png" alt="${name.startsWith('xiaolian')?'小蓮':name.startsWith('xiaozhi')?'小志':'小龍'}">`;
-export function mountGame(root,zone,state,save,finish){
+export function mountGame(root,zone,state,save,finish,lifecycle={}){
+ if(zone.id==='mandarin'){
+  const prepared=prepareGameState({game:state,complete:false},2);
+  if(prepared.state!==state){for(const key of Object.keys(state))delete state[key];Object.assign(state,prepared.state);save();}
+  const cleanup=mountMandarin(root,state,save,finish,lifecycle);
+  if(prepared.reset){const note=document.createElement('p');note.className='notice';note.textContent='呢科已更新玩法，今次由第一句開始，之前累積時間已保留。';root.prepend(note);}
+  return cleanup;
+ }
  let active=true,selected=null,ghost=null,cancelAnimation=()=>{},timers=[],listeners=[],audioContext=null,currentAudio=null;
  const later=(fn,ms)=>{let t=setTimeout(()=>{if(active)fn();},ms);timers.push(t);return t;};
  const on=(node,event,fn,opts)=>{if(!node)return;node.addEventListener(event,fn,opts);listeners.push(()=>node.removeEventListener(event,fn,opts));};

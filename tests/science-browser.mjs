@@ -1,0 +1,18 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1194,height:834},serviceWorkers:'block'});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const player=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:player')));
+const place=async(piece,slot=piece)=>{await page.locator(`[data-piece="${piece}"]`).click();await page.locator(`[data-slot="${slot}"]`).click();};
+try{
+ await page.goto('http://127.0.0.1:4173/hub/');await page.locator('#nickname').fill('化石測試');await page.getByRole('button',{name:'出發去島上'}).click();await page.goto('http://127.0.0.1:4173/hub/#/play/science');
+ assert(await page.locator('#fossil-assemble').isDisabled());
+ const first=await page.locator('[data-soil="head:0"]').boundingBox(),last=await page.locator('[data-soil="head:2"]').boundingBox();await page.mouse.move(first.x+10,first.y+10);await page.mouse.down();await page.mouse.move(last.x+last.width-10,last.y+10,{steps:20});await page.mouse.up();assert.equal((await player()).zones.science.game.cleared.head.length,3);
+ await page.reload();await page.locator('[data-soil]:not([hidden])').first().waitFor();while(await page.locator('[data-soil]:not([hidden])').count())await page.locator('[data-soil]:not([hidden])').first().click();await page.locator('#fossil-assemble').click();
+ assert.equal(await page.locator('[data-piece]').count(),4);assert(await page.locator('#fossil-reconstruct').isDisabled());for(let i=0;i<3;i++)await place('head','tail');assert.equal((await player()).zones.science.game.placed.length,0);await page.locator('#fossil-help').click();assert.equal(await page.locator('.fossil-hint').count(),2);
+ await place('head');await place('body');await page.locator('#back-map').click();await page.waitForURL('**/#/map');await page.goto('http://127.0.0.1:4173/hub/#/play/science');assert.equal((await player()).zones.science.game.placed.length,2);
+ const from=await page.locator('[data-piece="tail"]').boundingBox(),to=await page.locator('[data-slot="tail"]').boundingBox();await page.mouse.move(from.x+from.width/2,from.y+from.height/2);await page.mouse.down();await page.mouse.move(to.x+to.width/2,to.y+to.height/2,{steps:12});await page.mouse.up();assert.equal((await player()).zones.science.game.placed.length,3);await place('legs');
+ await page.locator('#fossil-reconstruct').click();assert.match(await page.locator('.feedback').innerText(),/唔係恐龍復活/);assert.equal((await player()).zones.science.complete,false);await page.reload();await page.locator('#fossil-finish').waitFor();await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.setViewportSize({width:1194,height:834});await page.screenshot({path:'docs/screenshots/science-v2.png',fullPage:true});await page.locator('#fossil-finish').click();assert.equal((await player()).zones.science.complete,true);assert.deepEqual(errors,[]);
+ console.log('PASS science: continuous brush, all four discoveries, restore, wrong placement and hints, tap/drag assembly, imagination explanation, final confirmation and mobile width');
+}finally{await browser.close();}

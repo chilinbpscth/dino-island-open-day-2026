@@ -1,5 +1,5 @@
 {
-  "version": "ccd2e99c980a",
+  "version": "1cac340f1c6a",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -32,6 +32,7 @@
     "hub/img/ui/cert-frame.png",
     "hub/index.html",
     "hub/modules/computing.js",
+    "hub/modules/general.js",
     "hub/modules/mandarin.js",
     "hub/modules/math.js",
     "hub/park-guides.js",

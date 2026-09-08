@@ -1,4 +1,4 @@
-import {SCHOOL,TITLE,DATE,ZONES,SCORE_TARGET,zoneById,validName,cleanName,nameLength,newPlayer,totals,snapshot,completeZone,ActiveClock,formatTime} from '../shared/core.js';
+import {SCHOOL,TITLE,DATE,ZONES,SCORE_TARGET,MAX_ZONE_MS,zoneById,validName,cleanName,nameLength,newPlayer,totals,snapshot,completeZone,ActiveClock,formatTime} from '../shared/core.js';
 import {icon,escapeHTML} from '../shared/icons.js';
 import {read,write,remove,photoStore,DEMO} from '../shared/storage.js';
 import {CONFIG} from '../shared/config.js';
@@ -10,7 +10,7 @@ const app=document.querySelector('#app');let player=read('player'),cleanup=()=>{
 if(DEMO&&!player){player=newPlayer('示範探險家');write('player',player);}
 let toastTimer;function notify(text){document.querySelector('#toast').textContent=text;clearTimeout(toastTimer);toastTimer=setTimeout(()=>document.querySelector('#toast').textContent='',4500);}
 function persist(){try{if(player)write('player',player);saveFailed=false;}catch{saveFailed=true;notify('本機儲存空間不足，請老師幫手；請勿關閉本頁。');}}
-const clock=new ActiveClock(ms=>{if(player&&activeZone&&!player.zones[activeZone]?.complete){const z=player.zones[activeZone];z.ms=Math.min(180000,(z.ms||0)+ms);persist();}});
+const clock=new ActiveClock(ms=>{if(player&&activeZone&&!player.zones[activeZone]?.complete){const z=player.zones[activeZone];z.ms=Math.min(MAX_ZONE_MS,(z.ms||0)+ms);persist();}});
 setInterval(()=>clock.checkpoint(),1000);document.addEventListener('visibilitychange',()=>{if(document.hidden)clock.pause();else if(activeZone&&!player?.zones[activeZone]?.complete)clock.resume();});window.addEventListener('pagehide',()=>clock.pause());window.addEventListener('pageshow',()=>{if(activeZone&&!document.hidden&&!player?.zones[activeZone]?.complete)clock.resume();});
 function synced(){if(!player)return;const snap=snapshot(player);queuePlayer(snap);let archive=read('localBoard',{});archive[player.id]={...snap,...totals(player),reachedAt:Date.now()};write('localBoard',archive);flushPlayers();}
 function networkLabel(){return !navigator.onLine?'暫時離線，進度存於本機':!networkSettings().appScriptUrl?'進度已存本機':Object.keys(read('outbox',{})).length?'進度已存本機，等待同步':'進度已同步';}

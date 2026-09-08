@@ -1,5 +1,5 @@
 {
-  "version": "4fe840e62a1e",
+  "version": "af4a424e43b4",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -31,6 +31,7 @@
     "hub/img/map/island-path.png",
     "hub/img/ui/cert-frame.png",
     "hub/index.html",
+    "hub/modules/art.js",
     "hub/modules/computing.js",
     "hub/modules/general.js",
     "hub/modules/humanities.js",

@@ -1,0 +1,21 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1194,height:834},serviceWorkers:'block'});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const player=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:player')));
+const mark=()=>page.locator('#egg-canvas').click({position:{x:140,y:150}});
+try{
+ await page.goto('http://127.0.0.1:4173/hub/');await page.locator('#nickname').fill('彩蛋測試');await page.getByRole('button',{name:'出發去島上'}).click();await page.goto('http://127.0.0.1:4173/hub/#/play/art');
+ assert(await page.locator('#art-hatch').isDisabled());assert.equal(await page.locator('[data-art-color]').count(),6);
+ await page.locator('#egg-canvas').click({position:{x:2,y:2}});assert.equal((await player()).zones.art.game.marks.length,0);
+ await mark();assert.equal((await player()).zones.art.game.marks.length,1);await page.locator('#art-undo').click();assert(await page.locator('#art-hatch').isDisabled());
+ for(const mode of ['shape','pattern','stamp']){await page.locator(`[data-art-mode="${mode}"]`).click();assert.equal(await page.locator('[data-art-item]').count(),4);for(let i=0;i<4;i++){await page.locator('[data-art-item]').nth(i).click();await mark();}}
+ assert.equal((await player()).zones.art.game.marks.length,12);await page.locator('#art-undo').click();assert.equal((await player()).zones.art.game.marks.length,11);
+ await page.reload();await page.locator('#art-clear').click();assert.equal((await player()).zones.art.game.marks.length,0);
+ await page.locator('[data-art-mode="brush"]').click();const box=await page.locator('#egg-canvas').boundingBox();await page.mouse.move(box.x+140,box.y+150);await page.mouse.down();await page.mouse.move(box.x+160,box.y+170,{steps:5});await page.locator('#egg-canvas').dispatchEvent('pointercancel',{pointerId:1});await page.mouse.up();assert.equal((await player()).zones.art.game.marks.length,0);
+ await mark();await page.locator('#art-hatch').click();assert.equal(await page.locator('.is-hatching').count(),1);await page.locator('#back-map').click();await page.waitForURL('**/#/map');await page.waitForTimeout(2600);assert.equal((await player()).zones.art.game.hatched,false);
+ await page.goto('http://127.0.0.1:4173/hub/#/play/art');await page.locator('#art-hatch').click();await page.locator('#art-finish').waitFor();assert.equal((await player()).zones.art.complete,false);await page.reload();await page.locator('#art-finish').waitFor();
+ await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.setViewportSize({width:1194,height:834});await page.waitForTimeout(750);await page.screenshot({path:'docs/screenshots/art-v2.png',fullPage:true});await page.locator('#art-finish').click();assert.equal((await player()).zones.art.complete,true);assert.deepEqual(errors,[]);
+ console.log('PASS art: six colors, 4 shapes/patterns/stamps, egg-only marks, undo/clear, pointer cancel, reload, cancel hatch on leave, hatch then finish, mobile width');
+}finally{await browser.close();}

@@ -1,6 +1,6 @@
 export const SCHOOL='佛教志蓮小學', TITLE='智取恐龍島', DATE='2026.09.13', SCORE_TARGET=10, CERT_TARGET=6, MAX_ZONE_MS=240000;
 export const ZONES=[
- ['chinese','中文','write','xiaolian-write','用正確筆順寫字，幫小龍起屋同搵水。','有山洞、有清水、有樹蔭，小龍住得更安全！'],
+ ['chinese','中文','write','xiaolian-write','跟筆順認識山水火木日月，連結小龍嘅生活環境。','認識山水、火山、樹木同日月，小龍學識安全生活同休息！'],
  ['english','英文','ear',null,'聽英文，用行動照顧小龍。','有水飲、食得飽，小龍安心休息！'],
  ['mandarin','普通話','ear',null,'聽普通話，先至知小龍要咩。','避到雨、食得飽，小龍學識照顧自己！'],
  ['math','數學','apple',null,'數一數，每隻恐龍分一份，唔重複、唔漏低。','每隻恐龍都有一份食物，大家食飽又開心！'],
@@ -25,11 +25,15 @@ export const formatTime=ms=>`${String(Math.floor(ms/60000)).padStart(2,'0')}:${S
 export function rank(players){return [...players].sort((a,b)=>b.zonesCompleted-a.zonesCompleted||a.totalMs-b.totalMs||a.reachedAt-b.reachedAt||a.id.localeCompare(b.id));}
 export class ActiveClock{constructor(onTick,now=()=>performance.now()){this.onTick=onTick;this.now=now;this.start=null;}resume(){if(this.start===null)this.start=this.now();}checkpoint(){if(this.start!==null){let t=this.now();this.onTick(Math.max(0,t-this.start));this.start=t;}}pause(){this.checkpoint();this.start=null;}}
 // Paths are original interaction geometry. Stroke order follows 山: 豎、豎折、豎;
-// 水: 豎鈎、橫撇、撇、捺; 木: 橫、豎、撇、捺. Teacher review remains a release gate.
+// 水: 豎鈎、橫撇、撇、捺; 火: 點、撇、撇、捺; 木: 橫、豎、撇、捺.
+// 日: 豎、橫折、橫、橫; 月: 撇、橫折鈎、橫、橫. Official visual/teacher review remains a release gate.
 export const CHARACTERS=[
  {char:'山',reward:'有山洞躲雨，小龍安全啦！',paths:[[[150,50],[150,242]],[[65,118],[65,250],[238,250]],[[238,118],[238,250]]]},
  {char:'水',reward:'有清水飲，小龍唔口渴啦！',paths:[[[153,45],[153,247],[130,230]],[[57,125],[111,125],[88,180],[45,223]],[[243,85],[190,137]],[[171,128],[200,185],[258,227]]]},
- {char:'木',reward:'有樹蔭，小龍涼快啦！',paths:[[[54,103],[250,103]],[[152,43],[152,261]],[[145,115],[105,181],[48,234]],[[165,116],[203,180],[259,228]]]}
+ {char:'火',reward:'認識火山，遠遠觀察，小龍保持安全！',paths:[[[66,96],[88,144]],[[234,87],[195,132]],[[151,45],[147,135],[123,195],[59,250]],[[152,145],[187,204],[249,250]]]},
+ {char:'木',reward:'有樹蔭，小龍涼快啦！',paths:[[[54,103],[250,103]],[[152,43],[152,261]],[[145,115],[105,181],[48,234]],[[165,116],[203,180],[259,228]]]},
+ {char:'日',reward:'日頭出嚟，小龍戴帽遮陽再出發！',paths:[[[83,53],[83,250]],[[83,53],[217,53],[217,250]],[[83,150],[217,150]],[[83,250],[217,250]]]},
+ {char:'月',reward:'月亮出嚟，小龍安心休息！',paths:[[[98,48],[98,143],[87,209],[62,254]],[[98,48],[219,48],[219,252],[193,236]],[[98,116],[219,116]],[[96,182],[219,182]]]}
 ];
 export function pathSamples(points,step=10){const out=[points[0]];for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],n=Math.ceil(Math.hypot(b[0]-a[0],b[1]-a[1])/step);for(let j=1;j<=n;j++)out.push([a[0]+(b[0]-a[0])*j/n,a[1]+(b[1]-a[1])*j/n]);}return out;}
 export function tracePass(input,path,tolerance=27){if(input.length<3)return false;let samples=pathSamples(path),dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);if(dist(input[0],samples[0])>tolerance||dist(input.at(-1),samples.at(-1))>tolerance)return false;let at=0;for(const p of input){let best=Infinity,idx=at;for(let j=Math.max(0,at-2);j<Math.min(samples.length,at+7);j++){let d=dist(p,samples[j]);if(d<best){best=d;idx=j;}}if(best>tolerance)return false;at=Math.max(at,idx);}return at>=samples.length-3;}

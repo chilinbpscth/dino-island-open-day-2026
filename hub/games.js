@@ -9,6 +9,7 @@ import {mountMandarin} from './modules/mandarin.js';
 import {prepareGameState} from '../shared/game-state.js';
 import {CHARACTERS,tracePass} from '../shared/core.js';
 import {icon,escapeHTML} from '../shared/icons.js';
+import {chineseScene} from './modules/chinese-scenes.js';
 import {CONFIG} from '../shared/config.js';
 const items={water:'水',apple:'蘋果',leaf:'菜葉',sleep:'枕頭',umbrella:'傘',hat:'帽',coat:'外套',bath:'浴盆',circle:'圓形',square:'正方形',triangle:'三角形'};
 const char=(name,cls='companion')=>`<img class="character ${cls}" src="img/chars/${name}.png" alt="${name.startsWith('xiaolian')?'小蓮':name.startsWith('xiaozhi')?'小志':'小龍'}">`;
@@ -21,12 +22,14 @@ export function mountGame(root,zone,state,save,finish,lifecycle={}){
   if(prepared.reset){const note=document.createElement('p');note.className='notice';note.textContent='呢科已更新玩法，今次由第一回合開始，之前累積時間已保留。';root.prepend(note);}
   return cleanup;
  }
+ let chineseReset=false;
+ if(zone.id==='chinese'){const prepared=prepareGameState({game:state,complete:false},2);chineseReset=prepared.reset;if(prepared.state!==state){for(const key of Object.keys(state))delete state[key];Object.assign(state,prepared.state);save();}}
  let active=true,selected=null,ghost=null,cancelAnimation=()=>{},timers=[],listeners=[],audioContext=null,currentAudio=null;
  const later=(fn,ms)=>{let t=setTimeout(()=>{if(active)fn();},ms);timers.push(t);return t;};
  const on=(node,event,fn,opts)=>{if(!node)return;node.addEventListener(event,fn,opts);listeners.push(()=>node.removeEventListener(event,fn,opts));};
  const cleanupView=()=>{timers.forEach(clearTimeout);timers=[];listeners.forEach(f=>f());listeners=[];cancelAnimation();ghost?.remove();ghost=null;currentAudio?.pause();};
  const feedback=text=>{const n=root.querySelector('.feedback');if(n)n.textContent=text;};
- const rounds=zone.id==='humanities'||zone.id==='computing'?2:3;
+ const rounds=zone.id==='chinese'?CHARACTERS.length:zone.id==='humanities'||zone.id==='computing'?2:3;
  state.round??=0;state.step??=0;
  if(zone.id==='science'&&!state.scenarios){state.scenarios=['thirst','hungry','tired','mud'].sort(()=>Math.random()-.5).slice(0,3);save();}
  const dots=()=>`<div class="rounds" aria-label="第 ${state.round+1} 回合，共 ${rounds} 回合">${Array.from({length:rounds},(_,i)=>`<span class="round-dot ${i<=state.round?'done':''}"></span>`).join('')}</div>`;
@@ -49,10 +52,10 @@ export function mountGame(root,zone,state,save,finish,lifecycle={}){
  }
  function roundDone(message,pose='dino-baby',extra=''){
  state.roundDone=true;state.message=message;save();
- frame('照顧好小龍啦！',`<div class="round-celebrate">${scene({pose,extra})}<p class="game-instruction">${escapeHTML(message)}</p><div class="actions"><button class="primary" id="next-round">${state.round===rounds-1?'完成照顧任務':'繼續照顧'}</button></div></div>`);
+ frame('照顧好小龍啦！',`<div class="round-celebrate">${scene({pose,extra})}${zone.id==='chinese'?chineseScene(state.round,true):''}<p class="game-instruction">${escapeHTML(message)}</p><div class="actions"><button class="primary" id="next-round">${state.round===rounds-1?'完成照顧任務':'繼續照顧'}</button></div></div>`);
  root.querySelector('.dino-target')?.classList.add('is-happy');
  if(zone.id==='art'&&state.round===2){const stage=root.querySelector('.round-celebrate');stage.classList.add('bridge-complete');stage.insertAdjacentHTML('afterbegin',`<div class="finished-stones" aria-label="彩色踏石橋">${(state.colors||[]).map(c=>`<span style="background:${c}"></span>`).join('')}</div>`);root.querySelector('.dino-target')?.classList.add('crossing-home');}
- on(root.querySelector('#next-round'),'click',()=>{if(state.round===rounds-1){finish();return;}state.round++;state.step=0;state.roundDone=false;delete state.used;delete state.observed;delete state.painted;delete state.stroke;delete state.peWait;delete state.paintCells;save();render();});
+ on(root.querySelector('#next-round'),'click',()=>{if(state.round===rounds-1){finish();return;}state.round++;state.step=0;state.roundDone=false;state.traceAttempts=0;delete state.used;delete state.observed;delete state.painted;delete state.stroke;delete state.peWait;delete state.paintCells;save();render();});
  }
  function careGame(){
  let expected,need,title,options,props=[],pose='dino-baby';
@@ -87,14 +90,14 @@ export function mountGame(root,zone,state,save,finish,lifecycle={}){
  bindChoices((item,index)=>{if(state.used.includes(index))return;if(item!=='apple'){feedback('今次小龍想食蘋果，再揀一揀。');return;}state.used.push(index);save();if(state.used.length===count)roundDone(`數到 ${count} 個，份量啱啱好！`,'dino-baby-eat');else{mathGame();feedback(String(state.used.length)+'，再餵一粒。');}});
  }
  function chineseGame(){const c=CHARACTERS[state.round];state.stroke??=0;const path=c.paths[state.stroke];
- frame(`跟住金色筆順寫「${c.char}」`,`<div class="trace-layout"><div class="trace-side">${char('xiaolian-write')}<p>由綠點出發<br>跟金線慢慢寫</p></div><svg class="trace-board" viewBox="0 0 300 300" aria-label="描寫${c.char}，第${state.stroke+1}筆"><path class="gridline" d="M150 0V300M0 150H300M0 0L300 300M300 0L0 300"/>${c.paths.map((p,i)=>`<polyline class="guide ${i<state.stroke?'passed':i===state.stroke?'current':''}" points="${p.map(q=>q.join(',')).join(' ')}"/>`).join('')}<circle class="start" cx="${path[0][0]}" cy="${path[0][1]}" r="10"/><polyline class="ink" points=""/><circle class="demonstrator" r="8"/></svg><div class="trace-side">${char('dino-baby','character')}<p>第 ${state.stroke+1} 筆／${c.paths.length} 筆</p></div></div><div class="sound-row"><button id="stroke-demo">再睇一次筆順</button></div>`);
+ frame(`跟住金色筆順寫「${c.char}」`,`${chineseScene(state.round)}<div class="trace-layout"><div class="trace-side">${char('xiaolian-write')}<p>由綠點出發<br>跟金線慢慢寫</p></div><svg class="trace-board" viewBox="0 0 300 300" aria-label="描寫${c.char}，第${state.stroke+1}筆"><path class="gridline" d="M150 0V300M0 150H300M0 0L300 300M300 0L0 300"/>${c.paths.map((p,i)=>`<polyline class="guide ${i<state.stroke?'passed':i===state.stroke?'current':''}" points="${p.map(q=>q.join(',')).join(' ')}"/>`).join('')}<circle class="start" cx="${path[0][0]}" cy="${path[0][1]}" r="10"/><polyline class="ink" points=""/><circle class="demonstrator" r="8"/></svg><div class="trace-side">${char('dino-baby','character')}<p>第 ${state.stroke+1} 筆／${c.paths.length} 筆</p></div></div><div class="sound-row"><button id="stroke-demo">再睇一次筆順</button>${state.traceAttempts>=3?'<button id="stroke-help">一齊慢慢寫</button>':''}</div>`);
  const svg=root.querySelector('svg.trace-board'),ink=svg.querySelector('.ink'),dot=svg.querySelector('.demonstrator');let points=null,pointer=null;
  const pos=e=>{let r=svg.getBoundingClientRect();return [(e.clientX-r.left)/r.width*300,(e.clientY-r.top)/r.height*300];};
- const demo=()=>{cancelAnimation();let start=performance.now(),lengths=[0];for(let i=1;i<path.length;i++)lengths.push(lengths.at(-1)+Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]));let raf;dot.style.display='';const tick=t=>{let n=Math.min(1,(t-start)/1800)*lengths.at(-1),i=1;while(i<lengths.length-1&&n>lengths[i])i++;let f=(n-lengths[i-1])/(lengths[i]-lengths[i-1]);dot.setAttribute('cx',path[i-1][0]+(path[i][0]-path[i-1][0])*f);dot.setAttribute('cy',path[i-1][1]+(path[i][1]-path[i-1][1])*f);if(n<lengths.at(-1))raf=requestAnimationFrame(tick);else dot.style.display='none';};raf=requestAnimationFrame(tick);cancelAnimation=()=>{cancelAnimationFrame(raf);dot.style.display='none';};};
- on(root.querySelector('#stroke-demo'),'click',demo);demo();
+ const demo=(duration=1800)=>{cancelAnimation();let start=performance.now(),lengths=[0];for(let i=1;i<path.length;i++)lengths.push(lengths.at(-1)+Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]));let raf;dot.style.display='';const tick=t=>{let n=Math.min(1,(t-start)/duration)*lengths.at(-1),i=1;while(i<lengths.length-1&&n>lengths[i])i++;let f=(n-lengths[i-1])/(lengths[i]-lengths[i-1]);dot.setAttribute('cx',path[i-1][0]+(path[i][0]-path[i-1][0])*f);dot.setAttribute('cy',path[i-1][1]+(path[i][1]-path[i-1][1])*f);if(n<lengths.at(-1))raf=requestAnimationFrame(tick);else dot.style.display='none';};raf=requestAnimationFrame(tick);cancelAnimation=()=>{cancelAnimationFrame(raf);dot.style.display='none';};};
+ on(root.querySelector('#stroke-demo'),'click',()=>demo());on(root.querySelector('#stroke-help'),'click',()=>{svg.classList.add('trace-assisted');demo(4000);feedback('同小蓮一齊，由綠點跟住金線慢慢寫，仍然要自己落筆。');});demo();
  on(svg,'pointerdown',e=>{if(pointer!==null)return;pointer=e.pointerId;svg.setPointerCapture(pointer);cancelAnimation();points=[pos(e)];ink.setAttribute('points',points.map(p=>p.join(',')).join(' '));});
  on(svg,'pointermove',e=>{if(pointer!==e.pointerId||!points)return;for(const ev of e.getCoalescedEvents?.()||[e])points.push(pos(ev));ink.setAttribute('points',points.map(p=>p.join(',')).join(' '));});
- on(svg,'pointerup',e=>{if(pointer!==e.pointerId||!points)return;points.push(pos(e));pointer=null;if(tracePass(points,path)){state.stroke++;save();if(state.stroke===c.paths.length)roundDone(c.reward);else chineseGame();}else{points=null;ink.setAttribute('points','');feedback('由綠點開始，跟住金線方向，試多次。');demo();}});on(svg,'pointercancel',()=>{pointer=null;points=null;ink.setAttribute('points','');});
+ on(svg,'pointerup',e=>{if(pointer!==e.pointerId||!points)return;points.push(pos(e));pointer=null;if(tracePass(points,path,32)){state.stroke++;state.traceAttempts=0;save();if(state.stroke===c.paths.length)roundDone(c.reward);else chineseGame();}else{state.traceAttempts=(state.traceAttempts||0)+1;save();chineseGame();feedback(state.traceAttempts>=2?'先搵綠色起點，跟金線行到尾，唔好倒轉寫。':'由綠點開始，跟住金線方向，試多次。');}});on(svg,'pointercancel',()=>{pointer=null;points=null;ink.setAttribute('points','');});
  }
  function humanitiesGame(){
  const turn=state.round===0?'dino':state.step===0?'child':'dino';
@@ -126,5 +129,5 @@ export function mountGame(root,zone,state,save,finish,lifecycle={}){
  on(button,'pointerdown',e=>{if(button.disabled||e.button!==0)return;button.setPointerCapture(e.pointerId);holdStart=performance.now();});on(button,'pointerup',release);on(button,'pointercancel',release);on(button,'lostpointercapture',release);on(button,'keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat&&!button.disabled){e.preventDefault();holdStart=performance.now();}});on(button,'keyup',release);on(button,'blur',release);on(document,'visibilitychange',release);
  }
  function render(){if(state.roundDone){roundDone(state.message||'小龍得到照顧啦！');return;}switch(zone.id){case'chinese':chineseGame();break;case'math':mathGame();break;case'humanities':humanitiesGame();break;case'art':artGame();break;case'music':musicGame();break;case'pe':peGame();break;default:careGame();}}
- render();return ()=>{active=false;cleanupView();audioContext?.close();};
+ render();if(chineseReset){const note=document.createElement('p');note.className='notice';note.textContent='中文已更新為六個字，由第一個字開始，之前累積時間已保留。';root.prepend(note);}return ()=>{active=false;cleanupView();audioContext?.close();};
 }

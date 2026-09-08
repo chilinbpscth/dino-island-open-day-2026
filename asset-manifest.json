@@ -1,5 +1,5 @@
 {
-  "version": "83964b568415",
+  "version": "5e3413baa800",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -32,6 +32,7 @@
     "hub/img/ui/cert-frame.png",
     "hub/index.html",
     "hub/modules/art.js",
+    "hub/modules/chinese-scenes.js",
     "hub/modules/computing.js",
     "hub/modules/general.js",
     "hub/modules/humanities.js",

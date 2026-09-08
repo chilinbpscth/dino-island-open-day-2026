@@ -1,7 +1,7 @@
 export const SCHOOL='佛教志蓮小學', TITLE='智取恐龍島', DATE='2026.09.13', SCORE_TARGET=10, CERT_TARGET=6, MAX_ZONE_MS=240000;
 export const ZONES=[
  ['chinese','中文','write','xiaolian-write','跟筆順認識山水火木日月，連結小龍嘅生活環境。','認識山水、火山、樹木同日月，小龍學識安全生活同休息！'],
- ['english','英文','ear',null,'聽英文，用行動照顧小龍。','有水飲、食得飽，小龍安心休息！'],
+ ['english','英文','ear',null,'聽英文指令，用身體動作回應小龍。','聽指令一齊郁身，小龍開心又有精神！'],
  ['mandarin','普通話','ear',null,'聽普通話，先至知小龍要咩。','避到雨、食得飽，小龍學識照顧自己！'],
  ['math','數學','apple',null,'數一數，每隻恐龍分一份，唔重複、唔漏低。','每隻恐龍都有一份食物，大家食飽又開心！'],
  ['general','常識','sun','xiaozhi-welcome','認識早午晚，幫小龍安排飲食、清潔同休息。','食早餐、玩耍、沖涼、瞓覺，小龍學識有規律嘅生活！'],
@@ -9,7 +9,7 @@ export const ZONES=[
  ['humanities','人文','share','xiaolian-point','觀察環境，為小龍選安全營地、飲用水同樹蔭。','有安全營地、清潔飲用水同樹蔭，小龍生活更安心！'],
  ['art','視藝','paint','xiaolian-color','用顏色、形狀同紋樣裝飾彩蛋，歡迎小龍誕生。','你創作嘅彩蛋孵出小龍，新生命開心同你打招呼！'],
  ['music','音樂','drum','xiaolian-clap','跟節奏，小龍就唔會驚。','有你陪住打拍子，小龍安心又開心！'],
- ['pe','體育','move','xiaozhi-stretch','一齊郁身，小龍先有氣力玩。','一齊伸展同踏步，小龍充滿精神！'],
+ ['pe','體育','move','xiaozhi-stretch','蹲低、移動、舉手同停定，練習控制身體保護恐龍蛋。','你控制好身體，恐龍蛋安全，小龍安心！'],
  ['computing','資訊','order','xiaozhi-tablet','照顧都有先後次序。','先飲水、後食菜，小龍學識照顧次序！']
 ].map(([id,name,icon,companion,parent,outcome])=>({id,name,icon,companion,parent,outcome}));
 export const zoneById=id=>ZONES.find(z=>z.id===id);

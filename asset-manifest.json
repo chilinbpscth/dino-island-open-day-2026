@@ -1,5 +1,5 @@
 {
-  "version": "ba07f4fae73a",
+  "version": "beb8c2216e27",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -38,6 +38,7 @@
     "hub/modules/humanities.js",
     "hub/modules/mandarin.js",
     "hub/modules/math.js",
+    "hub/modules/motion.js",
     "hub/modules/music.js",
     "hub/modules/science.js",
     "hub/park-guides.js",
@@ -51,6 +52,7 @@
     "shared/img/school-logo.png",
     "shared/models/pose-landmarker-lite-v1.task",
     "shared/network.js",
+    "shared/pose-actions.js",
     "shared/pose-camera.js",
     "shared/qrcode.js",
     "shared/recorder.js",

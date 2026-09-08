@@ -1,5 +1,5 @@
 {
-  "version": "5e3413baa800",
+  "version": "bfb58c59c25d",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -45,6 +45,7 @@
     "setup/index.html",
     "shared/config.js",
     "shared/core.js",
+    "shared/game-clock-gate.js",
     "shared/game-state.js",
     "shared/icons.js",
     "shared/img/school-logo.png",

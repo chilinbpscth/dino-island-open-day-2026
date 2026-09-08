@@ -1,0 +1,33 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1194,height:834},serviceWorkers:'block'});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const player=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:player')));
+const feed=async(food,dino)=>{await page.locator(`[data-food="${food}"]`).click();await page.locator(`[data-dino="${dino}"]`).click();};
+try{
+ await page.goto('http://127.0.0.1:4173/hub/');await page.locator('#nickname').fill('數學測試');await page.getByRole('button',{name:'出發去島上'}).click();
+ await page.goto('http://127.0.0.1:4173/hub/#/play/math');
+ assert.equal(await page.locator('[data-dino]').count(),1);assert.equal(await page.locator('[data-food]').count(),3);
+ await feed(0,0);await page.locator('#feeding-next').click();
+ assert.equal(await page.locator('[data-dino]').count(),3);
+ await feed(0,0);
+ for(let i=0;i<3;i++)await feed(1,0);
+ assert.equal((await player()).zones.math.game.fed.length,1);
+ await page.locator('#feeding-help').click();assert.equal(await page.locator('.feeding-hint').count(),1);
+ const cancelFood=await page.locator('[data-food="1"]').boundingBox();await page.mouse.move(cancelFood.x+20,cancelFood.y+20);await page.mouse.down();
+ await page.locator('[data-food="1"]').dispatchEvent('pointercancel',{pointerId:1});await page.mouse.move(1,1);await page.mouse.up();
+ await page.locator('[data-dino="1"]').click();assert.equal((await player()).zones.math.game.fed.length,1);
+ await page.reload();await page.locator('[data-dino]').first().waitFor();assert.equal(await page.locator('.is-fed').count(),1);
+ await feed(1,1);await feed(2,2);await page.locator('#feeding-next').click();
+ assert.equal(await page.locator('[data-dino]').count(),5);assert.equal(await page.locator('[data-food]').count(),7);
+ const food=await page.locator('[data-food="0"]').boundingBox(),target=await page.locator('[data-dino="0"]').boundingBox();
+ await page.mouse.move(food.x+food.width/2,food.y+food.height/2);await page.mouse.down();await page.mouse.move(target.x+target.width/2,target.y+target.height/2,{steps:10});await page.mouse.up();
+ assert.equal((await player()).zones.math.game.fed.length,1);
+ for(let i=1;i<5;i++)await feed(i,i);
+ await page.screenshot({path:'docs/screenshots/math-v2.png',fullPage:true});
+ await page.locator('#feeding-next').click();assert.equal((await player()).zones.math.complete,true);
+ await page.reload();await page.waitForURL('**/#/map');
+ assert.deepEqual(errors,[]);
+ console.log('PASS math: 1/3/5 portions, extra food, duplicate rejection, guided hint, pointer cancellation, reload, drag, completion and replay lock');
+}finally{await browser.close();}

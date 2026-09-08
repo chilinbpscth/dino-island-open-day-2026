@@ -1,3 +1,4 @@
+import {mountMath} from './modules/math.js';
 import {mountComputing} from './modules/computing.js';
 import {mountMandarin} from './modules/mandarin.js';
 import {prepareGameState} from '../shared/game-state.js';
@@ -7,10 +8,10 @@ import {CONFIG} from '../shared/config.js';
 const items={water:'水',apple:'蘋果',leaf:'菜葉',sleep:'枕頭',umbrella:'傘',hat:'帽',coat:'外套',bath:'浴盆',circle:'圓形',square:'正方形',triangle:'三角形'};
 const char=(name,cls='companion')=>`<img class="character ${cls}" src="img/chars/${name}.png" alt="${name.startsWith('xiaolian')?'小蓮':name.startsWith('xiaozhi')?'小志':'小龍'}">`;
 export function mountGame(root,zone,state,save,finish,lifecycle={}){
- if(zone.id==='mandarin'||zone.id==='computing'){
+ if(['mandarin','computing','math'].includes(zone.id)){
   const prepared=prepareGameState({game:state,complete:false},2);
   if(prepared.state!==state){for(const key of Object.keys(state))delete state[key];Object.assign(state,prepared.state);save();}
-  const mount=zone.id==='mandarin'?mountMandarin:mountComputing;
+  const mount={mandarin:mountMandarin,computing:mountComputing,math:mountMath}[zone.id];
   const cleanup=mount(root,state,save,finish,lifecycle);
   if(prepared.reset){const note=document.createElement('p');note.className='notice';note.textContent='呢科已更新玩法，今次由第一回合開始，之前累積時間已保留。';root.prepend(note);}
   return cleanup;

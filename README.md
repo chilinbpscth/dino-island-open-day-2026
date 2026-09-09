@@ -2,6 +2,8 @@
 
 佛教志蓮小學 · 2026 年 9 月 13 日開放日
 
+> **本分支為新版遊戲製作中版本，尚未正式發布。** 下方正式網站仍是 `main`。新版進度、測試證據及發布缺項見 [新版檢查說明](docs/V2-REVIEW.md)。
+
 從零製作嘅靜態 iPad 遊戲 Hub、11 科小遊戲、探險榜、普通及拍照證書，後台採 Google Sheets + Google Drive + Apps Script。唔需要來賓帳戶。角色採用使用者選定 A 校園繪本風，校服已依新增參考修訂，規格見 `docs/UNIFORM.md`。
 
 完整體驗、視覺、角色、證書、排名、技術與原創原則見 [`docs/DESIGN-CONCEPT.md`](docs/DESIGN-CONCEPT.md)。

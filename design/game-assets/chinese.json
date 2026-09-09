@@ -74,8 +74,8 @@
   "vectorAssets": [
     {
       "id": "six-stroke-paths",
-      "status": "implemented-awaiting-official-visual-and-teacher-review",
-      "implementation": "23 directed original SVG stroke paths for 山水火木日月 in shared/core.js; automated tracing tested, official/teacher visual review pending."
+      "status": "implemented-official-order-reviewed-awaiting-teacher",
+      "implementation": "23 original SVG paths in shared/core.js. EDB animation order/direction visually checked 2026-09-10; water junction corrected; teacher typography and iPad review pending."
     }
   ]
 }

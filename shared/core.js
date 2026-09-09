@@ -26,10 +26,10 @@ export function rank(players){return [...players].sort((a,b)=>b.zonesCompleted-a
 export class ActiveClock{constructor(onTick,now=()=>performance.now()){this.onTick=onTick;this.now=now;this.start=null;}resume(){if(this.start===null)this.start=this.now();}checkpoint(){if(this.start!==null){let t=this.now();this.onTick(Math.max(0,t-this.start));this.start=t;}}pause(){this.checkpoint();this.start=null;}}
 // Paths are original interaction geometry. Stroke order follows 山: 豎、豎折、豎;
 // 水: 豎鈎、橫撇、撇、捺; 火: 點、撇、撇、捺; 木: 橫、豎、撇、捺.
-// 日: 豎、橫折、橫、橫; 月: 撇、橫折鈎、橫、橫. Official visual/teacher review remains a release gate.
+// 日: 豎、橫折、橫、橫; 月: 撇、橫折鈎、橫、橫. Order/direction visually checked against EDB animations; teacher typography review remains a release gate.
 export const CHARACTERS=[
  {char:'山',reward:'有山洞躲雨，小龍安全啦！',paths:[[[150,50],[150,242]],[[65,118],[65,250],[238,250]],[[238,118],[238,250]]]},
- {char:'水',reward:'有清水飲，小龍唔口渴啦！',paths:[[[153,45],[153,247],[130,230]],[[57,125],[111,125],[88,180],[45,223]],[[243,85],[190,137]],[[171,128],[200,185],[258,227]]]},
+ {char:'水',reward:'有清水飲，小龍唔口渴啦！',paths:[[[153,45],[153,247],[130,230]],[[57,125],[111,125],[88,180],[45,223]],[[243,85],[153,140]],[[153,140],[200,185],[258,227]]]},
  {char:'火',reward:'認識火山，遠遠觀察，小龍保持安全！',paths:[[[66,96],[88,144]],[[234,87],[195,132]],[[151,45],[147,135],[123,195],[59,250]],[[152,145],[187,204],[249,250]]]},
  {char:'木',reward:'有樹蔭，小龍涼快啦！',paths:[[[54,103],[250,103]],[[152,43],[152,261]],[[145,115],[105,181],[48,234]],[[165,116],[203,180],[259,228]]]},
  {char:'日',reward:'日頭出嚟，小龍戴帽遮陽再出發！',paths:[[[83,53],[83,250]],[[83,53],[217,53],[217,250]],[[83,150],[217,150]],[[83,250],[217,250]]]},

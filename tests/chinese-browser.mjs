@@ -12,7 +12,7 @@ try{
  for(let round=0;round<6;round++){
   assert.equal(await page.locator('.round-dot').count(),6);
   for(let stroke=0;stroke<CHARACTERS[round].paths.length;stroke++){
-   await trace(CHARACTERS[round].paths[stroke]);
+   await trace(CHARACTERS[round].paths[stroke]);if(round===1&&stroke===2)await page.locator('.trace-board').screenshot({path:'docs/screenshots/water-tracing-joined.png',animations:'disabled'});
    if(round===1&&stroke===0){await page.reload();await page.locator('.trace-board').waitFor();assert.equal((await player()).zones.chinese.game.stroke,1);}
   }
   assert.equal((await player()).zones.chinese.complete,false);await page.waitForFunction(()=>document.querySelector('.journey-background')?.naturalWidth>1000);assert.equal(await page.locator('.chinese-journey .character').count(),1);if(round===1)assert.equal(await page.locator('.prop-water').count(),1);if(round===4)assert.equal(await page.locator('.prop-hat').count(),1);await page.locator('.chinese-journey').screenshot({path:'docs/screenshots/chinese-result-'+round+'.png',animations:'disabled'});

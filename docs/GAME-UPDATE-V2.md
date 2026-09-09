@@ -219,3 +219,10 @@
 - Google 官方 Pose Landmarker 指南將 Lite 模型連到 BlazePose GHUM 3D 模型卡；模型卡第二頁明列 Apache License, Version 2.0。此為模型本身的發布資料，不再只依 SDK 授權推斷。
 - docs/pose-dependencies.json 保存證據及日期，shared/models/LICENSE 與 NOTICE.txt 保存授權及出處；已確認 dist 一併包含。模型未修改，未宣稱訓練資料獨立審計或幼兒實機準確度。
 - 官方證據：https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker 及 https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf 。
+
+## 中文六段旅行成果
+- 新增 mountain.png、river.png、volcano.png 原創場景（內建 image_gen，原檔直接複製），森林及日／月重用本專案既有場景，來源與提示在 chinese-scene-prompts.md。
+- 描字前顯示當站場景縮圖；完成後改為一隻小龍處於該場景，移除舊「角色一排＋獨立小圖」組合。山洞、乾地河岸、遠景火山、樹蔭、日間備帽、夜晚睡覺各有照顧結果。
+- 水場景使用原創 SVG 水杯，唔把河水直接當飲用水；日加帽，月重用睡覺姿勢。入場位置動畫可按減少動態設定停用，未冒稱 walking／drinking 新姿勢完成。
+- Chinese browser 驗證六字 23 筆、反向拒絕、逐步示範、觸控取消、重開保留、六張圖載入、單隻小龍、配件、睡覺姿勢及手機寬度。已逐張檢視六段成果。
+- 原創筆畫幾何未改，教育局逐筆視覺核對及教師覆核仍待完成；本次只改善旅行場景及成果表達。

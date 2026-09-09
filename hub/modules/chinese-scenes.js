@@ -1,10 +1,15 @@
-const art=[
- '<path fill="#b6c99a" d="M5 82L45 15L85 82Z"/><path fill="#8d9f77" d="M60 82L104 6L152 82Z"/><path fill="#314839" d="M82 82V60a17 17 0 0134 0v22Z"/>',
- '<path fill="#7fc9db" d="M67 3H105Q34 29 92 43Q153 58 97 87H40Q106 56 61 47Q3 32 67 3Z"/>',
- '<path fill="#b5a88b" d="M18 82L63 23H100L145 82Z"/><path fill="#e5bc5d" d="M63 23L73 39L82 32L91 40L100 23Z"/><path d="M74 15q-8-8 0-13m17 13q8-8 0-13"/><path d="M3 84h150"/>',
- '<path d="M80 85V38" stroke-width="10"/><path fill="#75a75b" d="M34 41Q19 17 51 17Q72-9 98 15Q134 12 126 39Q148 65 103 66H57Q18 66 34 41Z"/>',
- '<circle fill="#e5bc5d" cx="80" cy="45" r="26"/><path d="M80 2v10m0 66v10M37 45h10m66 0h10M48 14l7 7m50 50 7 7M48 76l7-7m50-50 7-7"/>',
- '<path fill="#e5bc5d" d="M95 8a36 36 0 1030 53C85 71 70 34 95 8Z"/><path d="M37 18v14m-7-7h14"/>'
+import {icon} from '../../shared/icons.js';
+const waterCup='<svg class="icon" viewBox="0 0 90 90" fill="none" stroke="#203b2e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M64 31h9q17 0 10 20q-4 9-20 9" fill="#f6f3ec"/><path d="M16 24h50l-4 45q-23 13-42 0Z" fill="#f6f3ec"/><ellipse cx="41" cy="24" rx="25" ry="8" fill="#7fc9db"/><path d="M27 45v17" stroke="#b8923a"/></svg>';
+export const journeyScenes=[
+ {file:'chinese/mountain.png',caption:'山洞可以遮風擋雨。',outcome:'小龍搵到可以躲雨嘅山洞。'},
+ {file:'chinese/river.png',caption:'清水幫小龍解渴。',outcome:'留喺岸上，飲自備嘅清水。',prop:'water'},
+ {file:'chinese/volcano.png',caption:'火山只遠遠觀察，唔靠近。',outcome:'小龍留喺安全地方，遠遠觀察火山。'},
+ {file:'humanities/safe-forest.png',caption:'樹木為小龍提供樹蔭。',outcome:'小龍喺樹蔭下休息，涼快返。'},
+ {file:'general/daytime.png',caption:'日頭出嚟，記得遮陽。',outcome:'日頭出嚟，準備好帽先再出發。',prop:'hat'},
+ {file:'general/bedtime.png',caption:'月亮出嚟，小龍休息。',outcome:'小龍返到小屋，攬住枕頭安心瞓。',pose:'dino-baby-sleep'}
 ];
-const captions=['山洞可以遮風擋雨。','清水幫小龍解渴。','火山只遠遠觀察，唔靠近。','樹木為小龍提供樹蔭。','日頭出嚟，記得遮陽。','月亮出嚟，小龍休息。'];
-export function chineseScene(index,complete=false){return `<div class="chinese-scene scene-${index} ${complete?'scene-complete':''}" aria-label="${captions[index]}"><svg viewBox="0 0 160 90" fill="none" stroke="#203b2e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${art[index]}</svg><span>${captions[index]}</span></div>`;}
+export function chineseScene(index,complete=false){
+ const s=journeyScenes[index];
+ if(!complete)return `<div class="chinese-scene scene-${index}" aria-label="${s.caption}"><img class="journey-thumbnail" src="img/games/${s.file}" alt=""><span>${s.caption}</span></div>`;
+ return `<div class="chinese-journey scene-${index} scene-complete" aria-label="${s.outcome}"><img class="journey-background" src="img/games/${s.file}" alt=""><div class="journey-dino"><img class="character" src="img/chars/${s.pose||'dino-baby'}.png" alt="${s.outcome}">${s.prop?`<span class="journey-prop prop-${s.prop}" aria-hidden="true">${s.prop==='water'?waterCup:icon(s.prop)}</span>`:''}</div><p class="journey-caption">${s.outcome}</p></div>`;
+}

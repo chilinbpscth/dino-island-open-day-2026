@@ -62,3 +62,20 @@
 .motion-help-highlight{outline:5px solid #b8923a;outline-offset:3px;background:#fff2c7}
 
 .expedition-landscape{width:100%;height:98px;object-fit:cover;border-radius:14px}.expedition-camp.is-arriving::after{content:"";position:absolute;inset:5%;border:12px solid #b8923a;border-radius:50%;pointer-events:none;animation:camp-arrival .9s ease-out both}.camp-added{animation:camp-added .55s ease-out both}@keyframes camp-arrival{from{opacity:.8;transform:scale(.15) rotate(-40deg)}to{opacity:0;transform:scale(1.7) rotate(30deg)}}@keyframes camp-added{from{opacity:0;transform:translateY(12px) scale(.85)}to{opacity:1;transform:none}}@media(max-width:600px){.expedition-landscape{height:68px}.expedition-improvements>span{padding:4px}.expedition-camp{min-height:200px}}@media(prefers-reduced-motion:reduce){.expedition-camp.is-arriving::after{display:none}.camp-added{animation:none}}
+/* Chinese travel scenes keep the character on land and separate from the tracing surface. */
+.chinese-scene .journey-thumbnail{width:130px;height:75px;object-fit:cover;border-radius:14px;flex-shrink:0}
+.chinese-journey{position:relative;width:min(100%,660px);aspect-ratio:3/2;margin:14px auto 20px;border-radius:26px;overflow:hidden;background:var(--cream)}
+.journey-background{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.journey-dino{position:absolute;width:26%;height:51%;left:37%;bottom:12%;animation:journey-arrive 1.2s ease-out both}
+.journey-dino>.character{width:100%;height:100%;object-fit:contain}
+.chinese-journey.scene-0 .journey-dino{left:28%}
+.chinese-journey.scene-3 .journey-dino{left:65%}
+.chinese-journey.scene-5 .journey-dino{width:39%;height:44%;left:30%;animation:journey-rest 1.6s ease-out both}
+.journey-caption{position:absolute;bottom:8px;left:3%;right:3%;padding:8px 12px;text-align:center;border-radius:18px;background:#f6f3ecef;color:#203b2e;font-size:19px;font-weight:700}
+.journey-prop{position:absolute;display:block;pointer-events:none}
+.journey-prop .icon{width:100%;height:100%}
+.journey-prop.prop-water{width:40%;height:35%;left:35%;top:39%}
+.journey-prop.prop-hat{width:82%;height:38%;left:2%;top:-4%}
+@keyframes journey-arrive{from{transform:translateX(35%);opacity:.5}to{transform:none;opacity:1}}
+@keyframes journey-rest{from{opacity:.5;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:620px){.chinese-scene .journey-thumbnail{width:90px;height:58px}.journey-caption{font-size:15px;padding:5px 8px}.journey-dino{bottom:19%}.chinese-journey.scene-5 .journey-dino{bottom:19%}}

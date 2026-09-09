@@ -54,7 +54,7 @@ export function mountGame(root,zone,state,save,finish,lifecycle={}){
  }
  function roundDone(message,pose='dino-baby',extra=''){
  state.roundDone=true;state.message=message;save();
- frame('照顧好小龍啦！',`<div class="round-celebrate">${scene({pose,extra})}${zone.id==='chinese'?chineseScene(state.round,true):''}<p class="game-instruction">${escapeHTML(message)}</p><div class="actions"><button class="primary" id="next-round">${state.round===rounds-1?'完成照顧任務':'繼續照顧'}</button></div></div>`);
+ frame('照顧好小龍啦！',`<div class="round-celebrate">${zone.id==='chinese'?chineseScene(state.round,true):scene({pose,extra})}<p class="game-instruction">${escapeHTML(message)}</p><div class="actions"><button class="primary" id="next-round">${state.round===rounds-1?'完成照顧任務':'繼續照顧'}</button></div></div>`);
  root.querySelector('.dino-target')?.classList.add('is-happy');
  if(zone.id==='art'&&state.round===2){const stage=root.querySelector('.round-celebrate');stage.classList.add('bridge-complete');stage.insertAdjacentHTML('afterbegin',`<div class="finished-stones" aria-label="彩色踏石橋">${(state.colors||[]).map(c=>`<span style="background:${c}"></span>`).join('')}</div>`);root.querySelector('.dino-target')?.classList.add('crossing-home');}
  on(root.querySelector('#next-round'),'click',()=>{if(state.round===rounds-1){finish();return;}state.round++;state.step=0;state.roundDone=false;state.traceAttempts=0;delete state.used;delete state.observed;delete state.painted;delete state.stroke;delete state.peWait;delete state.paintCells;save();render();});

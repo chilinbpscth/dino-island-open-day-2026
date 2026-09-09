@@ -1,0 +1,11 @@
+{
+  "testedAt": "2026-09-09T01:20:43.451Z",
+  "environment": "Chromium, mocked upload acknowledgement; no Google requests or real phone download",
+  "passed": [
+    "Invalid acknowledgement keeps IndexedDB photo and shows no QR",
+    "School-domain URL yields same-deployment public QR",
+    "Retry reuses request ID",
+    "Validated acknowledgement clears pending photo",
+    "Returning to certificate restores QR without upload"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "version": "4099ede25f1a",
+  "version": "9a27f6e4ad80",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -71,12 +71,14 @@
     "hub/img/games/general/daytime.png",
     "hub/img/games/general/morning.png",
     "hub/img/games/math/feeding-garden.png",
+    "hub/img/games/science/excavation.png",
     "hub/img/map/island-path.png",
     "hub/img/ui/cert-frame.png",
     "hub/index.html",
     "hub/modules/art.js",
     "hub/modules/chinese-scenes.js",
     "hub/modules/computing.js",
+    "hub/modules/fossil-art.js",
     "hub/modules/general.js",
     "hub/modules/humanities.js",
     "hub/modules/mandarin.js",

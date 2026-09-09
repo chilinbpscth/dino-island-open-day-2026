@@ -6,10 +6,11 @@
   "requiredAssets": [
     {
       "id": "excavation",
-      "file": "hub/img/games/science/excavation.webp",
-      "status": "pending",
+      "file": "hub/img/games/science/excavation.png",
+      "status": "generated-integrated",
       "kind": "scene",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: excavation. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered science game background. No text or buttons."
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: excavation. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered science game background. No text or buttons.",
+      "promptFile": "design/game-assets/science-excavation-prompt.md"
     },
     {
       "id": "xiaolian-scientist",
@@ -31,28 +32,28 @@
   "vectorAssets": [
     {
       "id": "fossil-head",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented-cartoon-schematic",
+      "implementation": "hub/modules/fossil-art.js; original joined geometry, not a species specimen"
     },
     {
       "id": "fossil-body",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented-cartoon-schematic",
+      "implementation": "hub/modules/fossil-art.js; original joined geometry, not a species specimen"
     },
     {
       "id": "fossil-legs",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented-cartoon-schematic",
+      "implementation": "hub/modules/fossil-art.js; original joined geometry, not a species specimen"
     },
     {
       "id": "fossil-tail",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented-cartoon-schematic",
+      "implementation": "hub/modules/fossil-art.js; original joined geometry, not a species specimen"
     },
     {
       "id": "skeleton-target",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented-cartoon-schematic",
+      "implementation": "hub/modules/fossil-art.js; original joined geometry, not a species specimen"
     },
     {
       "id": "brush",

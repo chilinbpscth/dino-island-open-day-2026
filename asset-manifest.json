@@ -1,5 +1,5 @@
 {
-  "version": "9fe42da91613",
+  "version": "b6a5a6f61c4b",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -67,6 +67,7 @@
     "hub/img/chars/xiaozhi-stretch.png",
     "hub/img/chars/xiaozhi-tablet.png",
     "hub/img/chars/xiaozhi-welcome.png",
+    "hub/img/games/art/egg-studio.png",
     "hub/img/games/general/bedtime.png",
     "hub/img/games/general/daytime.png",
     "hub/img/games/general/morning.png",

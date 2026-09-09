@@ -1,5 +1,5 @@
 {
-  "version": "9a27f6e4ad80",
+  "version": "9fe42da91613",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -70,6 +70,9 @@
     "hub/img/games/general/bedtime.png",
     "hub/img/games/general/daytime.png",
     "hub/img/games/general/morning.png",
+    "hub/img/games/humanities/river-centre.png",
+    "hub/img/games/humanities/safe-forest.png",
+    "hub/img/games/humanities/volcano-edge.png",
     "hub/img/games/math/feeding-garden.png",
     "hub/img/games/science/excavation.png",
     "hub/img/map/island-path.png",

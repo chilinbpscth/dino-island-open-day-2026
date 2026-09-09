@@ -7,24 +7,30 @@
   "requiredAssets": [
     {
       "id": "morning",
-      "file": "hub/img/games/general/morning.webp",
-      "status": "pending",
+      "file": "hub/img/games/general/morning.png",
+      "status": "generated-integrated",
       "kind": "scene",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: morning. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons."
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: morning. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons.",
+      "source": "/Users/cthair/.codex/generated_images/01a07267-e66d-7c02-951c-16341dacbb5d/exec-b5265591-cf86-445e-aa5a-d9412f5d408a.png",
+      "promptFile": "design/game-assets/general-scenes-prompts.md"
     },
     {
       "id": "daytime",
-      "file": "hub/img/games/general/daytime.webp",
-      "status": "pending",
+      "file": "hub/img/games/general/daytime.png",
+      "status": "generated-integrated",
       "kind": "scene",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: daytime. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons."
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: daytime. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons.",
+      "source": "/Users/cthair/.codex/generated_images/01a07267-e66d-7c02-951c-16341dacbb5d/exec-59e9e944-2b9c-4d76-9b56-c86563c0523c.png",
+      "promptFile": "design/game-assets/general-scenes-prompts.md"
     },
     {
       "id": "bedtime",
-      "file": "hub/img/games/general/bedtime.webp",
-      "status": "pending",
+      "file": "hub/img/games/general/bedtime.png",
+      "status": "generated-integrated",
       "kind": "scene",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: bedtime. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons."
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: bedtime. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons.",
+      "source": "/Users/cthair/.codex/generated_images/01a07267-e66d-7c02-951c-16341dacbb5d/exec-b0cc7bb8-9e65-418c-ba2a-6b9299d40b77.png",
+      "promptFile": "design/game-assets/general-scenes-prompts.md"
     },
     {
       "id": "dino-waking",

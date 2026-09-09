@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-09T01:14:07.959Z",
+  "testedAt": "2026-09-09T07:08:16.889Z",
   "environment": "Chromium service worker with simulated network offline, GitHub Pages-like /school/ subpath",
   "passed": [
     "Precache activation and missing-model audit ignores old readiness flag",

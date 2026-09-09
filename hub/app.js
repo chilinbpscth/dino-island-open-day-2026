@@ -23,9 +23,9 @@ function shell(content){app.innerHTML=`<div class="shell"><header class="topbar"
 function welcome(){shell(`<section class="welcome"><div class="welcome-copy"><p class="eyebrow">小小探險家 · 大大照顧心</p><h1>智取<br>恐龍島</h1><p class="question">點樣照顧恐龍島上嘅小恐龍，令佢哋安全、開心、學識生活？</p><form class="nickname"><label for="nickname">你叫咩暱稱？</label><div class="input-wrap"><input id="nickname" name="nickname" autocomplete="off" placeholder="例如：小晴" aria-describedby="name-help" required><span id="name-count" class="subtle">0／8</span></div><p class="subtle" id="name-help">最多八個字；暱稱會喺現場探險榜出現。</p><button class="primary" type="submit">出發去島上　→</button><p class="subtle">11 關任揀 10 關 · 每關 1 分 · 六分領證</p></form></div><div class="welcome-art"><span class="art-label">一齊照顧小龍！</span><img class="character boy" src="img/chars/xiaozhi-welcome.png" alt="小志張手歡迎"><img class="character dino" src="img/chars/dino-baby.png" alt="綠色小龍"></div></section>`);
  const input=document.querySelector('#nickname');input.addEventListener('input',()=>{let n=nameLength(cleanName(input.value));document.querySelector('#name-count').textContent=n+'／8';input.setCustomValidity(n>8?'暱稱最多八個字。':'');});document.querySelector('form').onsubmit=e=>{e.preventDefault();if(!validName(input.value)){notify('請輸入一至八個字嘅暱稱。');return;}player=newPlayer(input.value);persist();if(saveFailed)return;synced();location.hash='/map';};}
 const parkZones=[
- ['森林小屋',20,19,34],['清水湖畔',39,20,34],['雨林小徑',62,19,34],['果樹食堂',83,23,34],
- ['晴雨花園',17,49,60],['健康山谷',41,49,60],['分享果園',61,48,60],['彩石河灣',84,49,60],
- ['安心鼓林',27,76,89],['活力草地',52,78,89],['照顧基地',77,77,89]
+ ['山水森林',20,19,34],['動作草原',39,20,34],['招呼村莊',62,19,34],['果樹食堂',83,23,34],
+ ['生活花園',17,49,60],['化石山谷',41,49,60],['探險營地',61,48,60],['彩蛋工房',84,49,60],
+ ['節奏鼓林',27,76,89],['護蛋草地',52,78,89],['指令基地',77,77,89]
 ];
 function map(){
  const t=totals(player),finished=t.scoreReady;

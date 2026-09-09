@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-06T17:47:21.905Z",
+  "testedAt": "2026-09-09T01:27:06.941Z",
   "environment": "Chromium iPad-sized viewports; not physical iPad",
   "passed": [
     "11 distinct selectable park targets",

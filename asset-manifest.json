@@ -1,5 +1,5 @@
 {
-  "version": "ad4d1d988a67",
+  "version": "57afd5bde331",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -28,6 +28,9 @@
     "hub/img/chars/xiaozhi-stretch.png",
     "hub/img/chars/xiaozhi-tablet.png",
     "hub/img/chars/xiaozhi-welcome.png",
+    "hub/img/games/general/bedtime.png",
+    "hub/img/games/general/daytime.png",
+    "hub/img/games/general/morning.png",
     "hub/img/games/math/feeding-garden.png",
     "hub/img/map/island-path.png",
     "hub/img/ui/cert-frame.png",
@@ -45,6 +48,7 @@
     "hub/park-guides.js",
     "index.html",
     "setup/index.html",
+    "shared/certificate-link.js",
     "shared/config.js",
     "shared/core.js",
     "shared/game-clock-gate.js",

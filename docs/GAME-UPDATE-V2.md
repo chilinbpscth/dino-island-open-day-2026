@@ -208,3 +208,14 @@
 - 工具盤按需求提供紅、黃、藍、綠、紫、橙；形狀為圓、三角、方、星；印章為腳印、葉、火山、星。舊作品的奶油白／心／花仍可渲染，沒有重寫舊作品。
 - art-browser 驗證六色、指定四形狀及四印章、新背景載入、既有創作／取消／孵化流程與手機寬度。已檢视畫室截圖；素材清單標示場景及向量工具已接入，仍保留未完成姿勢。
 - 建置 118 個離線資產；offline 通過全部 11 路由及素材、離線重開、補傳佇列、普通證書及專案子路徑。正式站未更新。
+
+## 音樂舞台與動態回饋
+- 內建 image_gen 製作 music-stage.png，森林木舞台配奶油／綠／金；原圖直接複製，三個演奏熱區保持獨立。提示與來源在 music-visual-prompts.md。
+- 跟燈時樂器有敲擊／搖鈴效果、角色跟拍；回合完成兩次短跳，減少動態設定停用。完成文案改述合奏成果，不再叫玩家等待下一次輪流。
+- 新小龍打鼓草稿姿勢已生成，hasAlpha 檢查失敗（棋盤格是像素）；只存 design/game-assets/drafts/dino-drum-v1.png，未接入，三個正式演奏姿勢仍未完成。
+- music-browser 驗證静音 2／3／4 拍、示範鎖定、錯誤提示、逐步燈光、離頁取消、重開成果、減少動態、完成文案及手機寬度；已檢視桌面與手機舞台截圖。
+
+## 姿態模型發布條款核實
+- Google 官方 Pose Landmarker 指南將 Lite 模型連到 BlazePose GHUM 3D 模型卡；模型卡第二頁明列 Apache License, Version 2.0。此為模型本身的發布資料，不再只依 SDK 授權推斷。
+- docs/pose-dependencies.json 保存證據及日期，shared/models/LICENSE 與 NOTICE.txt 保存授權及出處；已確認 dist 一併包含。模型未修改，未宣稱訓練資料獨立審計或幼兒實機準確度。
+- 官方證據：https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker 及 https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf 。

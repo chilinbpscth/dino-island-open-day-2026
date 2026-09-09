@@ -1,5 +1,5 @@
 {
-  "version": "0c4397449dc5",
+  "version": "ad4d1d988a67",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -53,6 +53,7 @@
     "shared/img/school-logo.png",
     "shared/models/pose-landmarker-lite-v1.task",
     "shared/network.js",
+    "shared/offline.js",
     "shared/pose-actions.js",
     "shared/pose-camera.js",
     "shared/qrcode.js",

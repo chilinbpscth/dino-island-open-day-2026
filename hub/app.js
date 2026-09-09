@@ -1,4 +1,5 @@
 import {SCHOOL,TITLE,DATE,ZONES,SCORE_TARGET,MAX_ZONE_MS,zoneById,validName,cleanName,nameLength,newPlayer,totals,snapshot,completeZone,ActiveClock,formatTime} from '../shared/core.js';
+import {watchOfflineStatus} from '../shared/offline.js';
 import {GameClockGate} from '../shared/game-clock-gate.js';
 import {icon,escapeHTML} from '../shared/icons.js';
 import {read,write,remove,photoStore,DEMO} from '../shared/storage.js';
@@ -7,6 +8,7 @@ import {queuePlayer,flushPlayers,networkSettings} from '../shared/network.js';
 import {mountGame} from './games.js';
 import {mountParkGuides} from './park-guides.js';
 import {mountCertificate} from './certificate.js';
+let offlineStatus='正在準備離線遊戲…';
 const app=document.querySelector('#app');let player=read('player'),cleanup=()=>{},cert=null,activeZone=null,saveFailed=false;
 if(DEMO&&!player){player=newPlayer('示範探險家');write('player',player);}
 let toastTimer;function notify(text){document.querySelector('#toast').textContent=text;clearTimeout(toastTimer);toastTimer=setTimeout(()=>document.querySelector('#toast').textContent='',4500);}
@@ -17,7 +19,7 @@ setInterval(()=>clock.checkpoint(),1000);document.addEventListener('visibilitych
 function synced(){if(!player)return;const snap=snapshot(player);queuePlayer(snap);let archive=read('localBoard',{});archive[player.id]={...snap,...totals(player),reachedAt:Date.now()};write('localBoard',archive);flushPlayers();}
 function networkLabel(){return !navigator.onLine?'暫時離線，進度存於本機':!networkSettings().appScriptUrl?'進度已存本機':Object.keys(read('outbox',{})).length?'進度已存本機，等待同步':'進度已同步';}
 const brand=()=>`<div class="brand">${CONFIG.schoolLogo?`<img src="${escapeHTML(CONFIG.schoolLogo)}" alt="校徽">`:''}${SCHOOL}</div>`;
-function shell(content){app.innerHTML=`<div class="shell"><header class="topbar">${brand()}${DEMO?'<strong>示範試玩 · 不上傳成績</strong>':''}<span class="date">2026 · 09 · 13　開放日</span></header>${content}<footer class="bottom-note"><span class="subtle" id="sync-state">${networkLabel()}</span><span class="subtle" id="offline-state">${read('offlineReady')?'遊戲已可離線使用':'正在準備離線遊戲…'}</span></footer></div>`;}
+function shell(content){app.innerHTML=`<div class="shell"><header class="topbar">${brand()}${DEMO?'<strong>示範試玩 · 不上傳成績</strong>':''}<span class="date">2026 · 09 · 13　開放日</span></header>${content}<footer class="bottom-note"><span class="subtle" id="sync-state">${networkLabel()}</span><span class="subtle" id="offline-state">${escapeHTML(offlineStatus)}</span></footer></div>`;}
 function welcome(){shell(`<section class="welcome"><div class="welcome-copy"><p class="eyebrow">小小探險家 · 大大照顧心</p><h1>智取<br>恐龍島</h1><p class="question">點樣照顧恐龍島上嘅小恐龍，令佢哋安全、開心、學識生活？</p><form class="nickname"><label for="nickname">你叫咩暱稱？</label><div class="input-wrap"><input id="nickname" name="nickname" autocomplete="off" placeholder="例如：小晴" aria-describedby="name-help" required><span id="name-count" class="subtle">0／8</span></div><p class="subtle" id="name-help">最多八個字；暱稱會喺現場探險榜出現。</p><button class="primary" type="submit">出發去島上　→</button><p class="subtle">11 關任揀 10 關 · 每關 1 分 · 六分領證</p></form></div><div class="welcome-art"><span class="art-label">一齊照顧小龍！</span><img class="character boy" src="img/chars/xiaozhi-welcome.png" alt="小志張手歡迎"><img class="character dino" src="img/chars/dino-baby.png" alt="綠色小龍"></div></section>`);
  const input=document.querySelector('#nickname');input.addEventListener('input',()=>{let n=nameLength(cleanName(input.value));document.querySelector('#name-count').textContent=n+'／8';input.setCustomValidity(n>8?'暱稱最多八個字。':'');});document.querySelector('form').onsubmit=e=>{e.preventDefault();if(!validName(input.value)){notify('請輸入一至八個字嘅暱稱。');return;}player=newPlayer(input.value);persist();if(saveFailed)return;synced();location.hash='/map';};}
 const parkZones=[
@@ -40,4 +42,4 @@ async function nextPlayer(){if(cert?.busy()){notify('證書正在處理，請等
 function render(){if(cert?.busy()){notify('證書正在處理，請留在證書頁。');history.replaceState(null,'','#/cert');return;}clockGate.end();activeZone=null;cleanup();cleanup=()=>{};cert?.cleanup();cert=null;if(!player){if(location.hash)history.replaceState(null,'',location.pathname);welcome();return;}let route=location.hash.slice(1)||'/map';if(route==='/cert'){if(!totals(player).certReady){location.hash='/map';return;}shell(`<div class="game-top"><button id="back-map">${icon('back')}返地圖</button><h2>你嘅照顧證書</h2><button id="next-player" class="quiet">下一位探險家</button></div><section id="certificate"></section>`);document.querySelector('#back-map').onclick=()=>location.hash='/map';document.querySelector('#next-player').onclick=nextPlayer;cert=mountCertificate(document.querySelector('#certificate'),player,notify);}else if(route.startsWith('/play/'))game(route.split('/')[2]);else map();}
 window.addEventListener('hashchange',render);window.addEventListener('online',()=>{flushPlayers();updateNetwork();});window.addEventListener('offline',updateNetwork);window.addEventListener('syncstatus',e=>{let n=document.querySelector('#sync-state');if(n)n.textContent=e.detail;});function updateNetwork(){let n=document.querySelector('#sync-state');if(n)n.textContent=networkLabel();}
 setInterval(flushPlayers,15000);render();flushPlayers();
-if('serviceWorker'in navigator){navigator.serviceWorker.register('../sw.js').then(async reg=>{await navigator.serviceWorker.ready;write('offlineReady',true);let el=document.querySelector('#offline-state');if(el)el.textContent='遊戲已可離線使用';}).catch(()=>{let el=document.querySelector('#offline-state');if(el)el.textContent='離線準備未完成，請保持連線。';});}
+watchOfflineStatus(status=>{offlineStatus=status;const el=document.querySelector('#offline-state');if(el)el.textContent=status;});

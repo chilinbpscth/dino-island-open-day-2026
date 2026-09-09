@@ -171,3 +171,11 @@
 - 內建 image_gen 生成常識 morning.png、daytime.png、bedtime.png：同一森林小屋，日出／高日／月夜變化；原始 PNG 複製入 hub/img/games/general。提示保存 design/game-assets/general-scenes-prompts.md。
 - 三場景按當回合生活時段套用，保留大圖示輔助辨識。已檢視 general-v2 完成截圖，月亮及人物清楚；general-browser 全流程及手機無橫向溢出通過。
 - 重建 72 個離線資產；offline.mjs 再次通過。角色新生活姿勢、語音及實機仍待完成，正式網站未更新。
+
+## 三語本機配音及播放接入
+- 已找到並實際運行本機 Cantonese ONNX 及 Kokoro 中英文模型，生成 39 段 WAV；來源、模型雜湊及授權副本已保存於 design/audio。沒有使用任何來賓聲音作生成輸入。
+- 11 科加入「聽玩法」，中文六字加入「聽字音」，英文七指令／普通話六句改用實際 WAV，體育五指令新增播放。4 段共用聲檔尚未接自動播放。
+- 共用語音播放控制避免重疊、離頁／背景停止；普通話本機錄音回播使用同一播放控制，錄音期間不接受玩法聲音。
+- voice-browser 通過全部 39 檔實際解碼、11 科語音、替換／清理、英文零字母及虛擬咪錄音回播。offline 再通過 39 檔斷網解碼；42 項單元測試、中文流程及權限計時回歸通過。
+- 手機 390px 已檢查播放圖示熱區及無橫向溢出，截圖 voice-mobile.png。建置 112 個離線資產。
+- 試聽頁 design/audio/review.html、逐段台詞 voice-manifest.json、製作說明 docs/VOICE-PRODUCTION.md 已建立。39 段全部仍待教師核音，未宣稱發音或真實 iPad 驗收完成；正式站未發布。

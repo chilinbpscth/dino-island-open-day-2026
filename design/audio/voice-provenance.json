@@ -1,0 +1,97 @@
+{
+  "runtime": {
+    "canto-tts": "0.1.4",
+    "canto-hk-g2p": "2.6.1",
+    "onnxruntime": "1.29.0",
+    "sherpa-onnx": "1.13.7",
+    "soundfile": "0.14.0",
+    "numpy": "2.5.3"
+  },
+  "models": {
+    "cantonese": {
+      "source": "https://huggingface.co/typangaa/canto-tts-nano",
+      "license": "Apache-2.0 as declared by publisher",
+      "files": {
+        "MOSS-Audio-Tokenizer-Nano-ONNX/codec_browser_onnx_meta.json": {
+          "bytes": 17036,
+          "sha256": "3e291c883bb7d11ff2fe8e964e3e495519760358859f35c951254c7741592731"
+        },
+        "MOSS-Audio-Tokenizer-Nano-ONNX/moss_audio_tokenizer_decode_full.onnx": {
+          "bytes": 681902,
+          "sha256": "0fbbafe3fd4afa2a019af5c5ced204af6e2d1db044fa40f021525d2aee95b4ac"
+        },
+        "MOSS-Audio-Tokenizer-Nano-ONNX/moss_audio_tokenizer_decode_step.onnx": {
+          "bytes": 351400,
+          "sha256": "9527c86a29e1837edec1f74db57d5eeaadb3a715af3382703566460afed25855"
+        },
+        "MOSS-Audio-Tokenizer-Nano-ONNX/moss_audio_tokenizer_encode.onnx": {
+          "bytes": 815775,
+          "sha256": "eadea4a645abdcf98714c7aead122ee2ce7da6e080f9f80b977cd1ca8e19473a"
+        },
+        "MOSS-TTS-Nano-cantophon-ONNX/moss_tts_decode_step.onnx": {
+          "bytes": 291483,
+          "sha256": "245846789d1a7186c3087de756c38f698252dbafe47eb73ac243ee9df1292e81"
+        },
+        "MOSS-TTS-Nano-cantophon-ONNX/moss_tts_local_cached_step.onnx": {
+          "bytes": 53685,
+          "sha256": "a66a3d8946d460b5bd859a1af3fc089819259c3684056bddc6640ffcf804b383"
+        },
+        "MOSS-TTS-Nano-cantophon-ONNX/moss_tts_local_decoder.onnx": {
+          "bytes": 50194,
+          "sha256": "05afc6a6f2f41981f1f1552fe772125b4dfc2bd3d13822ace45e17066f380480"
+        },
+        "MOSS-TTS-Nano-cantophon-ONNX/moss_tts_local_fixed_sampled_frame.onnx": {
+          "bytes": 471262,
+          "sha256": "c3108436e014123ad860c17f841b24cf7b9926699a0da7095ff83b2106af2359"
+        },
+        "MOSS-TTS-Nano-cantophon-ONNX/moss_tts_prefill.onnx": {
+          "bytes": 283305,
+          "sha256": "22844a9cd0bd48c61006301d1eb75d6a78085b3e038f405fb990b2994adb78b2"
+        },
+        "MOSS-TTS-Nano-cantophon-ONNX/tokenizer.model": {
+          "bytes": 470897,
+          "sha256": "c353ee1479b536bf414c1b247f5542b6607fb8ae91320e5af1781fee200fddff"
+        },
+        "MOSS-TTS-Nano-cantophon-ONNX/tts_browser_onnx_meta.json": {
+          "bytes": 4304,
+          "sha256": "b263ee5d650a6b34e69fea3cc0373ec6838adad8ee5633954faa2af0dd146823"
+        },
+        "added_tokens.json": {
+          "bytes": 1677,
+          "sha256": "32eea80bb2cee76ecfb423ab8be32dbdc70c2ee6b319670e212f9be4fab26e98"
+        },
+        "browser_poc_manifest.json": {
+          "bytes": 11740,
+          "sha256": "db6c56a975ae5b6fa8bc00933cc1eb7046a4d74a00b04c51a7fce0584b5bbfd1"
+        },
+        "tokenizer.model": {
+          "bytes": 470897,
+          "sha256": "c353ee1479b536bf414c1b247f5542b6607fb8ae91320e5af1781fee200fddff"
+        }
+      },
+      "revision": "fe17418a293d9be85685ddf750b0cfef9c88abb4"
+    },
+    "kokoro": {
+      "source": "https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh",
+      "license": "Apache-2.0 as declared by publisher",
+      "files": {
+        "model.onnx": {
+          "bytes": 325631784,
+          "sha256": "acc4adc175b9d9986106cd20060329673ad5a2e12ef3c557d2d3745b694f8b38"
+        },
+        "voices.bin": {
+          "bytes": 53790720,
+          "sha256": "e64a5a581d8c2a350d848f51c3121657cd83aa07ed6109172177345874a7244c"
+        }
+      },
+      "bundle": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_1.tar.bz2",
+      "speakers": {
+        "en": 2,
+        "zh-CN": 3
+      },
+      "speed": 0.9
+    }
+  },
+  "teacherReview": "pending",
+  "note": "Generated speech uses shipped model voices; no visitor audio or school identities sent to any model. Training provenance statements come from model publishers, not independently audited."
+}

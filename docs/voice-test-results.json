@@ -1,0 +1,170 @@
+{
+  "testedAt": "2026-09-09T07:52:04.274Z",
+  "environment": "Chromium actual WAV decode/playback, virtual microphone; not pronunciation review or physical iPad",
+  "decoded": [
+    {
+      "id": "yue/intro/chinese",
+      "seconds": 5.12
+    },
+    {
+      "id": "yue/intro/english",
+      "seconds": 3.84
+    },
+    {
+      "id": "yue/intro/mandarin",
+      "seconds": 3.6
+    },
+    {
+      "id": "yue/intro/math",
+      "seconds": 3.92
+    },
+    {
+      "id": "yue/intro/general",
+      "seconds": 4.08
+    },
+    {
+      "id": "yue/intro/science",
+      "seconds": 3.76
+    },
+    {
+      "id": "yue/intro/humanities",
+      "seconds": 4.24
+    },
+    {
+      "id": "yue/intro/art",
+      "seconds": 3.68
+    },
+    {
+      "id": "yue/intro/music",
+      "seconds": 4.24
+    },
+    {
+      "id": "yue/intro/pe",
+      "seconds": 4.16
+    },
+    {
+      "id": "yue/intro/computing",
+      "seconds": 4.32
+    },
+    {
+      "id": "yue/characters/mountain",
+      "seconds": 2.16
+    },
+    {
+      "id": "yue/characters/water",
+      "seconds": 2.08
+    },
+    {
+      "id": "yue/characters/fire",
+      "seconds": 2.64
+    },
+    {
+      "id": "yue/characters/wood",
+      "seconds": 1.68
+    },
+    {
+      "id": "yue/characters/sun",
+      "seconds": 3.68
+    },
+    {
+      "id": "yue/characters/moon",
+      "seconds": 3.6
+    },
+    {
+      "id": "en/actions/jump",
+      "seconds": 0.7787083333333333
+    },
+    {
+      "id": "en/actions/sit",
+      "seconds": 1.050125
+    },
+    {
+      "id": "en/actions/stand",
+      "seconds": 1.0795833333333333
+    },
+    {
+      "id": "en/actions/hands",
+      "seconds": 1.0229166666666667
+    },
+    {
+      "id": "en/actions/left",
+      "seconds": 1.1055
+    },
+    {
+      "id": "en/actions/right",
+      "seconds": 1.1282916666666667
+    },
+    {
+      "id": "en/actions/freeze",
+      "seconds": 0.8549166666666667
+    },
+    {
+      "id": "zh-CN/greetings/hello",
+      "seconds": 0.6447083333333333
+    },
+    {
+      "id": "zh-CN/greetings/morning",
+      "seconds": 0.96775
+    },
+    {
+      "id": "zh-CN/greetings/thanks",
+      "seconds": 0.7212083333333333
+    },
+    {
+      "id": "zh-CN/greetings/welcome",
+      "seconds": 0.8475
+    },
+    {
+      "id": "zh-CN/greetings/please",
+      "seconds": 0.5555
+    },
+    {
+      "id": "zh-CN/greetings/goodbye",
+      "seconds": 0.63925
+    },
+    {
+      "id": "yue/actions/sit",
+      "seconds": 2.64
+    },
+    {
+      "id": "yue/actions/left",
+      "seconds": 2.32
+    },
+    {
+      "id": "yue/actions/right",
+      "seconds": 2.16
+    },
+    {
+      "id": "yue/actions/hands",
+      "seconds": 2
+    },
+    {
+      "id": "yue/actions/freeze",
+      "seconds": 2
+    },
+    {
+      "id": "yue/common/retry",
+      "seconds": 2.16
+    },
+    {
+      "id": "yue/common/hint",
+      "seconds": 2.48
+    },
+    {
+      "id": "yue/common/complete",
+      "seconds": 3.76
+    },
+    {
+      "id": "yue/common/welcome",
+      "seconds": 2.72
+    }
+  ],
+  "passed": [
+    "11 spoken introductions stop on leaving",
+    "Command replaces introduction without overlap",
+    "Hidden page stops speech",
+    "Chinese and PE use corresponding local audio",
+    "No visible English letters",
+    "Mandarin recording excludes intro, RAM playback enables next and stops on next round"
+  ]
+}

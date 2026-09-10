@@ -2,6 +2,8 @@
 
 來源：`Dino Island｜11 科恐龍遊戲 Game Module Planning.md`。已按 `game-update-v2` 的 `hub/modules/` 核對。以下 29 項檔案均不存在，manifest 仍保留未完成狀態。
 
+起床小龍曾誤接入一張造型不一致的透明圖，現已撤下並移至 `design/game-assets/drafts/dino-waking-identity-rejected.png` 留作核對。常識站暫用原定小龍；透明底合格不代表角色身份合格。
+
 | 科目 | 尚欠檔案（相對 hub/img/） | 現時暫代 | 所需動作／主體 | 下一步 |
 |---|---|---|---|---|
 | art | `games/art/dino-hatching.png` | `chars/dino-baby.png` | 小龍孵化 | 製作真透明角色圖 |

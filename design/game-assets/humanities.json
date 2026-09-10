@@ -31,18 +31,24 @@
     {
       "id": "xiaolian-explorer",
       "file": "hub/img/games/humanities/xiaolian-explorer.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/xiaolian-welcome.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: xiaolian explorer. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for humanities gameplay. No ground shadow."
+      "prompt": "Use case: identity-preserve. Create a new full-body 2D game sprite of the exact approved girl Xiaolian in the reference. Preserve brown eyes, twin brown hair buns, straight fringe, cheek-length strands, child proportions, pale-yellow short-sleeve pleated dress, white rounded collar edged forest green, pale-yellow green-edged waistband, white ankle socks and black Mary Jane shoes. Same clean brown outlines and soft flat 2D colours; not 3D, not a different chibi. Action: cheerful explorer, holding a small rolled cream map in one hand, other hand pointing gently toward a safe campsite offscreen. Add a small forest-green backpack visible behind one shoulder; keep school uniform fully recognizable, no hat or costume replacement. Single character only, centered full body, 8 percent clear margin, square canvas. Solid pure magenta #FF00FF production matte background for approved subsequent cutout; no magenta anywhere in character. No scene, floor, shadow, glow, lettering, badge, logo or watermark.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/humanities-xiaolian-explorer-matte.png",
+      "review": "Face, hair, school uniform and explorer props checked against approved identity. User-approved matte cleanup to 1024 RGBA; cream composite inspected. Guides alternate across camp rounds, one caregiver and one baby on screen."
     },
     {
       "id": "xiaozhi-explorer",
       "file": "hub/img/games/humanities/xiaozhi-explorer.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/xiaozhi-welcome.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: xiaozhi explorer. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for humanities gameplay. No ground shadow."
+      "prompt": "Use case: identity-preserve. Create a new full-body 2D game sprite of the exact approved boy Xiaozhi in the reference. Preserve brown eyes, short dark-brown flat fringe, face and child proportions, pale-yellow short-sleeve button-front collared shirt with plain chest pocket, olive-green shorts, dark belt and silver rectangular buckle, white ankle socks, black lace-up school shoes. Same clean brown outlines and soft flat 2D colours; not 3D, not a different chibi. Action: cheerful explorer, holding a small folded cream map with only a simple green winding line (no writing) at waist level in one hand, other hand raised in an inviting open-palm guiding gesture. Add a small forest-green backpack visible behind one shoulder; keep school uniform fully recognizable, no hat or costume replacement. Single character only, centered full body, 8 percent clear margin, square canvas. Solid pure magenta #FF00FF production matte background for approved subsequent cutout; no magenta anywhere in character. No scene, floor, shadow, glow, lettering, badge, logo or watermark.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/humanities-xiaozhi-explorer-matte.png",
+      "review": "Face, hair, school uniform and explorer props checked against approved identity. User-approved matte cleanup to 1024 RGBA; cream composite inspected. Guides alternate across camp rounds, one caregiver and one baby on screen."
     },
     {
       "id": "time-machine",

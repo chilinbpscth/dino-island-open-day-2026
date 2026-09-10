@@ -131,3 +131,7 @@
 .pe-scene .pe-cheer{position:absolute;right:5%;bottom:6%;width:25%;height:60%;object-fit:contain;z-index:2}
 
 .band-player:not(:first-child)>.character{object-fit:cover}
+.expedition-camp>.expedition-guide{width:190px;height:190px}
+@media(max-width:600px){.expedition-camp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center}.expedition-camp>.character{grid-row:1;width:120px;height:140px}.expedition-camp>.expedition-guide{width:140px;height:140px}.expedition-improvements{grid-row:2;grid-column:1/-1}}
+.fossil-briefing{display:flex;align-items:center;justify-content:center;gap:12px;max-width:780px;margin:0 auto 12px}.fossil-briefing>.fossil-guide{width:140px;height:140px;flex-shrink:0}.fossil-briefing>.game-instruction{margin:0;text-align:left}
+@media(max-width:600px){.fossil-briefing{gap:4px}.fossil-briefing>.fossil-guide{width:96px;height:110px}.fossil-briefing>.game-instruction{font-size:20px}}

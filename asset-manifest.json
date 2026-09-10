@@ -1,5 +1,5 @@
 {
-  "version": "14a268ecd65b",
+  "version": "6933cd37c9b3",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -92,6 +92,8 @@
     "hub/img/games/humanities/river-centre.png",
     "hub/img/games/humanities/safe-forest.png",
     "hub/img/games/humanities/volcano-edge.png",
+    "hub/img/games/humanities/xiaolian-explorer.png",
+    "hub/img/games/humanities/xiaozhi-explorer.png",
     "hub/img/games/mandarin/dino-goodbye.png",
     "hub/img/games/mandarin/dino-greeting.png",
     "hub/img/games/mandarin/dino-listening.png",
@@ -109,6 +111,8 @@
     "hub/img/games/pe/forest-arena.png",
     "hub/img/games/pe/forest-visitor.png",
     "hub/img/games/science/excavation.png",
+    "hub/img/games/science/xiaolian-scientist.png",
+    "hub/img/games/science/xiaozhi-scientist.png",
     "hub/img/map/island-path.png",
     "hub/img/ui/cert-frame.png",
     "hub/index.html",

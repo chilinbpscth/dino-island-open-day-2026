@@ -15,18 +15,24 @@
     {
       "id": "xiaolian-scientist",
       "file": "hub/img/games/science/xiaolian-scientist.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/xiaolian-welcome.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: xiaolian scientist. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for science gameplay. No ground shadow."
+      "prompt": "Use case: identity-preserve. Create a new full-body 2D game sprite of the exact approved girl Xiaolian in the reference, now a child palaeontology researcher. Preserve brown eyes, twin brown hair buns, straight fringe, cheek-length strands, child proportions, pale-yellow short-sleeve pleated dress, white rounded collar edged forest green, pale-yellow green-edged waistband, white ankle socks and black Mary Jane shoes. Same clean brown outlines and soft flat 2D colours; not 3D, not a different chibi. Action: standing in a gentle slightly bent forward attentive pose, holding a small soft archaeology brush in one hand angled down toward an offscreen fossil, other hand open indicating careful sweeping. Brush clearly has wooden handle and broad soft beige bristles. Keep face visible, friendly focused smile. No lab coat or hat, keep full school uniform. Single character only, centered full body, 8 percent clear margin, square canvas. Solid pure magenta #FF00FF production matte background for approved subsequent cutout; no magenta anywhere in character. No fossil, scene, floor, shadow, glow, lettering, badge, logo or watermark.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/science-xiaolian-scientist-matte.png",
+      "review": "Approved identity and uniform preserved, research tool readable. User-approved matte cleanup to 1024 RGBA; cream composite inspected including magnifying lens. Xiaolian guides digging; Xiaozhi guides assembly and reconstruction."
     },
     {
       "id": "xiaozhi-scientist",
       "file": "hub/img/games/science/xiaozhi-scientist.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/xiaozhi-welcome.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: xiaozhi scientist. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for science gameplay. No ground shadow."
+      "prompt": "Use case: identity-preserve. Create a new full-body 2D game sprite of the exact approved boy Xiaozhi in the reference, now a child palaeontology researcher. Preserve brown eyes, short dark-brown flat fringe, face and child proportions, pale-yellow short-sleeve button-front collared shirt with plain chest pocket, olive-green shorts, dark belt and silver rectangular buckle, white ankle socks, black lace-up school shoes. Same clean brown outlines and soft flat 2D colours; not 3D, not a different chibi. Action: standing looking attentively toward the viewer's left at an offscreen fossil, holding a round magnifying glass in one hand at chest height away from his face, other hand supports a small closed cream notebook at waist. Magnifier simple dark-green handle and pale-blue glass with intact light lens (not magenta), friendly curious smile. No lab coat or hat, keep full school uniform. Single character only, centered full body, 8 percent clear margin, square canvas. Solid pure magenta #FF00FF production matte background for approved subsequent cutout; no magenta anywhere in character or lens. No fossil, scene, floor, shadow, glow, lettering, badge, logo or watermark.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/science-xiaozhi-scientist-matte.png",
+      "review": "Approved identity and uniform preserved, research tool readable. User-approved matte cleanup to 1024 RGBA; cream composite inspected including magnifying lens. Xiaolian guides digging; Xiaozhi guides assembly and reconstruction."
     }
   ],
   "vectorAssets": [
@@ -58,12 +64,22 @@
     {
       "id": "brush",
       "status": "implemented",
-      "implementation": "Pointer sweep interaction and soil-cover CSS in hub/modules/science.js and shared/style.css; no raster brush image"
+      "implementation": "Pointer sweep and soil-cover CSS in hub/modules/science.js; visible soft brush is part of xiaolian-scientist.png."
     },
     {
       "id": "soil-mask",
       "status": "implemented",
       "implementation": "soil-cover DOM mask and CSS in hub/modules/science.js and shared/style.css; no raster"
+    }
+  ],
+  "reusedRoles": [
+    {
+      "id": "research-tools",
+      "files": [
+        "hub/img/games/science/xiaolian-scientist.png",
+        "hub/img/games/science/xiaozhi-scientist.png"
+      ],
+      "implementation": "Soft brush, magnifying glass and notebook shown in researcher sprites; no additional standalone tool required."
     }
   ]
 }

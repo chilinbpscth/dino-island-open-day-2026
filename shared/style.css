@@ -129,3 +129,5 @@
 .egg-guide.is-surprised{object-fit:cover}
 
 .pe-scene .pe-cheer{position:absolute;right:5%;bottom:6%;width:25%;height:60%;object-fit:contain;z-index:2}
+
+.band-player:not(:first-child)>.character{object-fit:cover}

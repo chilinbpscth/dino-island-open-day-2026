@@ -1,7 +1,8 @@
 {
-  "testedAt": "2026-09-09T13:07:20.439Z",
+  "testedAt": "2026-09-10T02:51:39.400Z",
   "environment": "Chromium service worker with simulated network offline, GitHub Pages-like /school/ subpath",
   "passed": [
+    "Teacher setup checks actual cache, rejects missing model and confirms restored cache",
     "Precache activation and missing-model audit ignores old readiness flag",
     "Pose model and WASM initialize after simulated network disconnect",
     "All 39 prerecorded WAV files decode while offline",

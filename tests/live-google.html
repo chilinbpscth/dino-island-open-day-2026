@@ -7,7 +7,9 @@
  <p>本頁輸入的網址及裝置憑證只存在本頁記憶體；亦可使用老師設備頁已儲存的設定。本頁不自動清理、不上傳相片。</p>
  <label for="url">Apps Script 正式部署網址</label><input id="url" type="url" autocomplete="off" placeholder="https://script.google.com/macros/s/…/exec">
  <label for="token">裝置憑證（建立測試紀錄時需要）</label><input id="token" type="password" autocomplete="off">
- <div class="actions"><button id="board">讀榜</button><button id="run" class="primary">建立測試紀錄並驗收</button><button id="saved">使用已設定裝置建立測試紀錄</button></div>
+ <div class="actions"><button id="board">讀榜</button><button id="run" class="primary">建立測試紀錄並驗收</button><button id="saved">使用已設定裝置建立測試紀錄</button><button id="cert">驗收測試證書上傳／下載</button></div>
+ <label for="player">已有六站以上嘅參加者 ID（只作證書測試）</label><input id="player" autocomplete="off" placeholder="live-…">
+ <label for="version">該參加者版本號</label><input id="version" type="number" min="1" value="6">
  <p id="status" class="notice" role="status"></p><pre id="result" aria-live="polite" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
  <p>驗收會建立一條「測試xxxx」紀錄。完成後由老師按下方顯示的參加者 ID 在 Sheets 移除該條測試紀錄；本頁不會自動刪除。</p>
 </main>
@@ -15,7 +17,7 @@
  import {LIVE_URL_RE,createRpc,runAcceptance} from './live-google.js';
  import {networkSettings} from '../shared/network.js';
  const $=s=>document.querySelector(s),url=$('#url'),token=$('#token'),status=$('#status'),out=$('#result');
- const buttons=[$('#board'),$('#run'),$('#saved')],show=x=>out.textContent=JSON.stringify(x,null,2);
+ const buttons=[$('#board'),$('#run'),$('#saved'),$('#cert')],show=x=>out.textContent=JSON.stringify(x,null,2);
  async function run(write,useSaved=false){
   buttons.forEach(b=>b.disabled=true);let rpc;
   try{
@@ -32,5 +34,6 @@
  }
  $('#board').onclick=()=>run(false);$('#run').onclick=()=>run(true);
  $('#saved').onclick=()=>run(true,true);
+ $('#cert').onclick=async()=>{buttons.forEach(b=>b.disabled=true);let rpc;try{const s=networkSettings();if(!LIVE_URL_RE.test(s.appScriptUrl)||!s.deviceToken)throw Error('本機未設定活動連線及裝置憑證。');if(!/^live-[0-9a-f-]{36}$/.test($('#player').value.trim()))throw Error('請填 live- 開頭嘅參加者 ID。');rpc=createRpc(s.appScriptUrl,s.deviceToken);status.textContent='上傳測試證書中…';const image='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAH/AP/EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEAAQUCf//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8Bf//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8Bf//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8Cf//Z';const req={deviceToken:s.deviceToken,playerId:$('#player').value.trim(),version:Number($('#version').value),requestId:`cert-test-${crypto.randomUUID()}`,image};const uploaded=await rpc('uploadCertificate',req);const downloaded=await rpc('getCertificate',{token:uploaded.token});show({uploaded:{expiresAt:uploaded.expiresAt,hasToken:!!uploaded.token},downloaded:{hasImage:downloaded.image?.startsWith('data:image/jpeg;base64,'),expiresAt:downloaded.expiresAt},requestId:req.requestId});status.textContent='證書上傳及 token 下載驗收通過；請老師稍後在 Certificates 手動移除測試行。';}catch(e){status.textContent=`未完成：${e.message}`;}finally{rpc?.destroy();buttons.forEach(b=>b.disabled=false);}};
 </script>
 </html>

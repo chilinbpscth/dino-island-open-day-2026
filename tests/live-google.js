@@ -3,7 +3,7 @@ export const LIVE_URL_RE=/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec
 const ZONES=['math','chinese','english','mandarin','general','science','humanities','art','music','pe','computing'];
 export function createRpc(url,token=''){
  const bridge=new GoogleBridge(url);
- const rpc=(method,payload={})=>bridge.call(method,method==='getBoard'?payload:{...payload,deviceToken:token});
+ const rpc=async(method,payload={})=>{const result=await bridge.call(method,method==='getBoard'?payload:{...payload,deviceToken:token});if(method==='uploadCertificate'&&result?.url){result.token=new URL(result.url).searchParams.get('token')||'';}return result;};
  rpc.destroy=()=>bridge.destroy();return rpc;
 }
 export async function runAcceptance(rpc,onProgress=()=>{}){

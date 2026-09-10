@@ -7,7 +7,10 @@ try{
  for(const [id,rounds]of [['english',7],['pe',5]]){
   await page.goto('http://127.0.0.1:4173/hub/#/play/'+id);await page.locator('#motion-family').click();
   for(let i=0;i<rounds;i++){
-   if(id==='english')assert(!/[a-zA-Z]/.test(await page.locator('#app').innerText()));
+   if(id==='english'){
+    assert(!/[a-zA-Z]/.test(await page.locator('#app').innerText()));
+    if(i===1||i===3){const sprite=page.locator('.motion-guide');assert((await sprite.getAttribute('src')).endsWith(i===1?'dino-squat.png':'dino-hands-up.png'));await sprite.evaluate(image=>image.decode());assert.equal(await sprite.evaluate(image=>image.naturalWidth),1024);await page.screenshot({path:`docs/screenshots/english-action-${i}.png`,fullPage:true,animations:'disabled'});}
+   }
    if(id==='pe'){
     await page.waitForFunction(()=>[...document.querySelectorAll('.pe-scene img')].every(i=>i.complete&&i.naturalWidth));
     assert.equal(await page.locator('.pe-egg').count(),1);

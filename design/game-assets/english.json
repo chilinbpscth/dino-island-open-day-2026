@@ -14,16 +14,18 @@
       "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino jump. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow.",
       "drafts": [
         "design/game-assets/drafts/dino-jump-v1.png"
-      ],
-      "review": "2026-09-10: direct edit of approved alpha PNG preserves identity and shows a jump, but returned PNG has no alpha and a painted checkerboard. Not used at runtime. Programmatic background cleanup awaiting explicit approval."
+      ]
     },
     {
       "id": "dino-squat",
       "file": "hub/img/games/english/dino-squat.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino squat. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Reference is the approved original Dino Island baby. SAME character demonstrating a gentle SQUAT: both knees visibly bent outward, bottom lowered near heels, feet flat apart, little arms extended forward for balance, head upright facing viewer, cheerful calm smile. Keep enormous rounded emerald head, huge black/white eyes, pink round cheeks, cream muzzle and plain belly, three golden round crest lobes, small plump body and short tail golden bumps, thick black outlines, flat 2D soft simple shading. Do not turn into seated pose or change species. Entire body centered, 8 percent clear margins, square approx1024. No text, arrows, scene, floor, cast shadow, props, sharp teeth, 3D. Background perfectly solid pure magenta #FF00FF production matte for approved removal; no magenta character details.",
+      "source": "design/game-assets/drafts/english-dino-squat-matte.png",
+      "generator": "built-in image_gen",
+      "review": "Original baby identity preserved; approved matte removal and edge cleanup. RGBA 1024px cream composite inspected; used for corresponding English command."
     },
     {
       "id": "dino-stand",
@@ -37,10 +39,13 @@
     {
       "id": "dino-hands-up",
       "file": "hub/img/games/english/dino-hands-up.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino hands up. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Input is locked Dino Island baby. SAME character demonstrates raising BOTH ARMS HIGH ABOVE HEAD, both hands clearly above the eyes and beside the golden crest, arms lifted in V shape, feet planted, cheerful smile looking front. Hands must visibly be at top of head height, not at chest height. Preserve enormous round emerald head, huge black-white highlighted eyes, round pink cheeks, cream muzzle and plain cream belly, three rounded gold crest lobes, plump tiny torso, short tail with gold bumps, blunt cream claws, thick black outlines and soft simple flat 2D shading. Entire full body centered, clear 8 percent margins. No text, symbols, scenery, cast shadow, other characters, props, realistic scales, 3D or sharp teeth. Square approximately1024. Background exactly pure magenta #FF00FF production matte for approved removal; no magenta on character.",
+      "source": "design/game-assets/drafts/english-dino-hands-up-matte.png",
+      "generator": "built-in image_gen",
+      "review": "Original baby identity preserved; approved matte removal and edge cleanup. RGBA 1024px cream composite inspected; used for corresponding English command."
     },
     {
       "id": "dino-left",

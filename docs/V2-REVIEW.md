@@ -2,7 +2,7 @@
 
 更新日期：2026-09-10。分支 `game-update-v2`；目前已由 GitHub Pages workflow 發布公開預覽。原缺漏角色素材已補齊，正式活動前仍須完成完整範圍核對及現場驗收。
 
-後台現況：已部署 v6，包含寫入鎖內提交及減少重複讀取修正；真實十連線測試仍未通過，不能視為活動就緒。前端亦已修正證書提早越過成績同步的問題。原到期測試證書已由排程刪除；兩批負載測試探險者已移出榜，另 13 份合成證書已到期、待排程刪檔。詳細證據見 [BACKEND-FOLLOWUP.md](BACKEND-FOLLOWUP.md)、[live-load-v6-results.json](live-load-v6-results.json) 及 [load-test-cleanup.json](load-test-cleanup.json)。
+後台現況：已部署 v7，包含寫入鎖內提交及減少重複讀取修正；真實十連線測試仍未通過，不能視為活動就緒。前端亦已修正證書提早越過成績同步的問題。原到期測試證書已由排程刪除；兩批負載測試探險者已移出榜，14 份合成證書已由 17:46:58 排程刪檔，私人資料夾已清空。詳細證據見 [BACKEND-FOLLOWUP.md](BACKEND-FOLLOWUP.md)、[live-load-v6-results.json](live-load-v6-results.json) 及 [load-test-cleanup.json](load-test-cleanup.json)。
 
 ## 本機檢查
 
@@ -29,8 +29,8 @@
 - 原缺漏角色清單已清空，見 [ASSET-REMAINING.md](ASSET-REMAINING.md)。已批准程式去背後的 1024px RGBA 成品在 `hub/img/games/`，原始稿及奶油底檢查圖保留在 `design/game-assets/drafts/`，不直接部署草稿。各科 manifest 保存最終提示詞及接入記錄。仍需依原更新文件完成逐項交付審查，不能單憑缺檔數為零宣告完成。
 - 教師核對 39 段讀音及中文教材字形；[老師試聽頁](https://chilinbpscth.github.io/dino-island-open-day-2026/setup/audio-review.html) 已加入部署套件及設備頁連結。39 個 WAV 連結、專案子路徑及切換播放已用桌面瀏覽器核對；合成聲檔尚未教師批准，頁面不收集核對結果。
 - 真實 iPad 的全身動作辨識、觸控／橫直向、相機／咪權限及離線測試；家長手機下載、現場電視遠距可讀性、10 部裝置與 Google 同步／上傳負載。
-- Apps Script 第 6 版已部署，單站上限 240 秒。Chrome ITSUPPORT 已完成七項真實計時、鎖站、探索及排名檢查；測試參加者「測試2806」（ID 見 [live-google-test-results.json](live-google-test-results.json)）暫留供老師核對。最新十連線新批次只有 5／10 份證書完成核對，存在鎖等待及逾時；未達 10 秒目標。
-- 原證書已實測過期拒絕下載、排程刪檔，以及已刪除請求重試不能復用舊連結。乾淨未登入桌面環境已通過；仍須完成家長手機掃 QR／儲存、實機換人及負載驗收；另外 13 份測試證書及舊未引用測試檔案仍待確認清理。
+- Apps Script 第 7 版已部署，單站上限 240 秒。Chrome ITSUPPORT 已完成七項真實計時、鎖站、探索及排名檢查；測試參加者「測試2806」（ID 見 [live-google-test-results.json](live-google-test-results.json)）暫留供老師核對。最新十連線新批次只有 5／10 份證書完成核對，存在鎖等待及逾時；未達 10 秒目標。
+- 原證書已實測過期拒絕下載、排程刪檔，以及已刪除請求重試不能復用舊連結。乾淨未登入桌面環境已通過；仍須完成家長手機掃 QR／儲存、實機換人及負載驗收；14 份測試證書及舊未引用測試檔案已確認清理，見 [live-cleanup-verified.json](live-cleanup-verified.json)。
 - 目前是已公開的預覽版；上述驗收及完整範圍核對完成後，才可宣告開放日交付完成。
 
 Google 操作使用校方指定 ITSUPPORT 帳戶；不把裝置寫入憑證放進公開程式碼。此文件不是正式交付完成聲明。

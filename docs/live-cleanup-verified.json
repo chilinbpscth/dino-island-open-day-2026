@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-10",
+  "account": "itsupport@chilinbps.edu.hk",
+  "trigger": "Existing hourly cleanupExpired_, last execution 17:46:58 HKT, displayed error rate 0%",
+  "sheet": "Read Certificates!H3:H16 individually: all fourteen cells equal deleted; no manual writes to these status cells",
+  "drive": "Opened the exact configured private certificate folder after the execution. Correct folder title, no filters, empty folder view, sharing panel states private content.",
+  "result": "All fourteen registered expired synthetic certificates and older unreferenced synthetic files have been removed from the certificate folder.",
+  "scope": "Scheduled deletion verified with deliberately expired synthetic records; no visitor photos used. Does not verify phone or physical iPad operation."
+}

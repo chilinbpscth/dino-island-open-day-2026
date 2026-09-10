@@ -1,10 +1,11 @@
 {
-  "testedAt": "2026-09-10T03:39:22.512Z",
-  "environment": "Desktop Chromium and 390px simulated phone; parent-assisted reading, not speech evaluation",
+  "testedAt": "2026-09-10T07:35:28.552Z",
+  "environment": "Desktop Chromium and 390px simulated phone; virtual microphone recording/replay and parent-assisted reading; not physical microphone or pronunciation evaluation",
   "passed": [
     "Village image loaded and exactly one guide plus baby",
     "Sprites remain inside scene at phone width; no horizontal overflow",
     "All six phrases require recording replay or explicit parent-assisted reading",
+    "Listening pose appears during actual virtual microphone capture; scene pose restores after stop; RAM replay unlocks next",
     "Six parent-assisted phrases reach completion"
   ]
 }

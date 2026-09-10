@@ -13,39 +13,51 @@
       "kind": "scene",
       "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: village. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered mandarin game background. No text or buttons.",
       "source": "Built-in image_gen, 2026-09-10; unmodified PNG copy; reference general/morning.png",
-      "review": "No characters/text embedded; clear central ground for existing greeting pair. Greeting/listening character poses still pending."
+      "review": "No characters/text embedded; clear central ground for one guide and baby. Greeting poses now integrated separately."
     },
     {
       "id": "dino-greeting",
       "file": "hub/img/games/mandarin/dino-greeting.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino greeting. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for mandarin gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Reference is locked original Dino Island baby. SAME baby saying a friendly HELLO: front view, one little hand lifted beside cheek with palm facing viewer in greeting, other relaxed at belly, open friendly smile. Retain enormous round emerald head, large black-white highlighted eyes, pink circle cheeks, cream muzzle/plain cream belly, three rounded gold head crest lobes, tiny plump body, short gold-bumped tail, blunt cream claws, thick black outlines and restrained soft flat 2D shading. Full body centered 8 percent margins, square approx1024. No letters, text, symbols, props, landscape, cast shadow, scary teeth or 3D. Perfectly solid magenta #FF00FF background production matte for approved removal; no magenta on character.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/mandarin-dino-greeting-matte.png",
+      "review": "Original baby identity checked. Approved matte removal, 1024 RGBA and cream composite inspected. Scene pose or active-recording listening pose connected."
     },
     {
       "id": "dino-thanks",
       "file": "hub/img/games/mandarin/dino-thanks.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino thanks. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for mandarin gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Reference is locked original Dino Island baby. SAME baby saying THANK YOU after receiving fruit: two small hands gently cradle ONE small golden-yellow apple with green leaf against cream chest, head slightly bowed with warm closed-eye smile, feet together. Preserve enormous rounded emerald head, cream muzzle, circular pink cheeks, plain cream belly, three gold rounded head crest lobes, tiny plump body, short tail with rounded gold bumps, cream blunt claws, thick black outlines and soft flat 2D shading. Only baby and apple; no other person, no text or symbols, props besides apple, scene, floor, cast shadow, realistic scales or 3D. Full body centered, square approx1024, 8 percent margin. Solid pure magenta #FF00FF production matte background for approved removal; no magenta on baby or apple.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/mandarin-dino-thanks-matte.png",
+      "review": "Original baby identity checked. Approved matte removal, 1024 RGBA and cream composite inspected. Scene pose or active-recording listening pose connected."
     },
     {
       "id": "dino-goodbye",
       "file": "hub/img/games/mandarin/dino-goodbye.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino goodbye. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for mandarin gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Reference is locked original Dino Island baby. SAME baby saying GOODBYE: full body three-quarter turning to image-right as if about to leave, head looking back toward viewer, one hand raised in waving farewell, one foot taking a small step right, gentle smile. Distinct from front-facing hello. Preserve enormous round emerald head, huge highlighted black-white eyes, pink round cheeks, cream muzzle and plain belly, three rounded gold crest lobes, tiny plump body, short tail gold bumps, blunt cream claws, thick black outlines and restrained flat 2D shading. No bag or other props, no text, symbols, scene, floor, cast shadow, sharp teeth or 3D. Full body centered, 8 percent margins, approx1024 square. Solid pure magenta #FF00FF production matte background for approved removal, no magenta on baby.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/mandarin-dino-goodbye-matte.png",
+      "review": "Original baby identity checked. Approved matte removal, 1024 RGBA and cream composite inspected. Scene pose or active-recording listening pose connected."
     },
     {
       "id": "dino-listening",
       "file": "hub/img/games/mandarin/dino-listening.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino listening. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for mandarin gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Input is locked original Dino Island baby. SAME baby LISTENING attentively: gentle head tilt toward image-left, one little hand cupped beside side of head at cheek/ear position, other relaxed on cream belly, mouth closed small smile, big eyes looking kindly at viewer. No invented outer ears, no headphones. Preserve exact huge rounded emerald head, highlighted black-white eyes, pink round cheeks, cream muzzle/plain belly, three rounded gold crest lobes, tiny plump body, short tail with gold bumps, blunt cream claws, thick black lines and soft flat 2D shading. Full body centered 8 percent margins, square approx1024. No text, sound symbols, microphone, props, scene, cast shadow, 3D or teeth. Solid pure magenta #FF00FF production matte for approved removal; no magenta on baby.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/mandarin-dino-listening-matte.png",
+      "review": "Original baby identity checked. Approved matte removal, 1024 RGBA and cream composite inspected. Scene pose or active-recording listening pose connected."
     }
   ],
   "vectorAssets": [

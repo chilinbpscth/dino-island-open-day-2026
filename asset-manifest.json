@@ -1,5 +1,5 @@
 {
-  "version": "c7c788d26144",
+  "version": "1cceef660ec5",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -90,6 +90,10 @@
     "hub/img/games/humanities/river-centre.png",
     "hub/img/games/humanities/safe-forest.png",
     "hub/img/games/humanities/volcano-edge.png",
+    "hub/img/games/mandarin/dino-goodbye.png",
+    "hub/img/games/mandarin/dino-greeting.png",
+    "hub/img/games/mandarin/dino-listening.png",
+    "hub/img/games/mandarin/dino-thanks.png",
     "hub/img/games/mandarin/village.png",
     "hub/img/games/math/dino-hungry.png",
     "hub/img/games/math/feeding-garden.png",

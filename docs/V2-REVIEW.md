@@ -2,6 +2,8 @@
 
 更新日期：2026-09-10。分支 `game-update-v2`；目前已由 GitHub Pages workflow 發布公開預覽。原缺漏角色素材已補齊，正式活動前仍須完成完整範圍核對及現場驗收。
 
+16:54 HKT 後台補充：已部署 v5 寫入鎖修正；真實十連線測試及恢復測試仍未通過，不能視為活動就緒。原到期測試證書已由排程刪除。最新本機測試為 49 項通過；另有減少重複讀取優化未部署。詳細證據及後續以 [BACKEND-FOLLOWUP.md](BACKEND-FOLLOWUP.md) 及 [live-load-test-results.json](live-load-test-results.json) 為準，下方較早 v4／待刪檔描述已被此補充更新。
+
 ## 本機檢查
 
 執行 `npm ci`、`npm run serve`，使用終端顯示的 localhost 網址。`/hub/?demo=1#/map` 可試地圖；`/board/?demo=1` 可看合成榜。示範資料不上傳。普通試玩未配置 Google 時只使用本機榜；沒有成功上傳的證書不顯示 QR。

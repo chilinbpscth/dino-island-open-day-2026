@@ -42,3 +42,14 @@ test('Live acceptance does not count a transport failure as time validation',asy
   }),/更新暫時未完成/);
  }finally{delete globalThis.location;}
 });
+test('Deleted certificate request cannot revive an expired token, but a new request can issue a new certificate',()=>{
+ const {c,tables,files}=env(),zones=Object.fromEntries(['chinese','english','mandarin','math','general','science'].map(id=>[id,1000]));
+ c.savePlayer_({deviceToken:token,player:player('player-expired',1,zones)});
+ const data={deviceToken:token,playerId:'player-expired',version:1,requestId:'certificate-expired',image:'data:image/jpeg;base64,/9j/AA=='};
+ const original=c.uploadCertificate_(data),oldToken=new URL(original.url).searchParams.get('token');
+ tables.Certificates[1][5]=Date.now()-8*86400000;tables.Certificates[1][6]=Date.now()-1;c.cleanupExpired_();
+ assert.equal(files.size,0);assert.throws(()=>c.uploadCertificate_(data),/已到期/);assert.equal(files.size,0);assert.equal(tables.Certificates[1][7],'deleted');
+ const fresh=c.uploadCertificate_({...data,requestId:'certificate-renewed'});
+ assert.notEqual(fresh.url,original.url);assert.equal(files.size,1);assert.throws(()=>c.getCertificate_(oldToken),/已到期/);
+ assert.equal(c.getCertificate_(new URL(fresh.url).searchParams.get('token')).image,data.image);
+});

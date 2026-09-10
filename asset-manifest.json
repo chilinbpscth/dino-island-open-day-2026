@@ -1,5 +1,5 @@
 {
-  "version": "8f0024b26c75",
+  "version": "0f9a431ad566",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -39,6 +39,12 @@
     "hub/audio/yue/intro/music.wav",
     "hub/audio/yue/intro/pe.wav",
     "hub/audio/yue/intro/science.wav",
+    "hub/audio/yue/math/apple.wav",
+    "hub/audio/yue/math/banana.wav",
+    "hub/audio/yue/math/order-0.wav",
+    "hub/audio/yue/math/order-1.wav",
+    "hub/audio/yue/math/order-2.wav",
+    "hub/audio/yue/math/strawberry.wav",
     "hub/audio/zh-CN/greetings/goodbye.wav",
     "hub/audio/zh-CN/greetings/hello.wav",
     "hub/audio/zh-CN/greetings/morning.wav",

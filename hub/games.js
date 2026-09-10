@@ -17,7 +17,7 @@ const items={water:'水',apple:'蘋果',leaf:'菜葉',sleep:'枕頭',umbrella:'�
 const char=(name,cls='companion')=>`<img class="character ${cls}" src="img/chars/${name}.png" alt="${name.startsWith('xiaolian')?'小蓮':name.startsWith('xiaozhi')?'小志':'小龍'}">`;
 export function mountGame(root,zone,state,save,finish,lifecycle={}){
  if(['mandarin','computing','math','general','humanities','music','art','science','english','pe'].includes(zone.id)){
-  const prepared=prepareGameState({game:state,complete:false},2);
+  const prepared=prepareGameState({game:state,complete:false},zone.id==='math'?3:2);
   if(prepared.state!==state){for(const key of Object.keys(state))delete state[key];Object.assign(state,prepared.state);save();}
   const mount={mandarin:mountMandarin,computing:mountComputing,math:mountMath,general:mountGeneral,humanities:mountHumanities,music:mountMusic,art:mountArt,science:mountScience,english:(...args)=>mountMotion(...args,'english'),pe:(...args)=>mountMotion(...args,'pe')}[zone.id];
   const cleanup=mount(root,state,save,finish,lifecycle);

@@ -18,7 +18,7 @@
     {
       "id": "friend-longneck",
       "file": "hub/img/games/math/friend-longneck.png",
-      "status": "generated-and-integrated",
+      "status": "retained-not-used-in-current-math",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
       "prompt": "Style reference: original dino-baby, thick black outlines, cream/green/gold, pink cheeks, flat preschool 2D. Distinct friendly baby golden longneck, curved tall neck and green back markings. Full body, no props, no text, no scenery, solid magenta production matte. Preserve the main baby as a separate character.",
@@ -29,7 +29,7 @@
     {
       "id": "friend-triceratops",
       "file": "hub/img/games/math/friend-triceratops.png",
-      "status": "generated-and-integrated",
+      "status": "retained-not-used-in-current-math",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
       "prompt": "Style reference: original dino-baby, thick black outlines, cream/green/gold, pink cheeks, flat preschool 2D. Distinct friendly baby green triceratops, rounded head shield with gold edge and three blunt cream horns. Full body, no props, no text, no scenery, solid magenta production matte. Preserve the main baby as a separate character.",
@@ -51,19 +51,20 @@
   ],
   "vectorAssets": [
     {
-      "id": "leaf",
+      "id": "apple",
       "status": "implemented",
-      "implementation": "Runtime leaf icon from shared/icons.js used by hub/modules/math.js; no raster"
+      "implementation": "Original SVG in shared/icons.js; one-piece food picker and quantity order display in hub/modules/math.js"
     },
     {
-      "id": "fruit",
+      "id": "banana",
       "status": "implemented",
-      "implementation": "Runtime apple/fruit icon from shared/icons.js used by hub/modules/math.js; no raster"
+      "implementation": "Original SVG in shared/icons.js; one-piece food picker and quantity order display in hub/modules/math.js"
     },
     {
-      "id": "plate",
+      "id": "strawberry",
       "status": "implemented",
-      "implementation": "Runtime feeding plate markup and CSS in hub/modules/math.js and shared/style.css; no raster"
+      "implementation": "Original SVG in shared/icons.js; one-piece food picker and quantity order display in hub/modules/math.js"
     }
-  ]
+  ],
+  "update": "2026-09-10: user requested three-fruit recognition and separate quantity orders; one baby dinosaur. Existing friend sprites and plate retired from this game, retained as historical assets."
 }

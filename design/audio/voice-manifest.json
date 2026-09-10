@@ -37,13 +37,13 @@
     {
       "id": "yue/intro/math",
       "locale": "yue",
-      "text": "數一數，每隻恐龍分一份食物，唔好漏低朋友。",
+      "text": "認識蘋果、香蕉同士多啤梨。睇小龍嘅餐單，數清楚每種份量，逐件餵。",
       "file": "hub/audio/yue/intro/math.wav",
       "status": "generated-awaiting-review",
       "teacherReviewed": false,
-      "seconds": 3.92,
+      "seconds": 6.32,
       "sampleRate": 48000,
-      "sha256": "299627baca5db4777edacf77c1688cd835fa03ab2c6d4bf523d39a8307debbcc"
+      "sha256": "1c0b9d7aae8fdd0aac5f99c7c760116faf656f4d9eba76a879aaa4481c930dcd"
     },
     {
       "id": "yue/intro/general",
@@ -371,7 +371,7 @@
       "file": "hub/audio/yue/actions/hands.wav",
       "status": "generated-awaiting-review",
       "teacherReviewed": false,
-      "seconds": 2.0,
+      "seconds": 2,
       "sampleRate": 48000,
       "sha256": "63671b4d71259b4e1bb335f724cbfe0bb5205046407438dbd869940d89a6f710"
     },
@@ -382,7 +382,7 @@
       "file": "hub/audio/yue/actions/freeze.wav",
       "status": "generated-awaiting-review",
       "teacherReviewed": false,
-      "seconds": 2.0,
+      "seconds": 2,
       "sampleRate": 48000,
       "sha256": "455baf419b1da4861471e24d17c0866cb2a32311df737942099076fb61d1b884"
     },
@@ -429,6 +429,72 @@
       "seconds": 2.72,
       "sampleRate": 48000,
       "sha256": "a1abfbebc209fe91f313bb04975fd981d9092579735545a72895c982618f4f06"
+    },
+    {
+      "id": "yue/math/apple",
+      "locale": "yue",
+      "text": "搵一搵，邊個係蘋果？",
+      "file": "hub/audio/yue/math/apple.wav",
+      "status": "generated-awaiting-review",
+      "teacherReviewed": false,
+      "seconds": 2.24,
+      "sampleRate": 48000,
+      "sha256": "2c0b852eee481ec49f0a53f72d3558158c28b99bc6ce93267c1f7cd3961a02cf"
+    },
+    {
+      "id": "yue/math/banana",
+      "locale": "yue",
+      "text": "搵一搵，邊個係香蕉？",
+      "file": "hub/audio/yue/math/banana.wav",
+      "status": "generated-awaiting-review",
+      "teacherReviewed": false,
+      "seconds": 2.0,
+      "sampleRate": 48000,
+      "sha256": "c2feeda7acfa70381e1197d0400d2e9cf1cdb8143305b1014af61ecd675ddf27"
+    },
+    {
+      "id": "yue/math/strawberry",
+      "locale": "yue",
+      "text": "搵一搵，邊個係士多啤梨？",
+      "file": "hub/audio/yue/math/strawberry.wav",
+      "status": "generated-awaiting-review",
+      "teacherReviewed": false,
+      "seconds": 2.8,
+      "sampleRate": 48000,
+      "sha256": "58779c3d0925d27a97c26592d3a13bcf733a319457bc967c10efcb91dd2eb740"
+    },
+    {
+      "id": "yue/math/order-0",
+      "locale": "yue",
+      "text": "我想食一個蘋果、一條香蕉，同一粒士多啤梨。",
+      "file": "hub/audio/yue/math/order-0.wav",
+      "status": "generated-awaiting-review",
+      "teacherReviewed": false,
+      "seconds": 4.48,
+      "sampleRate": 48000,
+      "sha256": "868b85311ce7195a1b41591d258e23d4628a963f06d565549352d2683eadb4d0"
+    },
+    {
+      "id": "yue/math/order-1",
+      "locale": "yue",
+      "text": "我想食兩個蘋果、一條香蕉，同三粒士多啤梨。",
+      "file": "hub/audio/yue/math/order-1.wav",
+      "status": "generated-awaiting-review",
+      "teacherReviewed": false,
+      "seconds": 5.36,
+      "sampleRate": 48000,
+      "sha256": "5582102a20fd3db780c271ff666d38a15b03356f243302dd72e6b70fdd28d037"
+    },
+    {
+      "id": "yue/math/order-2",
+      "locale": "yue",
+      "text": "我想食三個蘋果、兩條香蕉，同一粒士多啤梨。",
+      "file": "hub/audio/yue/math/order-2.wav",
+      "status": "generated-awaiting-review",
+      "teacherReviewed": false,
+      "seconds": 4.8,
+      "sampleRate": 48000,
+      "sha256": "70084a385999b0e9f56dd56857f9959fe100a12cdc23249d691f60d68ba33a6a"
     }
   ]
 }

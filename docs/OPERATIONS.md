@@ -4,7 +4,7 @@
 
 10 部 iPad 充電、橫向放穩，用正常 Safari 分頁開 `BASE/hub/`；大電視電腦開 `BASE/board/`。先經 `/setup/` 設定連線及離線下載，再測相機、喇叭、斷 Wi-Fi 重開、恢復同步。
 
-正式預覽網址為 [iPad 遊戲](https://chilinbpscth.github.io/dino-island-open-day-2026/hub/)、[電視榜](https://chilinbpscth.github.io/dino-island-open-day-2026/board/) 及 [設備設定](https://chilinbpscth.github.io/dino-island-open-day-2026/setup/)。老師先用[語音試聽頁](https://chilinbpscth.github.io/dino-island-open-day-2026/setup/audio-review.html)核對 39 段合成讀音；有錯請記低段落編號及建議讀法。讀音尚未經教師驗收。
+正式預覽網址為 [iPad 遊戲](https://chilinbpscth.github.io/dino-island-open-day-2026/hub/)、[電視榜](https://chilinbpscth.github.io/dino-island-open-day-2026/board/) 及 [設備設定](https://chilinbpscth.github.io/dino-island-open-day-2026/setup/)。老師先用[語音試聽頁](https://chilinbpscth.github.io/dino-island-open-day-2026/setup/audio-review.html)核對 45 段合成讀音；有錯請記低段落編號及建議讀法。讀音尚未經教師驗收。
 
 現況仍是預覽版：十連線上榜／上傳未達 10 秒目標；現場 iPad、家長手機及電視仍須驗收。未完成以上檢查，唔應當成開場準備已通過。
 

@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-10T03:39:27.961Z",
+  "testedAt": "2026-09-10T10:37:02.732Z",
   "environment": "Chromium actual WAV decode/playback, virtual microphone; not pronunciation review or physical iPad",
   "decoded": [
     {
@@ -16,7 +16,7 @@
     },
     {
       "id": "yue/intro/math",
-      "seconds": 3.92
+      "seconds": 6.32
     },
     {
       "id": "yue/intro/general",
@@ -157,6 +157,30 @@
     {
       "id": "yue/common/welcome",
       "seconds": 2.72
+    },
+    {
+      "id": "yue/math/apple",
+      "seconds": 2.24
+    },
+    {
+      "id": "yue/math/banana",
+      "seconds": 2
+    },
+    {
+      "id": "yue/math/strawberry",
+      "seconds": 2.8
+    },
+    {
+      "id": "yue/math/order-0",
+      "seconds": 4.48
+    },
+    {
+      "id": "yue/math/order-1",
+      "seconds": 5.36
+    },
+    {
+      "id": "yue/math/order-2",
+      "seconds": 4.8
     }
   ],
   "passed": [

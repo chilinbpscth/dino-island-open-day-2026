@@ -74,7 +74,6 @@
 .journey-caption{position:absolute;bottom:8px;left:3%;right:3%;padding:8px 12px;text-align:center;border-radius:18px;background:#f6f3ecef;color:#203b2e;font-size:19px;font-weight:700}
 .journey-prop{position:absolute;display:block;pointer-events:none}
 .journey-prop .icon{width:100%;height:100%}
-.journey-prop.prop-water{width:40%;height:35%;left:35%;top:39%}
 .journey-prop.prop-hat{width:82%;height:38%;left:2%;top:-4%}
 @keyframes journey-arrive{from{transform:translateX(35%);opacity:.5}to{transform:none;opacity:1}}
 @keyframes journey-rest{from{opacity:.5;transform:translateY(8px)}to{opacity:1;transform:none}}

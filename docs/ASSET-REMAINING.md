@@ -1,6 +1,6 @@
 # 尚欠遊戲素材
 
-來源：`Dino Island｜11 科恐龍遊戲 Game Module Planning.md`。已按 `game-update-v2` 的 `hub/modules/` 核對。以下 25 項檔案均不存在，manifest 仍保留未完成狀態。
+來源：`Dino Island｜11 科恐龍遊戲 Game Module Planning.md`。已按 `game-update-v2` 的 `hub/modules/` 核對。以下 23 項檔案均不存在，manifest 仍保留未完成狀態。
 
 起床小龍最初造型不一致的圖已撤下。2026-09-10 用戶批准程式去背修邊後，改用參考原定角色的新動作稿，處理成 1024×1024 真透明 PNG，已核對奶油底合成並接入常識站。此批准同樣適用後續已核對造型的角色去背；下表的「待批准」屬早期記錄，現可進行處理。
 
@@ -23,8 +23,6 @@
 | mandarin | `games/mandarin/dino-thanks.png` | `chars/dino-baby.png` | 多謝 | 製作真透明角色圖 |
 | mandarin | `games/mandarin/dino-goodbye.png` | `chars/dino-baby.png` | 再見 | 製作真透明角色圖 |
 | mandarin | `games/mandarin/dino-listening.png` | `chars/dino-baby.png` | 聆聽 | 製作真透明角色圖 |
-| math | `games/math/friend-longneck.png` | `chars/dino-baby.png` | 長頸龍朋友 | 製作真透明角色圖 |
-| math | `games/math/friend-triceratops.png` | `chars/dino-baby.png` | 三角龍朋友 | 製作真透明角色圖 |
 | math | `games/math/dino-hungry.png` | `chars/dino-baby.png` | 小龍肚餓 | 製作真透明角色圖 |
 | music | `games/music/xiaolian-bell.png` | `chars/xiaolian-clap.png` + inline bell | 小蓮搖鈴 | 製作真透明角色圖 |
 | music | `games/music/xiaozhi-percussion.png` | `chars/xiaozhi-highfive.png` + inline clap | 小志拍手 | 製作真透明角色圖 |

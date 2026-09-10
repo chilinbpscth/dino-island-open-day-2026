@@ -9,6 +9,8 @@ try{
  await page.goto('http://127.0.0.1:4173/hub/');
  await page.locator('#nickname').fill('觸控測試');await page.getByRole('button',{name:'出發去島上'}).click();
  await page.goto('http://127.0.0.1:4173/hub/#/play/math');await page.locator('[data-food="0"]').waitFor();
+ await expect(page.locator('[data-dino="0"] img')).toHaveAttribute('src','img/games/math/dino-hungry.png');
+ await page.locator('[data-dino="0"] img').evaluate(i=>i.decode());
  const touch=await context.newCDPSession(page);
  async function drag(food,dino,cancel=false){
   const from=page.locator(`[data-food="${food}"]`),to=page.locator(`[data-dino="${dino}"]`);
@@ -22,7 +24,7 @@ try{
  await drag(0,0,true);
  await expect(page.locator('.feeding-count')).toHaveText('0／1 隻食飽啦');
  await expect(page.locator('.drag-ghost')).toHaveCount(0);
- await drag(0,0);await expect(page.locator('.feeding-count')).toHaveText('1／1 隻食飽啦');
+ await drag(0,0);await expect(page.locator('.feeding-count')).toHaveText('1／1 隻食飽啦');await expect(page.locator('[data-dino="0"] img')).toHaveAttribute('src','img/chars/dino-baby-eat.png');
  await page.locator('#feeding-next').click();
  await drag(0,0);
  await drag(1,0);await drag(1,0);await drag(1,0);

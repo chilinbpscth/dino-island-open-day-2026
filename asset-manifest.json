@@ -1,5 +1,5 @@
 {
-  "version": "6ae1ad54c3c6",
+  "version": "c7c788d26144",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -83,12 +83,15 @@
     "hub/img/games/english/dino-squat.png",
     "hub/img/games/general/bedtime.png",
     "hub/img/games/general/daytime.png",
+    "hub/img/games/general/dino-playing.png",
     "hub/img/games/general/dino-waking.png",
+    "hub/img/games/general/dino-washing.png",
     "hub/img/games/general/morning.png",
     "hub/img/games/humanities/river-centre.png",
     "hub/img/games/humanities/safe-forest.png",
     "hub/img/games/humanities/volcano-edge.png",
     "hub/img/games/mandarin/village.png",
+    "hub/img/games/math/dino-hungry.png",
     "hub/img/games/math/feeding-garden.png",
     "hub/img/games/math/friend-longneck.png",
     "hub/img/games/math/friend-triceratops.png",

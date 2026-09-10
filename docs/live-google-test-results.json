@@ -1,0 +1,19 @@
+{
+  "testedOn": "2026-09-10",
+  "environment": "Chrome ITSUPPORT, localhost:4173, real deployed Apps Script via browser UI",
+  "readBoard": {
+    "status": "intermittent",
+    "successfulResponse": {"serverTime":1789011924639,"exploring":0,"players":[],"others":0},
+    "subsequentResult": "Bridge initialization timed out before RPC acknowledgement"
+  },
+  "savedDeviceSetup": "Existing school device credential copied through browser UI into the local teacher setup; no credential included in this report or repository",
+  "writeAcceptance": {
+    "status": "not-verified",
+    "attemptId": "live-8aed39e3-8cc1-422a-adf1-1ee2a63a9ebe",
+    "displayName": "測試4970",
+    "resultCount": 0,
+    "error": "連線暫時未完成",
+    "sheetObservation": "Players A2 remained empty after the failed attempt; no test row was created"
+  },
+  "notTested": ["live score validation", "photo upload", "anonymous phone download", "expiry cleanup", "ten-device load"]
+}

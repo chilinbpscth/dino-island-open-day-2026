@@ -4,23 +4,25 @@
 <title>Google 驗收準備</title><link rel="stylesheet" href="../shared/style.css">
 <main class="setup">
  <p class="eyebrow">老師使用 · 本機驗收準備</p><h1>Google 後台驗收</h1>
- <p>網址及裝置憑證只存在本頁記憶體。本頁不自動清理、不上傳相片。真實 Google 尚未測試。</p>
+ <p>本頁輸入的網址及裝置憑證只存在本頁記憶體；亦可使用老師設備頁已儲存的設定。本頁不自動清理、不上傳相片。</p>
  <label for="url">Apps Script 正式部署網址</label><input id="url" type="url" autocomplete="off" placeholder="https://script.google.com/macros/s/…/exec">
  <label for="token">裝置憑證（建立測試紀錄時需要）</label><input id="token" type="password" autocomplete="off">
- <div class="actions"><button id="board">讀榜</button><button id="run" class="primary">建立測試紀錄並驗收</button></div>
+ <div class="actions"><button id="board">讀榜</button><button id="run" class="primary">建立測試紀錄並驗收</button><button id="saved">使用已設定裝置建立測試紀錄</button></div>
  <p id="status" class="notice" role="status"></p><pre id="result" aria-live="polite" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
  <p>驗收會建立一條「測試xxxx」紀錄。完成後由老師按下方顯示的參加者 ID 在 Sheets 移除該條測試紀錄；本頁不會自動刪除。</p>
 </main>
 <script type="module">
  import {LIVE_URL_RE,createRpc,runAcceptance} from './live-google.js';
+ import {networkSettings} from '../shared/network.js';
  const $=s=>document.querySelector(s),url=$('#url'),token=$('#token'),status=$('#status'),out=$('#result');
- const buttons=[$('#board'),$('#run')],show=x=>out.textContent=JSON.stringify(x,null,2);
- async function run(write){
+ const buttons=[$('#board'),$('#run'),$('#saved')],show=x=>out.textContent=JSON.stringify(x,null,2);
+ async function run(write,useSaved=false){
   buttons.forEach(b=>b.disabled=true);let rpc;
   try{
-   if(!LIVE_URL_RE.test(url.value.trim()))throw Error('請填正式 /exec 部署網址。');
-   if(write&&!token.value.trim())throw Error('請輸入裝置憑證。');
-   rpc=createRpc(url.value.trim(),write?token.value.trim():'');
+   const settings=useSaved?networkSettings():{appScriptUrl:url.value.trim(),deviceToken:token.value.trim()};
+   if(!LIVE_URL_RE.test(settings.appScriptUrl))throw Error('請填正式 /exec 部署網址。');
+   if(write&&!settings.deviceToken)throw Error(useSaved?'本機未設定裝置憑證。':'請輸入裝置憑證。');
+   rpc=createRpc(settings.appScriptUrl,write?settings.deviceToken:'');
    status.textContent=write?'建立測試紀錄並驗收中…':'讀榜中…';
    if(!write){show(await rpc('getBoard'));status.textContent='已收到榜資料。';return;}
    const r=await runAcceptance(rpc,show);show(r);
@@ -29,5 +31,6 @@
   finally{rpc?.destroy();buttons.forEach(b=>b.disabled=false);}
  }
  $('#board').onclick=()=>run(false);$('#run').onclick=()=>run(true);
+ $('#saved').onclick=()=>run(true,true);
 </script>
 </html>

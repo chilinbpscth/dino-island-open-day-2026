@@ -1,5 +1,5 @@
 {
-  "version": "8998b34c2e8b",
+  "version": "7a6312f5a013",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -73,6 +73,7 @@
     "hub/img/games/chinese/volcano.png",
     "hub/img/games/computing/coding-garden.png",
     "hub/img/games/computing/dino-robot.png",
+    "hub/img/games/english/dino-jump.png",
     "hub/img/games/general/bedtime.png",
     "hub/img/games/general/daytime.png",
     "hub/img/games/general/dino-waking.png",

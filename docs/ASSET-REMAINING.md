@@ -1,6 +1,6 @@
 # 尚欠遊戲素材
 
-來源：`Dino Island｜11 科恐龍遊戲 Game Module Planning.md`。已按 `game-update-v2` 的 `hub/modules/` 核對。以下 26 項檔案均不存在，manifest 仍保留未完成狀態。
+來源：`Dino Island｜11 科恐龍遊戲 Game Module Planning.md`。已按 `game-update-v2` 的 `hub/modules/` 核對。以下 25 項檔案均不存在，manifest 仍保留未完成狀態。
 
 起床小龍最初造型不一致的圖已撤下。2026-09-10 用戶批准程式去背修邊後，改用參考原定角色的新動作稿，處理成 1024×1024 真透明 PNG，已核對奶油底合成並接入常識站。此批准同樣適用後續已核對造型的角色去背；下表的「待批准」屬早期記錄，現可進行處理。
 
@@ -10,7 +10,6 @@
 | art | `games/art/xiaozhi-surprised.png` | `chars/xiaozhi-welcome.png` | 小志驚訝 | 製作真透明角色圖 |
 | chinese | `games/chinese/dino-walking.png` | `chars/dino-baby.png` | 小龍行路 | 製作真透明角色圖 |
 | chinese | `games/chinese/dino-drinking.png` | `chars/dino-baby.png` | 小龍飲水 | 製作真透明角色圖 |
-| english | `games/english/dino-jump.png` | `chars/dino-baby.png` | 跳 | 製作真透明角色圖 |
 | english | `games/english/dino-squat.png` | `chars/dino-baby.png` | 蹲 | 製作真透明角色圖 |
 | english | `games/english/dino-hands-up.png` | `chars/dino-baby.png` | 舉手 | 製作真透明角色圖 |
 | english | `games/english/dino-left.png` | `chars/dino-baby.png` | 向左 | 製作真透明角色圖 |
@@ -36,4 +35,4 @@
 `pe.json` 的 `friendly-trex` 已有 `kind: "scene"`，正確指向 `games/pe/forest-visitor.png`，不是欠缺的角色 sprite。
 
 
-已核對並重用：英文站直／停定使用現有 dino-baby.png；人文時光機使用原創 SVG。起床、機械小龍及打鼓小龍已完成獲批去背並接入。跳躍草稿尚待處理。
+已核對並重用：英文站直／停定使用現有 dino-baby.png；人文時光機使用原創 SVG。起床、機械小龍、打鼓及跳躍小龍已完成獲批去背並接入。

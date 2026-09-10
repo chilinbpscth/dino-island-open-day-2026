@@ -7,6 +7,7 @@ root=Path(__file__).resolve().parents[1]
 for draft,output,seed in [
  ('dino-drum-v1.png','music/dino-drum.png',(600,600)),
  ('robot-v2.png','computing/dino-robot.png',(550,600)),
+ ('dino-jump-v1.png','english/dino-jump.png',(550,600)),
 ]:
  image=Image.open(root/'design/game-assets/drafts'/draft).convert('RGB')
  p=np.asarray(image).astype('int16')
@@ -23,7 +24,7 @@ for draft,output,seed in [
  alpha=alpha.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(.4))
  rgba=image.convert('RGBA');rgba.putalpha(alpha);rgba.thumbnail((940,940),Image.Resampling.LANCZOS)
  canvas=Image.new('RGBA',(1024,1024));canvas.alpha_composite(rgba,((1024-rgba.width)//2,(1024-rgba.height)//2))
- target=root/'hub/img/games'/output;canvas.save(target,optimize=True)
+ target=root/'hub/img/games'/output;target.parent.mkdir(parents=True,exist_ok=True);canvas.save(target,optimize=True)
  cream=Image.new('RGBA',canvas.size,'#F6F3EC');cream.alpha_composite(canvas)
  cream.convert('RGB').save(root/'design/game-assets/drafts'/f'{target.stem}-cream-review.png')
  print(target)

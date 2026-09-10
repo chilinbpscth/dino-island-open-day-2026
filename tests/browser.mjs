@@ -19,8 +19,8 @@ async function finished(id){await page.locator('#return-map').waitFor();const p=
 try{
  await page.goto(base+'/hub/');await page.locator('#nickname').fill('小晴');await page.getByRole('button',{name:'出發去島上'}).click();await page.locator('.stone').first().waitFor();assert.equal(await page.locator('.stone').count(),11);await shot('journey-map');
  await page.locator('[data-zone="math"]').click();assert.equal(await page.locator('.park-guides.walking').count(),1);await page.clock.runFor(3500);await page.locator('[data-dino]').first().waitFor();pass('Map guide walks to a freely chosen park');
- for(const fruit of ['apple','banana','strawberry'])await page.locator(`[data-food="${fruit}"]`).click();
- for(const order of [[1,1,1],[2,1,3],[3,2,1]]){for(const [i,fruit] of ['apple','banana','strawberry'].entries())for(let n=0;n<order[i];n++){await page.locator(`[data-food="${fruit}"]`).click();await page.locator('[data-dino]').click();}await page.locator('#feeding-next').click();}await finished('math');
+ for(const fruit of ['apple','banana','strawberry'])await page.locator(`[data-food="${fruit}"]:not(:disabled)`).first().click();
+ for(const order of [[1,1,1],[2,1,3],[3,2,1]]){for(const [i,fruit] of ['apple','banana','strawberry'].entries())for(let n=0;n<order[i];n++){await page.locator(`[data-food="${fruit}"]:not(:disabled)`).first().click();await page.locator('[data-dino]').click();}await page.locator('#feeding-next').click();}await finished('math');
  await enter('general');for(const round of [['breakfast'],['bath','sleep'],['morning','day','night']]){for(const id of round)await page.locator(`[data-routine="${id}"]`).click();await page.locator('#routine-next').click();}await finished('general');
  await enter('humanities');await page.locator('#expedition-start').click();for(const id of ['forest','bottle','forest']){await page.locator(`[data-expedition="${id}"]`).click();await page.locator('#expedition-next').click();}await finished('humanities');
  await enter('mandarin');for(let i=0;i<6;i++){await page.locator('#greeting-family').click();await page.locator('#greeting-next').click();}await finished('mandarin');

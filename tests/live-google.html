@@ -50,6 +50,7 @@
    $('#certificate-request').value=requestId;
    const key=JSON.stringify([s.appScriptUrl,playerId,version,requestId]);
    if(!pendingCertificate||pendingCertificate.key!==key)pendingCertificate={key,request:{playerId,version,requestId,image:testCertificate()}};
+   pendingCertificate.request.recover=!!existingId;
    $('#certificate-link').hidden=true;$('#certificate-link').removeAttribute('href');
    show({requestId:pendingCertificate.request.requestId,note:'同頁重試沿用此 ID；請勿重新載入後重複上傳。'});
    upload=createRpc(s.appScriptUrl,s.deviceToken);download=createRpc(s.appScriptUrl);

@@ -50,18 +50,24 @@
     {
       "id": "dino-left",
       "file": "hub/img/games/english/dino-left.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino left. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Reference is locked original Dino Island baby. SAME character demonstrates a side-step toward the LEFT EDGE OF IMAGE: full body front three-quarter view, head turned slightly to viewer's left, one foot extended clearly to image-left taking a sideways step, little leftward arm extended to guide movement, other arm balances, smiling. Do not walk right. Preserve huge rounded emerald head, large highlighted black-white eyes, pink circle cheeks, cream muzzle and plain belly, three rounded golden head lobes, tiny plump body, short tail with gold bumps, thick black lines, soft flat 2D shading. No species redesign, no props, text, arrows, scenery, cast shadow or 3D. Full body centered, 8 percent margins, approx1024 square. Perfectly solid pure magenta #FF00FF removable production matte, no magenta in character.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/english-dino-left-matte.png",
+      "review": "Original baby identity and screen direction checked. Approved matte removal; 1024px RGBA and cream composite inspected. Runtime action/celebration connected."
     },
     {
       "id": "dino-right",
       "file": "hub/img/games/english/dino-right.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino right. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Reference is locked original Dino Island baby. SAME character demonstrates side-step toward RIGHT EDGE OF IMAGE: front three-quarter full-body view, head turned slightly to viewer's right, one foot extended to image-right taking sideways step, rightward arm extends gently as direction guide, other balances, smile. Do not walk left. Keep exact huge rounded emerald head, enormous black-white highlighted eyes, pink circle cheeks, cream muzzle and plain belly, three rounded golden crest lobes, tiny plump body and short gold-bumped tail, blunt cream claws, thick smooth black outlines, soft flat 2D shading. Full body centered, 8 percent margins, approx1024 square. No props, text, arrows, scenery, floor, cast shadows, scales or 3D. Solid pure magenta #FF00FF production matte for approved removal; no magenta on character.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/english-dino-right-matte.png",
+      "review": "Original baby identity and screen direction checked. Approved matte removal; 1024px RGBA and cream composite inspected. Runtime action/celebration connected."
     },
     {
       "id": "dino-freeze",
@@ -75,10 +81,13 @@
     {
       "id": "dino-celebrate",
       "file": "hub/img/games/english/dino-celebrate.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino celebrate. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Reference is locked original Dino Island baby. SAME character in happy completion celebration: facing front, big open happy smile with small pink tongue and NO teeth, both little hands CLAPPING together in front of cream chest, eyes joyful crescents, both feet planted, tail perked. Keep exact enormous rounded emerald head, round pink cheeks, cream muzzle and plain cream belly, three gold rounded crest lobes, tiny plump body, short tail with gold bumps, blunt cream claws, thick black outlines and restrained flat 2D shading. This is happiness after being cared for. No trophy, text, letters, sparkles, confetti, additional figures, scenery, cast shadow or 3D. Full body centered, square approx1024, 8 percent margins. Perfectly solid pure magenta #FF00FF production matte for approved removal; no magenta on character.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/english-dino-celebrate-matte.png",
+      "review": "Original baby identity and screen direction checked. Approved matte removal; 1024px RGBA and cream composite inspected. Runtime action/celebration connected."
     }
   ],
   "vectorAssets": [

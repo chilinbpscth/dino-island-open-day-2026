@@ -64,3 +64,15 @@ test('Spreadsheet writes are committed before releasing the shared lock',()=>{
  c.SpreadsheetApp.flush=()=>{throw Error('flush failed');};c.LockService.getScriptLock=()=>({tryLock(){held=true;return true;},releaseLock(){held=false;}});
  assert.throws(()=>c.lock_(()=>{}),/flush failed/);assert.equal(held,false,'release lock even when committing fails');
 });
+test('An acknowledged certificate retry can recover its original link while the write lock is busy',()=>{
+ const {c,tables,files}=env(),zones=Object.fromEntries(['chinese','english','mandarin','math','general','science'].map(id=>[id,1000]));
+ c.savePlayer_({deviceToken:token,player:player('player-recover',1,zones)});
+ const data={deviceToken:token,playerId:'player-recover',version:1,requestId:'certificate-recover',image:'data:image/jpeg;base64,/9j/AA=='};
+ const original=c.uploadCertificate_(data);data.recover=true;
+ c.LockService.getScriptLock=()=>({tryLock(){throw Error('must not acquire write lock for a ready receipt');}});
+ assert.equal(c.uploadCertificate_(data).url,original.url);assert.equal(files.size,1);
+ tables.Certificates[1][8]='different-device';assert.throws(()=>c.uploadCertificate_(data),/紀錄不符/);
+ tables.Certificates[1][8]=c.hash_(token);tables.Certificates[1][6]=Date.now()-1;
+ assert.throws(()=>c.uploadCertificate_(data),/已到期/);
+ tables.Certificates[1][7]='deleted';assert.throws(()=>c.uploadCertificate_(data),/已到期/);
+});

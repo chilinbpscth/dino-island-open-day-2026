@@ -50,8 +50,15 @@ try{
  await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(8);
  assert.equal(await page.evaluate(()=>window.calls[7].method),'uploadCertificate');
  assert.equal(await page.evaluate(()=>window.calls[7].payload.requestId),'certificate-sync-test');
+ assert.equal(await page.evaluate(()=>window.calls[7].payload.recover),false);
  await page.evaluate(()=>window.responses[7].reject(Error('測試上傳中斷')));await expect(page.locator('#upload')).toBeEnabled();
  assert.equal(await page.evaluate(async()=>!!await (await import('/shared/storage.js')).photoStore('get',window.certPlayer.id)),true);
+ await page.evaluate(async()=>{window.cert.cleanup();const {mountCertificate}=await import('/hub/certificate.js');window.cert=mountCertificate(document.querySelector('main'),window.certPlayer,()=>{});});
+ await expect(page.locator('#cert-status')).toContainText('待傳證書');await page.locator('#upload').click();
+ await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(9);
+ assert.equal(await page.evaluate(()=>window.calls[8].payload.recover),true,'retry survives remount and can recover an existing receipt');
+ assert.equal(await page.evaluate(()=>window.calls[8].payload.requestId),'certificate-sync-test');
+ await page.evaluate(()=>window.responses[8].reject(Error('測試結束')));await expect(page.locator('#upload')).toBeEnabled();
  await page.evaluate(()=>window.cert.cleanup());
  console.log('PASS sync queue: concurrent callers wait, latest version drains, invalid acknowledgements and busy errors retain progress, retry succeeds, offline does not submit');
 }finally{await browser.close();}

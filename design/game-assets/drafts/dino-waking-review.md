@@ -10,4 +10,4 @@
 
 首輪來源：`/Users/cthair/.codex/generated_images/01a07267-e66d-7c02-951c-16341dacbb5d/exec-8d84be19-1d35-4f3c-b07d-20ca0b063d06.png`。
 
-目前遊戲繼續用原定透明小龍。此圖僅為內部動作稿；程式去背仍待用戶明確批准，不能自行改用另一個產圖 API。
+2026-09-10 用戶明確批准程式去背修邊。已用 `scripts/prepare-waking-sprite.py` 處理此稿，保留角色像素、移除灰色背景及修整一像素邊緣，輸出 `hub/img/games/general/dino-waking.png`，RGBA、1024×1024。奶油底核對圖為 `dino-waking-cream-review.png`，已檢視並接入常識站。原始不透明草稿繼續保留，不覆寫原定站立小龍。

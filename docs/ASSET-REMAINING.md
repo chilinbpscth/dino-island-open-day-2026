@@ -1,8 +1,8 @@
 # 尚欠遊戲素材
 
-來源：`Dino Island｜11 科恐龍遊戲 Game Module Planning.md`。已按 `game-update-v2` 的 `hub/modules/` 核對。以下 29 項檔案均不存在，manifest 仍保留未完成狀態。
+來源：`Dino Island｜11 科恐龍遊戲 Game Module Planning.md`。已按 `game-update-v2` 的 `hub/modules/` 核對。以下 28 項檔案均不存在，manifest 仍保留未完成狀態。
 
-起床小龍曾誤接入一張造型不一致的透明圖，現已撤下並移至 `design/game-assets/drafts/dino-waking-identity-rejected.png` 留作核對。常識站暫用原定小龍；透明底合格不代表角色身份合格。
+起床小龍最初造型不一致的圖已撤下。2026-09-10 用戶批准程式去背修邊後，改用參考原定角色的新動作稿，處理成 1024×1024 真透明 PNG，已核對奶油底合成並接入常識站。此批准同樣適用後續已核對造型的角色去背；下表的「待批准」屬早期記錄，現可進行處理。
 
 | 科目 | 尚欠檔案（相對 hub/img/） | 現時暫代 | 所需動作／主體 | 下一步 |
 |---|---|---|---|---|
@@ -17,7 +17,6 @@
 | english | `games/english/dino-left.png` | `chars/dino-baby.png` | 向左 | 製作真透明角色圖 |
 | english | `games/english/dino-right.png` | `chars/dino-baby.png` | 向右 | 製作真透明角色圖 |
 | english | `games/english/dino-celebrate.png` | `chars/dino-baby.png` | 慶祝 | 製作真透明角色圖 |
-| general | `games/general/dino-waking.png` | `chars/dino-baby.png` | 起床 | 製作真透明角色圖 |
 | general | `games/general/dino-playing.png` | `chars/dino-baby.png` | 玩耍 | 製作真透明角色圖 |
 | general | `games/general/dino-washing.png` | `chars/dino-baby.png` | 洗澡 | 製作真透明角色圖 |
 | humanities | `games/humanities/xiaolian-explorer.png` | `chars/xiaolian-point.png` | 小蓮探險引導 | 製作真透明角色圖 |

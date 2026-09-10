@@ -35,11 +35,11 @@
     {
       "id": "dino-waking",
       "file": "hub/img/games/general/dino-waking.png",
-      "status": "pending",
+      "status": "generated-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
       "rejectedDraft": "design/game-assets/drafts/dino-waking-identity-rejected.png",
-      "review": "Rejected: transparent background passed, but long muzzle, light green body, pointed spikes and striped belly do not match the approved round emerald baby with pink cheeks and rounded golden crest. Runtime uses approved baby until a matching pose is ready.",
+      "review": "First generic draft rejected. Replacement references approved baby; user approved programmatic background removal on 2026-09-10. Matched draft processed with scripts/prepare-waking-sprite.py; RGBA 1024x1024, cream composite inspected. Integrated waking pose only; original palette and face pixels preserved.",
       "prompt": "Use the approved dino-baby.png as the identity reference. Preserve its round head, cream muzzle and belly, pink cheeks, rounded golden crest, emerald colour and short limbs. Change only the pose to a gentle waking stretch. Genuine transparent background, no ground shadow."
     },
     {

@@ -1,5 +1,5 @@
 {
-  "version": "3032701bd6f1",
+  "version": "5c8ae0cbb6a3",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -74,6 +74,7 @@
     "hub/img/games/computing/coding-garden.png",
     "hub/img/games/general/bedtime.png",
     "hub/img/games/general/daytime.png",
+    "hub/img/games/general/dino-waking.png",
     "hub/img/games/general/morning.png",
     "hub/img/games/humanities/river-centre.png",
     "hub/img/games/humanities/safe-forest.png",

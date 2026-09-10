@@ -17,7 +17,7 @@
 - `npm run test:offline`：預載後模擬離線重開、11 路由／素材、模型與語音、補傳佇列、普通證書及專案子路徑；老師設定頁亦會逐項核對實際快取，缺素材時不報完成。
 - 各科瀏覽器測試與截圖在 `tests/`、`docs/screenshots/`；中文教育局動畫筆數／次序／方向核對在 `docs/chinese-stroke-sources.json`。
 - 模型發布條款及來源在 `docs/pose-dependencies.json`；Google 官方模型卡明列 Apache 2.0，授權與出處已隨模型打包。
-- 本輪本機建置包含 156 項離線資源，版本 `e3eed9eacd83`；49 項單元測試、十科完整流程及離線流程通過。建置會清除輸出資料夾舊檔，避免撤下的錯誤圖留在部署套件。公開同步及證書程式已逐檔比對本機內容一致，發布版本以 GitHub Pages workflow 及線上 manifest 為準。
+- 遊戲版本 `e3eed9eacd83` 已通過 49 項單元測試、十科完整流程及離線流程。新增老師試聽頁後，建置包含 157 項離線資源，版本 `5a04b6e6ad2e`，離線流程再次通過；遊戲程式未改動。建置會清除輸出資料夾舊檔，避免撤下的錯誤圖留在部署套件。公開同步及證書程式已逐檔比對本機內容一致，發布版本以 GitHub Pages workflow 及線上 manifest 為準。
 - `node tests/sync-queue.mjs`：先重現同步重入提早返回，再確認並行呼叫等待最新成績、過舊回覆不清佇列、繁忙保留進度，以及證書等成績確認後先上傳。`node tests/network.mjs` 另驗證模擬跨來源回覆；以上唔代表真實 Google 負載達標。
 - 數學模擬觸控拖放／取消、地圖完成標籤及未同步文案、拍照合成失敗／重拍恢復均已新增瀏覽器測試。合成失敗不再沿用上一張普通證書；重拍可產生 1600×2000 JPEG。
 - 真實 Google 測試證書已上傳並取回，JPEG 完全一致；重用請求 ID 可取得同一份證書。全新桌面 Chromium 環境（起始零 cookies）亦已免登入顯示證書，按儲存成功下載 1600×2000 JPEG，檔案與顯示圖片逐位元組一致。詳見 [live-certificate-test-results.json](live-certificate-test-results.json) 及 [anonymous-certificate-test-results.json](anonymous-certificate-test-results.json)；仍未代表手機實機測試。
@@ -27,7 +27,7 @@
 ## 發布前仍需完成
 
 - 原缺漏角色清單已清空，見 [ASSET-REMAINING.md](ASSET-REMAINING.md)。已批准程式去背後的 1024px RGBA 成品在 `hub/img/games/`，原始稿及奶油底檢查圖保留在 `design/game-assets/drafts/`，不直接部署草稿。各科 manifest 保存最終提示詞及接入記錄。仍需依原更新文件完成逐項交付審查，不能單憑缺檔數為零宣告完成。
-- 教師核對 39 段讀音及中文教材字形；本機試聽頁為 `/design/audio/review.html`（未包含於公開部署）。合成聲檔已有，尚未教師批准。
+- 教師核對 39 段讀音及中文教材字形；[老師試聽頁](https://chilinbpscth.github.io/dino-island-open-day-2026/setup/audio-review.html) 已加入部署套件及設備頁連結。39 個 WAV 連結、專案子路徑及切換播放已用桌面瀏覽器核對；合成聲檔尚未教師批准，頁面不收集核對結果。
 - 真實 iPad 的全身動作辨識、觸控／橫直向、相機／咪權限及離線測試；家長手機下載、現場電視遠距可讀性、10 部裝置與 Google 同步／上傳負載。
 - Apps Script 第 6 版已部署，單站上限 240 秒。Chrome ITSUPPORT 已完成七項真實計時、鎖站、探索及排名檢查；測試參加者「測試2806」（ID 見 [live-google-test-results.json](live-google-test-results.json)）暫留供老師核對。最新十連線新批次只有 5／10 份證書完成核對，存在鎖等待及逾時；未達 10 秒目標。
 - 原證書已實測過期拒絕下載、排程刪檔，以及已刪除請求重試不能復用舊連結。乾淨未登入桌面環境已通過；仍須完成家長手機掃 QR／儲存、實機換人及負載驗收；另外 13 份測試證書及舊未引用測試檔案仍待確認清理。

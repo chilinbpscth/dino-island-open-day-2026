@@ -1,5 +1,5 @@
 {
-  "version": "e3eed9eacd83",
+  "version": "5a04b6e6ad2e",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -130,6 +130,7 @@
     "hub/modules/science.js",
     "hub/park-guides.js",
     "index.html",
+    "setup/audio-review.html",
     "setup/index.html",
     "shared/certificate-link.js",
     "shared/config.js",

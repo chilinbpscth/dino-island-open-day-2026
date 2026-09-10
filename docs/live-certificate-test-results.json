@@ -7,6 +7,8 @@
   "image": {"width": 1600, "height": 2000, "content": "Synthetic test certificate, no visitor photograph"},
   "verified": ["Upload returned a valid deployment certificate link", "Download request omitted device credentials", "Downloaded JPEG data exactly equalled uploaded data", "JPEG decoded to 1600 by 2000 pixels"],
   "unverified": ["Anonymous parent phone download page", "QR scanning", "Drive sharing permissions", "Expiry and scheduled deletion", "Actual photographed certificate composition", "10-device load and latency target"],
+  "downloadPage": {"browser": "Codex in-app browser, separate from Chrome ITSUPPORT", "result": "Actual certificate image rendered with save button and expiry 17/9/2026 13:23:33 HKT; no login prompt appeared during navigation", "limits": "Existing cookie state was not inspected; this is not a clean incognito or physical-phone verification. Save-to-device and QR scanning not yet tested."},
+  "retry": "Reused cert-test-ca69ab18-8c1f-47d1-a4b2-26a2ddc19660 in a fresh harness page; backend returned the same expiry and identical image. No new request ID was created.",
   "cleanup": "Test record retained for expiry cleanup. Do not delete only the certificate row and orphan its Drive file.",
   "evidence": "Visible result in tests/live-google.html after real upload and getCertificate calls; not a mocked test. Browser session remained signed in to Google, so this does not prove anonymous page access."
 }

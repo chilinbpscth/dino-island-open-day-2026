@@ -10,6 +10,8 @@
  <div class="actions"><button id="board">讀榜</button><button id="run" class="primary">建立測試紀錄並驗收</button><button id="saved">使用已設定裝置建立測試紀錄</button><button id="cert">驗收測試證書上傳／下載</button></div>
  <label for="player">已有六站以上嘅參加者 ID（只作證書測試）</label><input id="player" autocomplete="off" placeholder="live-…">
  <label for="version">該參加者版本號</label><input id="version" type="number" min="1" value="6">
+ <label for="certificate-request">重用測試證書請求 ID（首次測試留空）</label><input id="certificate-request" autocomplete="off" placeholder="cert-test-…">
+ <p><a id="certificate-link" hidden target="_blank" rel="noopener noreferrer">開啟測試證書領證頁</a></p>
  <p id="status" class="notice" role="status"></p><pre id="result" aria-live="polite" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
  <p>驗收會建立一條「測試xxxx」紀錄。完成後由老師按下方顯示的參加者 ID 在 Sheets 移除該條測試紀錄；本頁不會自動刪除。</p>
 </main>
@@ -42,12 +44,17 @@
    const s=networkSettings(),playerId=$('#player').value.trim(),version=Number($('#version').value);
    if(!LIVE_URL_RE.test(s.appScriptUrl)||!s.deviceToken)throw Error('本機未設定活動連線及裝置憑證。');
    if(!/^live-[0-9a-f-]{36}$/.test(playerId)||!Number.isSafeInteger(version)||version<1)throw Error('請填有效測試參加者 ID 及版本號。');
-   const key=JSON.stringify([s.appScriptUrl,playerId,version]);
-   if(!pendingCertificate||pendingCertificate.key!==key)pendingCertificate={key,request:{playerId,version,requestId:`cert-test-${crypto.randomUUID()}`,image:testCertificate()}};
+   const existingId=$('#certificate-request').value.trim();
+   if(existingId&&!/^cert-test-[0-9a-f-]{36}$/.test(existingId))throw Error('測試證書請求 ID 格式不正確。');
+   const requestId=existingId||`cert-test-${crypto.randomUUID()}`;
+   $('#certificate-request').value=requestId;
+   const key=JSON.stringify([s.appScriptUrl,playerId,version,requestId]);
+   if(!pendingCertificate||pendingCertificate.key!==key)pendingCertificate={key,request:{playerId,version,requestId,image:testCertificate()}};
+   $('#certificate-link').hidden=true;$('#certificate-link').removeAttribute('href');
    show({requestId:pendingCertificate.request.requestId,note:'同頁重試沿用此 ID；請勿重新載入後重複上傳。'});
    upload=createRpc(s.appScriptUrl,s.deviceToken);download=createRpc(s.appScriptUrl);
    status.textContent='上傳及核對測試圖片中…';
-   show(await verifyCertificate(upload,download,pendingCertificate.request,s.appScriptUrl));
+   show(await verifyCertificate(upload,download,pendingCertificate.request,s.appScriptUrl,link=>{$('#certificate-link').href=link;$('#certificate-link').hidden=false;}));
    status.textContent='圖片傳輸核對通過；手機下載、QR、權限及到期清理仍待實測。保留測試行供到期清理，勿只刪除資料行而遺留 Drive 檔案。';
   }catch(e){status.textContent=`未完成：${e.message}`;}
   finally{upload?.destroy();download?.destroy();buttons.forEach(b=>b.disabled=false);}

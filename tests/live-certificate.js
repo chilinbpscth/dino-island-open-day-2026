@@ -12,9 +12,10 @@ export function testCertificate(){
  return canvas.toDataURL('image/jpeg',0.88);
 }
 
-export async function verifyCertificate(upload,download,request,endpoint){
+export async function verifyCertificate(upload,download,request,endpoint,onLink=()=>{}){
  const result=await upload('uploadCertificate',request);
  const url=certificateLink(result,endpoint);
+ onLink(url);
  const received=await download('getCertificate',{token:new URL(url).searchParams.get('token')});
  if(received.image!==request.image)throw Error('下載圖片與上傳內容不一致');
  if(received.expiresAt!==result.expiresAt)throw Error('下載到期時間與上傳回覆不一致');

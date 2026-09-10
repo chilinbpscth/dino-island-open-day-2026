@@ -18,7 +18,6 @@
   "unverified": [
     "Anonymous parent phone download page",
     "QR scanning",
-    "Actual scheduled deletion of expired certificate",
     "Real-device photographed certificate composition",
     "10-device load and latency target"
   ],
@@ -34,8 +33,8 @@
   },
   "retry": "Reused cert-test-ca69ab18-8c1f-47d1-a4b2-26a2ddc19660 in a fresh harness page; backend returned the same expiry and identical image. No new request ID was created.",
   "cleanupSchedule": {
-    "evidence": "2026-09-10 around 16:28 HKT: Apps Script Triggers UI showed one cleanupExpired_ time-driven Head trigger, last run 15:46:58 HKT, error rate 0%. Private certificate folder still contained the single test JPEG after expiry rejection.",
-    "limit": "Await a subsequent actual scheduled execution, then verify Certificates!H2 and removal of the specific Drive file. No manual cleanup wrapper or new trigger added."
+    "evidence": "2026-09-10: Apps Script Triggers UI showed one cleanupExpired_ time-driven Head trigger, last run 16:46:58 HKT, error rate 0%. Certificates!H2 read back deleted without manual editing of that cell. Opening the exact original Drive file ID 1ZJHcdRNlUYM8Gq44uFWo-XFMHOD-dzlB in Chrome ITSUPPORT returned 很抱歉，您要求的檔案不存在。",
+    "limit": "One deliberately expired synthetic file verified. No manual cleanup wrapper or new trigger added; seven days of elapsed wall-clock time not tested."
   },
   "cleanup": "Existing synthetic certificate has been deliberately expired for scheduled cleanup verification. Keep its row to observe status deleted and avoid an orphan. Do not reuse this request ID for a new live certificate.",
   "evidence": "Visible result in tests/live-google.html after real upload and getCertificate calls; not a mocked test. Browser session remained signed in to Google, so this does not prove anonymous page access.",
@@ -53,7 +52,7 @@
       "Reloaded actual Apps Script certificate page: Error: 證書已到期或連結無效. No certificate image or save button appeared."
     ],
     "limits": "This forces a past expiry timestamp; it does not test waiting seven wall-clock days. An image already downloaded cannot be revoked.",
-    "cleanupPending": true
+    "cleanupPending": false
   },
   "deletedRequestProtection": {
     "deployedVersion": 4,

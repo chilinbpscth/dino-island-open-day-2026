@@ -8,9 +8,10 @@ var PLAYER_HEADERS_=['id','name','zonesCompleted','zoneIds','totalMs','updatedAt
 var CERT_HEADERS_=['id','playerId','version','fileId','tokenHash','createdAt','expiresAt','status','deviceHash'];
 function props_(){return PropertiesService.getScriptProperties();}
 function hash_(s){return Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256,String(s)).map(function(b){return ('0'+((b+256)%256).toString(16)).slice(-2);}).join('');}
-function sheet_(name){return SpreadsheetApp.openById(props_().getProperty('SPREADSHEET_ID')).getSheetByName(name);}
-function rows_(name){var s=sheet_(name);return s.getLastRow()<2?[]:s.getRange(2,1,s.getLastRow()-1,s.getLastColumn()).getValues();}
-function lock_(fn){var l=LockService.getScriptLock();if(!l.tryLock(5000))throw Error('更新繁忙，請稍後再試');try{return fn();}finally{l.releaseLock();}}
+var sheetHandles_={};
+function sheet_(name){if(!sheetHandles_[name])sheetHandles_[name]=SpreadsheetApp.openById(props_().getProperty('SPREADSHEET_ID')).getSheetByName(name);return sheetHandles_[name];}
+function rows_(name){var s=sheet_(name),last=s.getLastRow();return last<2?[]:s.getRange(2,1,last-1,name==='Players'?PLAYER_HEADERS_.length:CERT_HEADERS_.length).getValues();}
+function lock_(fn){var l=LockService.getScriptLock();if(!l.tryLock(5000))throw Error('更新繁忙，請稍後再試');try{return fn();}finally{try{SpreadsheetApp.flush();}finally{l.releaseLock();}}}
 function device_(token){if(typeof token!=='string'||token.length<24)throw Error('裝置未授權');var h=hash_(token),allowed=JSON.parse(props_().getProperty('DEVICE_HASHES')||'[]');if(allowed.indexOf(h)<0)throw Error('裝置未授權');return h;}
 function validId_(s){return typeof s==='string'&&/^[a-zA-Z0-9_-]{8,100}$/.test(s);}
 function validatePlayer_(p){if(!p||!validId_(p.id)||!Number.isSafeInteger(p.version)||p.version<1)throw Error('紀錄格式不正確');if(typeof p.name!=='string')throw Error('暱稱不正確');var name=p.name.normalize('NFC').trim();var count=typeof Intl!=='undefined'&&Intl.Segmenter?Array.from(new Intl.Segmenter('zh-HK',{granularity:'grapheme'}).segment(name)).length:Array.from(name).length;if(!name||count>8||/[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/.test(name))throw Error('暱稱須為一至八個字');if(!p.zones||typeof p.zones!=='object'||Array.isArray(p.zones))throw Error('站點格式不正確');var zones={};Object.keys(p.zones).forEach(function(id){var ms=p.zones[id];if(ZONE_IDS_.indexOf(id)<0||!Number.isSafeInteger(ms)||ms<0||ms>MAX_ZONE_MS_)throw Error('站點時間不正確');zones[id]=ms;});return {id:p.id,name:name,version:p.version,zones:zones};}

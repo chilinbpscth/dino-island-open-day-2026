@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-10",
+  "environment": "Chrome ITSUPPORT, one computer, ten independent Apps Script bridge connections using the saved device credential",
+  "batchId": "e4512bfb-b92c-472a-aa1f-fbaa253cb8d5",
+  "preparationAttempt": {
+    "startedAt": "2026-09-10T08:39:55.626Z",
+    "status": "failed",
+    "submitted": 10,
+    "accepted": 9,
+    "failedPlayerId": "load-e4512bfb-b92c-472a-aa1f-fbaa253cb8d5-1",
+    "error": "Error: 更新繁忙，請稍後再試",
+    "photoUploadsStarted": false,
+    "evidence": "Visible live-load.html report. Ten simultaneous nine-station save requests; client 1 failed, clients 2–10 prepared. No measured score/photo burst began."
+  },
+  "secondPreparationAttempt": {
+    "startedAt": "2026-09-10T08:42:22.902Z",
+    "accepted": 9,
+    "failedClient": 9,
+    "error": "更新暫時未完成，稍後再試",
+    "photoUploadsStarted": false
+  },
+  "measuredBurst": {
+    "startedAt": "2026-09-10T08:44:49.549Z",
+    "backendVersion": 4,
+    "preparation": "Sequential warmup, then ten parallel score/photo clients; board polling every five seconds without overlap",
+    "imageBytes": 116736,
+    "verified": 2,
+    "boardWithin10s": 6,
+    "uploadWithin10s": 3,
+    "sampleCount": 10,
+    "passed": false,
+    "clients": [
+      {"client": 1, "status": "verified", "scoreMs": 4733, "boardMs": 6794, "uploadMs": 11335},
+      {"client": 2, "status": "invalid-download", "scoreMs": 5905, "boardMs": 6794, "uploadMs": 8806},
+      {"client": 3, "status": "invalid-download", "scoreMs": 7382, "boardMs": 11527, "uploadMs": 8012},
+      {"client": 4, "status": "busy"},
+      {"client": 5, "status": "verified", "scoreMs": 6568, "boardMs": 6794, "uploadMs": 27042},
+      {"client": 6, "status": "busy"},
+      {"client": 7, "status": "invalid-download", "scoreMs": 2722, "boardMs": 6794, "uploadMs": 10491},
+      {"client": 8, "status": "invalid-download", "scoreMs": 4487, "boardMs": 6794, "uploadMs": 8831},
+      {"client": 9, "status": "busy"},
+      {"client": 10, "status": "invalid-download", "scoreMs": 3673, "boardMs": 6794, "uploadMs": 10009}
+    ],
+    "errors": {"busy": "更新繁忙，請稍後再試", "invalid-download": "證書已到期或連結無效"},
+    "note": "Upload timing measures acknowledgement, not successful download. No automatic retries. Existing preparation IDs were reused, but the measured final score/photo submission was the first burst."
+  },
+  "localFix": {"status": "deployed as v5 at 2026-09-10 16:54 HKT; recovery remains below acceptance", "change": "Flush buffered spreadsheet writes before releasing the shared script lock, including exceptional paths", "tests": "48 passing; new regression first reproduced release with pending writes", "reference": "https://developers.google.com/apps-script/reference/lock/lock"},
+  "v5Recovery": {
+    "startedAt": "2026-09-10T08:54:22.061Z",
+    "phase": "complete",
+    "sameBatch": true,
+    "verifiedClients": [3,5,7,8,9,10],
+    "busyClients": [1,2,4,6],
+    "invalidDownloadErrors": 0,
+    "uploadMs": {"3":12026,"5":7075,"7":11980,"8":10518,"9":11644,"10":10056},
+    "passed": false,
+    "limits": "Recovery reuses existing scores and two prior valid certificates. Board appearance is not a new-score latency sample. Six verified downloads and four busy rejections do not establish ten-client reliability."
+  },
+  "nextLocalOptimization": "Reuse sheet handles within an execution and remove redundant metadata calls, while freshly reading rows; 49 unit tests pass. This optimization is not yet deployed.",
+  "cleanup": "Keep all batch IDs for recovery and removal of test-only rows/files. This report does not contain device credentials or certificate tokens.",
+  "unverified": ["Successful fresh ten-client burst", "Live sheet-handle optimization", "10 physical devices", "representative 95th-percentile latency", "larger photographed certificates"]
+}

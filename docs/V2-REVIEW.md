@@ -24,7 +24,7 @@
 - 教師核對 39 段讀音及中文教材字形；試聽頁為 `/design/audio/review.html`。合成聲檔已有，尚未教師批准。
 - 真實 iPad 的全身動作辨識、觸控／橫直向、相機／咪權限及離線測試；家長手機下載、現場電視遠距可讀性、10 部裝置與 Google 同步／上傳負載。
 - Apps Script 已於 2026-09-10 更新原部署至第 3 版，單站上限 240 秒；真實提交驗收仍待完成，前端尚未發布。
-- 同日 Chrome ITSUPPORT 真實讀榜曾成功，其後讀榜及寫入驗收均在橋接初始化逾時；已設定既有裝置憑證，尚未取得成績寫入結果。Players A2 仍為空白，沒有遺留測試成績。詳見 [live-google-test-results.json](live-google-test-results.json)。
+- 同日 Chrome ITSUPPORT 已完成真實 Google 驗收：七項計時、鎖站、探索及排名檢查全部通過；測試參加者「測試2806」（ID 見 [live-google-test-results.json](live-google-test-results.json)）暫留一行供老師核對後手動移除。相片上傳及 QR 下載仍未測試。
 - 完成 Google 真實證書上傳、匿名下載、到期及換人驗收後，才發布新版並更新現場操作手冊。
 
 Google 操作使用校方指定 ITSUPPORT 帳戶；不把装置寫入憑證放進公開程式碼。此文件不是正式交付完成聲明。

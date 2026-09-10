@@ -284,4 +284,4 @@ motion-family-browser 驗證英文七回合、體育五回合、五秒閘門、�
 
 本機驗證：45 項單元測試通過，包括以實際 Code.gs 執行驗收流程；另外通過驗收頁按鈕／不保存憑證測試，以及 mock Google origin 橋接／同步佇列測試。這些結果不是實際 Google 或現場裝置驗收。
 
-其後透過 ITSUPPORT Chrome 真實讀榜曾收到空榜資料；同一瀏覽器設定既有裝置憑證後，寫入測試及再次讀榜在橋接初始化逾時，不能列作穩定連線或寫入驗收通過。已從 Sheets 核對 Players A2 為空白。測試紀錄在 docs/live-google-test-results.json，不包含裝置憑證。
+其後透過 ITSUPPORT Chrome 完成真實 Google 驗收：七項檢查全部通過，測試參加者「測試2806」已出現在 Top 10。該行暫留由老師按 ID 手動移除；相片上傳與 QR 下載另待測試。測試紀錄在 docs/live-google-test-results.json，不包含裝置憑證。

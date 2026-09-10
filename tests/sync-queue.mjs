@@ -1,0 +1,57 @@
+import {chromium,expect} from '@playwright/test';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch(),context=await browser.newContext({serviceWorkers:'block'}),page=await context.newPage();
+try{
+ await page.goto('http://127.0.0.1:4173/setup/');
+ await page.evaluate(async()=>{
+  localStorage.setItem('dino-island-20260913:settings',JSON.stringify({appScriptUrl:'https://script.google.com/macros/s/TEST/exec',deviceToken:'test-private-credential'}));
+  const net=await import('/shared/network.js');window.net=net;window.calls=[];window.statuses=[];window.responses=[];
+  addEventListener('syncstatus',e=>window.statuses.push(e.detail));
+  net.bridge.call=(method,payload)=>new Promise((resolve,reject)=>{window.calls.push({method,payload});window.responses.push({resolve,reject});});
+  net.queuePlayer({id:'player-sync',name:'測試',version:1,zones:{math:1000}});
+  window.first=net.flushPlayers();await Promise.resolve();net.queuePlayer({id:'player-sync',name:'測試',version:2,zones:{math:1000,chinese:1000}});
+  window.second=net.flushPlayers();window.secondDone=false;window.second.then(()=>window.secondDone=true);
+ });
+ assert.equal(await page.evaluate(()=>window.secondDone),false,'a second caller must wait for the existing sync');
+ await page.evaluate(()=>window.responses[0].resolve({acceptedVersion:1}));
+ await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(2);
+ assert.equal(await page.evaluate(()=>window.secondDone),false,'newer queued progress must be acknowledged too');
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:outbox'))['player-sync'].version),2);
+ await page.evaluate(()=>window.responses[1].resolve({acceptedVersion:2}));
+ assert.deepEqual(await page.evaluate(async()=>[await window.first,await window.second]),[true,true]);
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:outbox'))),{});
+ await page.evaluate(()=>{window.net.queuePlayer({id:'player-sync',name:'測試',version:3,zones:{math:1000}});window.invalid=window.net.flushPlayers();});
+ await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(3);
+ await page.evaluate(()=>window.responses[2].resolve({acceptedVersion:2}));
+ assert.equal(await page.evaluate(()=>window.invalid),false);
+ assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:outbox'))['player-sync'].version),3);
+ await page.evaluate(()=>{window.busy=window.net.flushPlayers();});await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(4);
+ await page.evaluate(()=>window.responses[3].reject(Error('更新繁忙，請稍後再試')));assert.equal(await page.evaluate(()=>window.busy),false);
+ await page.evaluate(()=>{window.retry=window.net.flushPlayers();});await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(5);
+ await page.evaluate(()=>window.responses[4].resolve({acceptedVersion:3}));assert.equal(await page.evaluate(()=>window.retry),true);
+ await context.setOffline(true);assert.equal(await page.evaluate(()=>window.net.flushPlayers()),false);assert.equal(await page.evaluate(()=>window.calls.length),5);
+ await context.setOffline(false);
+ await page.evaluate(async()=>{
+  const {newPlayer,ZONES,snapshot}=await import('/shared/core.js'),{photoStore}=await import('/shared/storage.js'),{mountCertificate}=await import('/hub/certificate.js'),{testCertificate}=await import('/tests/live-certificate.js');
+  const p=newPlayer('證書測試');for(const z of ZONES.slice(0,6))p.zones[z.id]={complete:true,ms:1000};window.certPlayer=p;
+  const blob=await(await fetch(testCertificate())).blob();await photoStore('put',p.id,{requestId:'certificate-sync-test',playerId:p.id,version:p.version,blob});
+  document.body.innerHTML='<main id="certificate-test"></main>';window.net.queuePlayer(snapshot(p));window.inFlight=window.net.flushPlayers();
+  window.cert=mountCertificate(document.querySelector('main'),p,()=>{});
+ });
+ await expect(page.locator('#cert-status')).toContainText('待傳證書');await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(6);
+ await page.locator('#upload').click();await expect(page.locator('#cert-status')).toContainText('先確認完成紀錄');
+ assert.equal(await page.evaluate(()=>window.calls.some(c=>c.method==='uploadCertificate')),false,'photo must not race an existing score request');
+ await page.evaluate(()=>window.responses[5].reject(Error('更新繁忙')));
+ await expect(page.locator('#cert-status')).toContainText('完成紀錄仍在同步');await expect(page.locator('#upload')).toBeEnabled();
+ assert.equal(await page.evaluate(()=>window.calls.some(c=>c.method==='uploadCertificate')),false);
+ assert.equal(await page.evaluate(async()=>!!await (await import('/shared/storage.js')).photoStore('get',window.certPlayer.id)),true);
+ await page.locator('#upload').click();await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(7);
+ await page.evaluate(()=>window.responses[6].resolve({acceptedVersion:window.certPlayer.version}));
+ await expect.poll(()=>page.evaluate(()=>window.calls.length)).toBe(8);
+ assert.equal(await page.evaluate(()=>window.calls[7].method),'uploadCertificate');
+ assert.equal(await page.evaluate(()=>window.calls[7].payload.requestId),'certificate-sync-test');
+ await page.evaluate(()=>window.responses[7].reject(Error('測試上傳中斷')));await expect(page.locator('#upload')).toBeEnabled();
+ assert.equal(await page.evaluate(async()=>!!await (await import('/shared/storage.js')).photoStore('get',window.certPlayer.id)),true);
+ await page.evaluate(()=>window.cert.cleanup());
+ console.log('PASS sync queue: concurrent callers wait, latest version drains, invalid acknowledgements and busy errors retain progress, retry succeeds, offline does not submit');
+}finally{await browser.close();}

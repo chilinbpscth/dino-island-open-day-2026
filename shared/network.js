@@ -14,5 +14,23 @@ export class GoogleBridge{
 }
 export const bridge=new GoogleBridge();
 export function queuePlayer(snapshot){let q=read('outbox',{});q[snapshot.id]=snapshot;write('outbox',q);}
-let flushing=false;
-export async function flushPlayers(){if(flushing)return;let settings=networkSettings();if(!navigator.onLine||!settings.appScriptUrl||!settings.deviceToken)return;flushing=true;window.dispatchEvent(new CustomEvent('syncstatus',{detail:'正在同步…'}));try{let q=read('outbox',{});for(const item of Object.values(q)){await bridge.call('savePlayer',{deviceToken:settings.deviceToken,player:item,requestId:item.id+':'+item.version});let latest=read('outbox',{});if(latest[item.id]?.version===item.version)delete latest[item.id];write('outbox',latest);}window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已同步'}));}catch(e){window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已存本機，等待同步'}));}finally{flushing=false;}}
+let flushing=null;
+export function flushPlayers(){
+ if(flushing)return flushing;
+ const settings=networkSettings();if(!navigator.onLine||!settings.appScriptUrl||!settings.deviceToken)return Promise.resolve(false);
+ flushing=Promise.resolve().then(async()=>{
+  window.dispatchEvent(new CustomEvent('syncstatus',{detail:'正在同步…'}));
+  try{
+   let queued;
+   while((queued=Object.values(read('outbox',{}))).length){
+    for(const item of queued){
+     const result=await bridge.call('savePlayer',{deviceToken:settings.deviceToken,player:item,requestId:item.id+':'+item.version});
+     if(!Number.isSafeInteger(result?.acceptedVersion)||result.acceptedVersion<item.version)throw Error('成績未被確認');
+     const latest=read('outbox',{});if(latest[item.id]?.version===item.version)delete latest[item.id];write('outbox',latest);
+    }
+   }
+   window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已同步'}));return true;
+  }catch(e){window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已存本機，等待同步'}));return false;}
+ }).finally(()=>{flushing=null;});
+ return flushing;
+}

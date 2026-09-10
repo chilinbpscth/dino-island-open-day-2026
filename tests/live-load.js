@@ -25,7 +25,7 @@ export async function runLoad(report,rpcs,publicRpc,image,endpoint,update=()=>{}
  await Promise.all([poll(),Promise.all(report.clients.map(async(client,i)=>{
   try{
    const accepted=await send(i,2,10);if(accepted.acceptedVersion<2)throw Error('成績未被確認');client.scoreMs=Math.round(performance.now()-started);client.status='score-saved';update(report);
-   const uploadStart=performance.now();const result=await rpcs[i]('uploadCertificate',{playerId:client.id,version:2,requestId:client.requestId,image});
+   const uploadStart=performance.now();const result=await rpcs[i]('uploadCertificate',{playerId:client.id,version:2,requestId:client.requestId,image},60000);
    const url=certificateLink(result,endpoint);client.uploadMs=Math.round(performance.now()-uploadStart);client.expiresAt=result.expiresAt;client.status='uploaded';update(report);
    const downloaded=await publicRpc('getCertificate',{token:new URL(url).searchParams.get('token')});
    if(downloaded.image!==image||downloaded.expiresAt!==result.expiresAt)throw Error('下載證書內容或期限不一致');client.status='verified';

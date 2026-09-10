@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-10T03:43:48.027Z",
+  "testedAt": "2026-09-10T09:11:25.332Z",
   "environment": "Mock Google-shaped cross-origin iframe; NOT live Apps Script",
   "passed": [
     "Bridge handshake and RPC acknowledgement",

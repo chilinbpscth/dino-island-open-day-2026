@@ -11,6 +11,7 @@
     "Cleared only Players!A3:K22 after checking every participant ID; retained original test participant A2"
   ],
   "after": "Live getBoard returned only original test player 測試2806, ten stations, totalMs 249000, version 6; others 0 and exploring 0. The twenty load-test participants no longer appear.",
-  "pending": "Twelve registered synthetic certificates are expired and await the existing hourly cleanup for file removal. Keep certificate rows for cleanup. The existing orphan-file sweep should also remove older unreferenced v4 test uploads; do not claim those files deleted until verified.",
+  "anonymousDownloadCleanup": "After verifying anonymous download, checked A15 request cert-test-c98a7954-218d-4b01-94d2-ac639b531504, then set only G15 to zero. Read back zero and confirmed saved to Drive.",
+  "pending": "Thirteen registered synthetic certificates are expired and await the existing hourly cleanup for file removal. Keep certificate rows for cleanup. The existing orphan-file sweep should also remove older unreferenced v4 test uploads; do not claim those files deleted until verified.",
   "doNotReuse": "These batch participant records were cleared and their registered certificate links expired. Any subsequent test should create a fresh batch, not interpret reuse as recovery or fresh timing evidence."
 }

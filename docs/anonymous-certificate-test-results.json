@@ -1,0 +1,18 @@
+{
+  "testedAt": "2026-09-10T09:26:06.602Z",
+  "environment": "Fresh desktop Chromium context, no imported cookies or storage; real public Apps Script certificate page",
+  "initialCookieCount": 0,
+  "passed": [
+    "Certificate rendered without signing in",
+    "1600×2000 JPEG decoded",
+    "Save button triggered a browser download",
+    "Downloaded bytes exactly match the displayed certificate"
+  ],
+  "bytes": 116735,
+  "sha256": "ec5b191a4a9dbceb10958d6dab7af14cd9e49200f57cd28a4a83e8ea9df7bb0e",
+  "limitations": [
+    "Synthetic certificate only, no visitor photograph",
+    "Desktop download does not verify iPhone/Android photo saving or QR camera scanning",
+    "No physical iPad testing"
+  ]
+}

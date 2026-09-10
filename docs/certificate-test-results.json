@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-10T05:33:50.681Z",
+  "testedAt": "2026-09-10T13:16:04.585Z",
   "environment": "Chromium, mocked upload acknowledgement; no Google requests or real phone download",
   "passed": [
     "Invalid acknowledgement keeps IndexedDB photo and shows no QR",

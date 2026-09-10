@@ -1,0 +1,15 @@
+{
+  "testedAt": "2026-09-10",
+  "environment": "Local desktop Chromium, 1024x768 touch-capable viewport; synthetic microphone; external network blocked. Not a physical iPad or human pose/pronunciation assessment.",
+  "test": "node tests/language-exploratory.mjs",
+  "passed": [
+    "Chinese: all strokes of all six characters completed through pointer UI; reverse first stroke rejected; reload retained accepted stroke",
+    "Mandarin: next initially locked; denied microphone permits family alternative; all six phrases completed; reload retained phrase",
+    "English: denied camera permits family alternative; initial five-second gate; 1.2-second interrupted hold rejected; all seven three-second confirmations completed; no visible Latin letters",
+    "Additional live virtual-microphone probe: recorded blob replay unlocks next; navigating to map during recording stops all audio tracks",
+    "Three full-page screenshots visually inspected; no obscured controls or overlapping content found",
+    "No page errors in three-game exploratory journey"
+  ],
+  "defects": [],
+  "screenshots": ["screenshots/language-audit-chinese.png", "screenshots/language-audit-mandarin.png", "screenshots/language-audit-english.png"]
+}

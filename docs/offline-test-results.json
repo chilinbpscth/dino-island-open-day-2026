@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-10T03:56:45.903Z",
+  "testedAt": "2026-09-10T04:09:08.266Z",
   "environment": "Chromium service worker with simulated network offline, GitHub Pages-like /school/ subpath",
   "passed": [
     "Teacher setup checks actual cache, rejects missing model and confirms restored cache",

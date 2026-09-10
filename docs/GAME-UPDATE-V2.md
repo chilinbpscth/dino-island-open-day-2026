@@ -245,3 +245,10 @@
 老師設定頁原本只等 service worker ready 就寫入 offlineReady，已改用共用 inspectOfflineCache 逐項確認素材。缺素材、回覆逾時或下載未能確認，均不報完成；按鈕處理中停用，結束後可重試。等待首次離線下載上限 30 秒，逾時後可再檢查。
 
 重新執行 build 及完整離線測試通過：122 項素材；設定頁完整快取成功、刻意移除模型顯示欠一項／readiness false、復原後重新確認成功，再驗證 11 科離線路由、語音、姿態模型、補傳佇列及普通證書。正式 Google v3 提交驗收仍未完成：Chrome 操作回報 User unavailable，未嘗試绕過。
+
+
+## 2026-09-10：普通話恐龍村
+
+內置 image_gen 完成原創村落背景 hub/img/games/mandarin/village.png，參考本專案常識晨間場景嘅線條／配色；只複製原 PNG，沒有程式去背。最終提示於 design/game-assets/mandarin-village-prompt.md。畫面疊現有小蓮與唯一幼龍；專用打招呼／聆聽姿勢仍未完成。橫向左右排位令錄音及下一句按鈕同屏可見，窄屏上下排列。
+
+新增 mandarin-browser.mjs 驗證背景載入、兩角色、390px 無橫向溢出、六句親子跟讀逐句解鎖及完成。voice-browser.mjs 再驗 39 WAV／11 科介紹／虛擬錄音回播；新增背景亦已通過完整離線路由測試。截圖人工檢視桌面及手機排位；不等同真 iPad 或教師讀音驗收。

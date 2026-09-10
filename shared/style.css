@@ -79,3 +79,13 @@
 @keyframes journey-arrive{from{transform:translateX(35%);opacity:.5}to{transform:none;opacity:1}}
 @keyframes journey-rest{from{opacity:.5;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(max-width:620px){.chinese-scene .journey-thumbnail{width:90px;height:58px}.journey-caption{font-size:15px;padding:5px 8px}.journey-dino{bottom:19%}.chinese-journey.scene-5 .journey-dino{bottom:19%}}
+
+/* Mandarin village keeps the greeting pair on the clear foreground. */
+.greeting-village{width:min(100%,660px);aspect-ratio:3/2;min-height:0;margin:12px auto 18px;overflow:hidden;border:3px solid var(--green);border-radius:28px;isolation:isolate}
+.greeting-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.greeting-village>.character{position:absolute;bottom:7%;width:34%;height:65%;object-fit:contain}
+.greeting-village>.companion{left:16%}.greeting-village>.dino{right:15%}
+
+.greeting-content{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;margin-top:16px}
+.greeting-content .greeting-village{margin:0;width:100%}.greeting-dialogue .game-instruction{font-size:24px}.greeting-dialogue .actions{gap:12px}.greeting-dialogue button{font-size:19px;padding:10px 16px}
+@media(max-width:700px){.greeting-content{grid-template-columns:1fr;gap:20px}.greeting-dialogue .game-instruction{font-size:25px}}

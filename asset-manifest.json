@@ -1,5 +1,5 @@
 {
-  "version": "41500c69779d",
+  "version": "d1b75bf20b89",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -77,6 +77,7 @@
     "hub/img/games/humanities/river-centre.png",
     "hub/img/games/humanities/safe-forest.png",
     "hub/img/games/humanities/volcano-edge.png",
+    "hub/img/games/mandarin/village.png",
     "hub/img/games/math/feeding-garden.png",
     "hub/img/games/music/music-stage.png",
     "hub/img/games/science/excavation.png",

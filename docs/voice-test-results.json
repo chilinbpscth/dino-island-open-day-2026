@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-10T02:54:52.831Z",
+  "testedAt": "2026-09-10T03:10:13.623Z",
   "environment": "Chromium actual WAV decode/playback, virtual microphone; not pronunciation review or physical iPad",
   "decoded": [
     {
@@ -160,6 +160,7 @@
     }
   ],
   "passed": [
+    "Completion encouragement plays, replays and stops when leaving",
     "11 spoken introductions stop on leaving",
     "Command replaces introduction without overlap",
     "Hidden page stops speech",

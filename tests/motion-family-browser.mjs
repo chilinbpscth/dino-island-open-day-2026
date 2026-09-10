@@ -23,7 +23,7 @@ try{
 
    assert(await page.locator('#motion-hold').isDisabled());await page.clock.runFor(4900);assert(await page.locator('#motion-hold').isDisabled());await page.clock.runFor(300);assert(!(await page.locator('#motion-hold').isDisabled()));
    if(i===0){await hold(2000);assert.equal(await page.locator('#motion-next').count(),0);}
-   await hold(3100);await page.locator('#motion-next').waitFor();if(id==='pe'){assert.equal(await page.locator('.pe-obstacle').count(),0);assert((await page.locator('.pe-backdrop').getAttribute('src')).endsWith('forest-arena.png'));}assert.equal((await player()).zones[id].complete,false);
+   await hold(3100);await page.locator('#motion-next').waitFor();if(id==='pe'){assert.equal(await page.locator('.pe-obstacle').count(),0);assert(!/慢慢蹲低避|移一步|舉高雙手接住|企定定守住/.test(await page.locator('.game-instruction').last().innerText()));assert((await page.locator('.pe-backdrop').getAttribute('src')).endsWith('forest-arena.png'));}assert.equal((await player()).zones[id].complete,false);
    if(i===rounds-1)await page.screenshot({path:`docs/screenshots/${id}-v2-family.png`,fullPage:true,animations:'disabled'});
    await page.locator('#motion-next').click();
   }

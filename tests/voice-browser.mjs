@@ -26,7 +26,13 @@ try{
  const count=await page.evaluate(()=>window.testAudio.length);await page.locator('#game-intro').click();assert.equal(await page.evaluate(()=>window.testAudio.length),count);
  await page.locator('#greeting-stop').click();await page.locator('#greeting-play').waitFor({state:'visible'});await page.locator('#greeting-play').click();await page.waitForFunction(()=>!document.querySelector('#greeting-next').disabled);
  await page.locator('#greeting-next').click();assert(await page.locator('#greeting-next').isDisabled());assert(await page.evaluate(()=>window.testAudio.every(a=>a.paused||a.ended)));
+ for(let i=1;i<6;i++){await page.locator('#greeting-family').click();await page.locator('#greeting-next').click();}
+ await page.locator('#return-map').waitFor();await page.waitForFunction(()=>window.testAudio.at(-1)?.readyState>=2);
+ assert((await page.evaluate(()=>window.testAudio.at(-1).src)).endsWith('/yue/common/complete.wav'));
+ await page.getByRole('button',{name:'聽鼓勵',exact:true}).click();await page.waitForFunction(()=>window.testAudio.at(-1)?.readyState>=2);
+ assert((await page.evaluate(()=>window.testAudio.at(-1).src)).endsWith('/yue/common/complete.wav'));
+ await page.locator('#return-map').click();await page.locator('.stone').first().waitFor();assert(await page.evaluate(()=>window.testAudio.every(a=>a.paused||a.ended)));
  assert.deepEqual(errors,[]);
- await writeFile(new URL('../docs/voice-test-results.json',import.meta.url),JSON.stringify({testedAt:new Date().toISOString(),environment:'Chromium actual WAV decode/playback, virtual microphone; not pronunciation review or physical iPad',decoded,passed:['11 spoken introductions stop on leaving','Command replaces introduction without overlap','Hidden page stops speech','Chinese and PE use corresponding local audio','No visible English letters','Mandarin recording excludes intro, RAM playback enables next and stops on next round']},null,2));
+ await writeFile(new URL('../docs/voice-test-results.json',import.meta.url),JSON.stringify({testedAt:new Date().toISOString(),environment:'Chromium actual WAV decode/playback, virtual microphone; not pronunciation review or physical iPad',decoded,passed:['Completion encouragement plays, replays and stops when leaving','11 spoken introductions stop on leaving','Command replaces introduction without overlap','Hidden page stops speech','Chinese and PE use corresponding local audio','No visible English letters','Mandarin recording excludes intro, RAM playback enables next and stops on next round']},null,2));
  console.log('PASS 39 WAV files decoded, 11 intros, speech replacement/cleanup, Mandarin virtual recording and replay');
 }finally{await browser.close();}

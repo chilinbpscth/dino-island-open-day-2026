@@ -6,7 +6,7 @@
 
 執行 `npm ci`、`npm run serve`，使用終端顯示的 localhost 網址。`/hub/?demo=1#/map` 可試地圖；`/board/?demo=1` 可看合成榜。示範資料不上傳。普通試玩未配置 Google 時只使用本機榜；沒有成功上傳的證書不顯示 QR。
 
-新版包含 11 科玩法模組、共用本機姿態引擎、普通話本機錄音回播、39 段三語合成聲音，以及數學、常識、科學、人文、視藝、音樂、中文、普通話、體育與資訊新增場景。11 科選 10 科、6 分領證、10 分按有效時間排名；每科計時上限 240 秒。
+新版包含 11 科玩法模組、共用本機姿態引擎、普通話本機錄音回播、39 段三語合成聲音，以及數學、常識、科學、人文、視藝、音樂、中文、普通話、體育與資訊新增場景。11 科選 10 科、6 分領證、10 分按有效時間排名；每科計時上限 240 秒。2026-09-10 已由 GitHub Pages workflow 發布 `game-update-v2`，公開入口為 [Hub](https://chilinbpscth.github.io/dino-island-open-day-2026/hub/)、[探險榜](https://chilinbpscth.github.io/dino-island-open-day-2026/board/) 及 [老師設定](https://chilinbpscth.github.io/dino-island-open-day-2026/setup/)。
 
 ## 已取得的驗證證據
 

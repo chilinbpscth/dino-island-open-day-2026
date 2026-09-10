@@ -1,4 +1,5 @@
 const paths={
+ microphone:'<rect fill="#cce4d5" x="29" y="10" width="32" height="49" rx="16"/><path d="M17 43a28 28 0 0056 0M45 71v12M30 83h30"/>',
  water:'<path fill="#7fc9db" d="M45 12Q15 45 15 61a30 30 0 0060 0Q75 45 45 12Z"/><path d="M29 57q-5 15 9 18"/>',
  apple:'<path fill="#ee937c" d="M45 32C10 8 1 63 25 83q10 7 20-1 12 8 21 0C92 51 77 14 45 32Z"/><path d="M45 31V16"/><path fill="#75a75b" d="M45 22Q53 4 71 12Q63 30 45 22Z"/>',
  leaf:'<path fill="#75a75b" d="M16 78Q1 12 77 13Q87 82 16 78Z"/><path d="M17 77L65 30m-26 26L36 36m3 20 22 2"/>',

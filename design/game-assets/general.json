@@ -60,13 +60,13 @@
   "vectorAssets": [
     {
       "id": "sequence-slots",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Runtime sequence slot markup and CSS in hub/modules/general.js and shared/style.css; no raster"
     },
     {
       "id": "time-of-day-symbols",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Runtime visual() symbols from hub/modules/general.js using shared/icons.js icons and CSS; no raster"
     }
   ]
 }

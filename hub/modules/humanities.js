@@ -6,7 +6,7 @@ const shapes={
  river:'<path fill="#9bd0db" d="M35 3H65Q25 30 62 43Q96 59 50 87H17Q65 58 36 48Q0 35 35 3Z"/>',
  camp:'<path fill="#e5bc5d" d="M8 77L45 17L82 77Z"/><path fill="#f6f3ec" d="M31 77L45 48L59 77Z"/>',
  bottle:'<path fill="#a6d5df" d="M30 30V17H60V30L69 43V79H21V43Z"/><path fill="#e5bc5d" d="M28 8H62V20H28Z"/><path d="M30 50h30m-30 12h30"/>',
- machine:'<rect fill="#e5bc5d" x="10" y="16" width="70" height="65" rx="20"/><circle fill="#d2e5d1" cx="45" cy="46" r="23"/><path d="M45 29v18l12 7M25 8h40"/><circle fill="#146b4d" cx="25" cy="72" r="3"/><circle fill="#146b4d" cx="65" cy="72" r="3"/>'
+ machine:'<path fill="#f6f3ec" d="M16 78V42Q16 15 45 15T74 42V78Z"/><path fill="#bad1a0" d="M26 76V43Q26 25 45 25T64 43V76Z"/><path fill="#f6f3ec" d="M34 76V47Q34 36 45 36T56 47V76Z"/><path fill="#e5bc5d" d="M10 76H80V84H10Z"/><circle fill="#e5bc5d" cx="24" cy="51" r="4"/><circle fill="#e5bc5d" cx="66" cy="51" r="4"/><circle fill="#146b4d" cx="25" cy="67" r="3"/><circle fill="#146b4d" cx="65" cy="67" r="3"/><path d="M45 7V15"/><circle fill="#e5bc5d" cx="45" cy="5" r="3"/>'
 };
 const picture=id=>shapes[id]?`<svg class="icon" viewBox="0 0 90 90" fill="none" stroke="#203b2e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${shapes[id]}</svg>`:icon(id);
 const sceneFiles={forest:'safe-forest',volcano:'volcano-edge',river:'river-centre'};

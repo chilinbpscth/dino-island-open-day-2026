@@ -5,7 +5,7 @@ const browser=await chromium.launch();const page=await browser.newPage({viewport
 try{
  await page.goto('http://127.0.0.1:4173/hub/?demo=1#/play/mandarin');
  await page.waitForFunction(()=>[...document.querySelectorAll('.greeting-village img')].every(i=>i.complete&&i.naturalWidth));
- assert.equal(await page.locator('.greeting-village>.character').count(),2);
+ assert.equal(await page.locator('.greeting-village>.character').count(),2);assert.equal(await page.locator('#greeting-record svg').count(),1);assert.equal(await page.locator('.speech-bubble').count(),1);
  assert(await page.locator('#greeting-next').evaluate(el=>el.getBoundingClientRect().bottom<=innerHeight),'Tablet next button remains within the viewport');
  await page.screenshot({path:'docs/screenshots/mandarin-village.png',fullPage:true});
  await page.setViewportSize({width:390,height:844});

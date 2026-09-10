@@ -7,10 +7,14 @@
     {
       "id": "dino-jump",
       "file": "hub/img/games/english/dino-jump.png",
-      "status": "pending",
+      "status": "draft-alpha-failed",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino jump. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino jump. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow.",
+      "drafts": [
+        "design/game-assets/drafts/dino-jump-v1.png"
+      ],
+      "review": "2026-09-10: direct edit of approved alpha PNG preserves identity and shows a jump, but returned PNG has no alpha and a painted checkerboard. Not used at runtime. Programmatic background cleanup awaiting explicit approval."
     },
     {
       "id": "dino-squat",
@@ -22,11 +26,12 @@
     },
     {
       "id": "dino-stand",
-      "file": "hub/img/games/english/dino-stand.png",
-      "status": "pending",
+      "file": "hub/img/chars/dino-baby.png",
+      "status": "reused-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino stand. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino stand. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow.",
+      "review": "Existing approved upright idle artwork reused as standing / still pose. mountMotion uses this image and these two action classes have no displacement animation. Reviewed 2026-09-10; no duplicate PNG needed."
     },
     {
       "id": "dino-hands-up",
@@ -54,11 +59,12 @@
     },
     {
       "id": "dino-freeze",
-      "file": "hub/img/games/english/dino-freeze.png",
-      "status": "pending",
+      "file": "hub/img/chars/dino-baby.png",
+      "status": "reused-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino freeze. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow."
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino freeze. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for english gameplay. No ground shadow.",
+      "review": "Existing approved upright idle artwork reused as standing / still pose. mountMotion uses this image and these two action classes have no displacement animation. Reviewed 2026-09-10; no duplicate PNG needed."
     },
     {
       "id": "dino-celebrate",
@@ -72,8 +78,8 @@
   "vectorAssets": [
     {
       "id": "movement-arrows",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Unicode directional UI cues in hub/modules/motion.js; interface symbols only, not character illustrations."
     }
   ]
 }

@@ -57,13 +57,13 @@
     },
     {
       "id": "brush",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Pointer sweep interaction and soil-cover CSS in hub/modules/science.js and shared/style.css; no raster brush image"
     },
     {
       "id": "soil-mask",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "soil-cover DOM mask and CSS in hub/modules/science.js and shared/style.css; no raster"
     }
   ]
 }

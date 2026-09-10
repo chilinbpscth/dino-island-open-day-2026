@@ -51,13 +51,13 @@
   "vectorAssets": [
     {
       "id": "microphone",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Original microphone SVG in shared/icons.js, used by #greeting-record"
     },
     {
       "id": "speech-bubble",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Original CSS .speech-bubble in shared/style.css, used by phrase in hub/modules/mandarin.js"
     }
   ]
 }

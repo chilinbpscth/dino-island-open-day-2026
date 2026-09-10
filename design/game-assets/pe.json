@@ -49,8 +49,8 @@
     },
     {
       "id": "movement-arrows",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Unicode directional UI cues in hub/modules/motion.js; interface symbols only, not character illustrations."
     }
   ]
 }

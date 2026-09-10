@@ -14,3 +14,31 @@ test('Photo certificate rejects under-six, wrong version, wrong owner and oversi
 test('Nine points stay exploring; the tenth point enters the timed board',()=>{const {c}=env(),ids=['chinese','english','mandarin','math','general','science','humanities','art','music','pe'];c.savePlayer_({deviceToken:token,player:player('player-partial',1,Object.fromEntries(ids.slice(0,9).map(id=>[id,1000])))});let b=c.getBoard_();assert.equal(b.players.length,0);assert.equal(b.exploring,1);c.savePlayer_({deviceToken:token,player:player('player-partial',2,Object.fromEntries(ids.map(id=>[id,1000])))});b=c.getBoard_();assert.equal(b.players.length,1);assert.equal(b.players[0].totalMs,10000);assert.equal(b.exploring,0);});
 
 test('Four-minute times accepted, old three-minute records preserved',()=>{const {c,tables}=env();c.savePlayer_({deviceToken:token,player:player('player-timecap',1,{math:180000})});c.savePlayer_({deviceToken:token,player:player('player-timecap',2,{math:240000,english:240000})});assert.equal(c.playerFromRow_(tables.Players[1]).totalMs,420000);assert.throws(()=>c.savePlayer_({deviceToken:token,player:player('player-badtime',1,{math:240001})}));});
+
+test('Live acceptance runner uses the actual backend source with an occupied board',async()=>{
+ globalThis.location={search:''};
+ try{
+  const {runAcceptance}=await import('./live-google.js');
+  for(const existing of [1,10]){
+   const {c,tables}=env(),zones=Object.fromEntries(['chinese','english','mandarin','math','general','science','humanities','art','music','pe'].map(id=>[id,1000]));
+   for(let i=0;i<existing;i++)c.savePlayer_({deviceToken:token,player:player('existing-'+i,1,zones)});
+   const report=await runAcceptance(async(method,payload)=>c.dispatch(method,{...payload,deviceToken:token}));
+   assert.equal(report.results.some(r=>r.status==='fail'),false);
+   assert.equal(report.passed,existing===1);assert.equal(report.unverified,existing===10);
+   const row=tables.Players.find(r=>r[0]===report.playerId),p=c.playerFromRow_(row);
+   assert.equal(p.zonesCompleted,10);assert.equal(p.totalMs,249000);
+   assert.equal(tables.Players.length,existing+2,'one test participant only');
+  }
+ }finally{delete globalThis.location;}
+});
+
+test('Live acceptance does not count a transport failure as time validation',async()=>{
+ globalThis.location={search:''};
+ try{
+  const {runAcceptance}=await import('./live-google.js');const {c}=env();
+  await assert.rejects(runAcceptance(async(method,payload)=>{
+   if(payload?.player?.version===2)throw Error('更新暫時未完成');
+   return c.dispatch(method,{...payload,deviceToken:token});
+  }),/更新暫時未完成/);
+ }finally{delete globalThis.location;}
+});

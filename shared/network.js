@@ -2,8 +2,8 @@ import {CONFIG} from './config.js';
 import {read,write,DEMO} from './storage.js';
 export const networkSettings=()=>({...CONFIG,...read('settings',{}),...(DEMO?{appScriptUrl:'',deviceToken:''}:{})});
 export class GoogleBridge{
- constructor(){this.pending=new Map();this.channel=crypto.randomUUID();this.ready=null;this.receiver=null;}
- connect(){if(this.ready)return this.ready;const url=networkSettings().appScriptUrl;if(!url)return Promise.reject(Error('尚未設定活動連線'));if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url))return Promise.reject(Error('活動連線網址不正確'));
+ constructor(appScriptUrl=null){this.pending=new Map();this.channel=crypto.randomUUID();this.ready=null;this.receiver=null;this.appScriptUrl=appScriptUrl;}
+ connect(){if(this.ready)return this.ready;const url=this.appScriptUrl??networkSettings().appScriptUrl;if(!url)return Promise.reject(Error('尚未設定活動連線'));if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url))return Promise.reject(Error('活動連線網址不正確'));
  this.ready=new Promise((resolve,reject)=>{const timer=setTimeout(()=>{this.destroy();reject(Error('連線暫時未完成'));},20000);this.listener=e=>{
  const m=e.data;if(!m||m.channel!==this.channel||!/^https:\/\/(?:[a-z0-9-]+-)?script\.googleusercontent\.com$/.test(e.origin))return;
  if(m.kind==='ready'&&!this.receiver){this.receiver=e.source;this.origin=e.origin;clearTimeout(timer);resolve();return;}

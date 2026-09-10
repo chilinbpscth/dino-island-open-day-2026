@@ -43,18 +43,18 @@
   "vectorAssets": [
     {
       "id": "leaf",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Runtime leaf icon from shared/icons.js used by hub/modules/math.js; no raster"
     },
     {
       "id": "fruit",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Runtime apple/fruit icon from shared/icons.js used by hub/modules/math.js; no raster"
     },
     {
       "id": "plate",
-      "status": "pending",
-      "implementation": "original SVG or Canvas geometry matching shared/icons.js; no emoji"
+      "status": "implemented",
+      "implementation": "Runtime feeding plate markup and CSS in hub/modules/math.js and shared/style.css; no raster"
     }
   ]
 }

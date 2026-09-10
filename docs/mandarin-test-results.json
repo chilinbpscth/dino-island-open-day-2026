@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-10T03:09:31.754Z",
+  "testedAt": "2026-09-10T03:39:22.512Z",
   "environment": "Desktop Chromium and 390px simulated phone; parent-assisted reading, not speech evaluation",
   "passed": [
     "Village image loaded and exactly one guide plus baby",

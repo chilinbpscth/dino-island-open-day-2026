@@ -121,3 +121,6 @@
 @media(max-width:600px){.coding-layout{padding:8px}.coding-guide{width:76px;flex-shrink:0}.coding-guide p{padding:6px}.coding-grid{width:calc(100% - 84px)}}
 
 @media(min-width:851px){.coding-workspace{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:center}.coding-workspace .coding-layout{width:100%;padding:10px;gap:12px}.coding-workspace .coding-guide{width:100px;flex-shrink:0;font-size:14px}.coding-workspace .coding-guide img{height:150px}.coding-workspace .coding-grid{width:calc(100% - 112px);max-width:340px}.coding-controls .coding-commands{display:grid;grid-template-columns:repeat(2,1fr)}.coding-controls .coding-commands button{justify-content:center}.coding-controls .actions{gap:12px}.coding-controls .feedback{text-align:center}}
+
+.greeting-dialogue .speech-bubble{width:fit-content;padding:10px 22px;background:var(--cream);border:2px solid var(--ink);border-radius:22px;position:relative;margin-bottom:24px}
+.greeting-dialogue .speech-bubble:after{content:"";position:absolute;left:24px;bottom:-10px;width:16px;height:16px;background:var(--cream);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}

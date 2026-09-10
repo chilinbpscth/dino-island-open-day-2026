@@ -1,8 +1,13 @@
 {
   "game": "pe",
   "existingAssets": [
-    "hub/img/chars/xiaozhi-stretch.png",
-    "hub/img/chars/dino-baby.png"
+    "hub/img/chars/dino-baby.png",
+    "hub/img/chars/xiaolian-clap.png",
+    "hub/img/chars/xiaozhi-highfive.png",
+    "hub/img/games/english/dino-squat.png",
+    "hub/img/games/english/dino-left.png",
+    "hub/img/games/english/dino-right.png",
+    "hub/img/games/english/dino-hands-up.png"
   ],
   "requiredAssets": [
     {
@@ -16,10 +21,13 @@
     {
       "id": "dino-coach",
       "file": "hub/img/games/pe/dino-coach.png",
-      "status": "pending",
+      "status": "generated-and-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
-      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino coach. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for pe gameplay. No ground shadow."
+      "prompt": "Use case identity-preserve. Input is locked original Dino Island baby. SAME baby as a friendly preschool movement COACH: full body standing confidently with feet a little apart, one little hand on hip, other arm extended to side with palm up inviting children to join, encouraging closed-mouth smile. Preserve exact enormous rounded emerald head, very large black-white highlighted eyes, round pink cheeks, cream muzzle/plain cream belly, three rounded gold crest lobes, tiny plump body, short gold-bumped tail, blunt cream claws, thick black outlines and restrained flat 2D shading. No hat, clothes, whistle or other accessory, so it stays consistent with the existing exercise poses. No words, arrows, scenery, cast shadow, sharp teeth or 3D. Centered full body, 8 percent margins, square approximately1024. Perfectly solid pure magenta #FF00FF production matte background for approved removal; no magenta on baby.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/pe-dino-coach-matte.png",
+      "review": "Original baby identity preserved, no costume changes. Approved matte removal and cream composite checked; coach on success, existing baby action poses during exercise. One alternating caregiver cheers each round."
     },
     {
       "id": "friendly-trex",
@@ -52,5 +60,9 @@
       "status": "implemented",
       "implementation": "Unicode directional UI cues in hub/modules/motion.js; interface symbols only, not character illustrations."
     }
-  ]
+  ],
+  "reusedRoles": {
+    "xiaolianCheering": "hub/img/chars/xiaolian-clap.png",
+    "xiaozhiCheering": "hub/img/chars/xiaozhi-highfive.png"
+  }
 }

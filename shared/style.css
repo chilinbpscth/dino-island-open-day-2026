@@ -124,4 +124,8 @@
 .greeting-dialogue .speech-bubble{width:fit-content;padding:10px 22px;background:var(--cream);border:2px solid var(--ink);border-radius:22px;position:relative;margin-bottom:24px}
 .greeting-dialogue .speech-bubble:after{content:"";position:absolute;left:24px;bottom:-10px;width:16px;height:16px;background:var(--cream);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}
 
-.motion-stage.scene-complete:not(.pe-stage) .motion-guide{animation:none}
+.motion-stage.scene-complete .motion-guide{animation:none}
+
+.egg-guide.is-surprised{object-fit:cover}
+
+.pe-scene .pe-cheer{position:absolute;right:5%;bottom:6%;width:25%;height:60%;object-fit:contain;z-index:2}

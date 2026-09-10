@@ -3,6 +3,7 @@
 <main class="setup"><h1>十個連線負載驗收</h1>
 <p>使用老師頁已儲存嘅連線設定。建立十個「負載測試」參加者，先保存九科，再同時提交第十科及上傳合成證書；每五秒讀榜。測試資料會出現在真實後台及排行榜，並非十部 iPad 實機驗收。</p>
 <label for="batch">批次 ID（首次留空；失敗重試沿用同一 ID）</label><input id="batch" autocomplete="off">
+<label for="zone-ms">每站合成時間（毫秒；重試沿用原值）</label><input id="zone-ms" type="number" min="1" max="240000" value="1000"><p>只控制測試名次，唔影響提交速度計時。新批次如要量度十行上榜，總時間須優於現有 Top 10；重試唔可改舊成績。</p>
 <button id="run" class="primary">開始十個連線測試</button><p id="status" role="status"></p><pre id="result" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre>
 <p>完成後保留報告內嘅參加者／證書 ID，供校方清理測試資料。唔會自動刪除相片或資料行。頁面唔顯示裝置憑證、證書 token 或圖片內容。</p></main>
 <script type="module">
@@ -10,7 +11,7 @@ import {createRpc,LIVE_URL_RE} from './live-google.js';import {networkSettings} 
 const button=document.querySelector('#run'),status=document.querySelector('#status'),batch=document.querySelector('#batch'),out=document.querySelector('#result');
 button.onclick=async()=>{let rpcs=[],reader;button.disabled=true;try{
  const s=networkSettings();if(!LIVE_URL_RE.test(s.appScriptUrl)||!s.deviceToken)throw Error('本機未設定活動連線及裝置憑證');
- const report=loadBatch(batch.value.trim()||undefined);batch.value=report.batchId;out.textContent=JSON.stringify(report,null,2);
+ const report=loadBatch(batch.value.trim()||undefined,Number(document.querySelector('#zone-ms').value));batch.value=report.batchId;out.textContent=JSON.stringify(report,null,2);
  rpcs=report.clients.map(()=>createRpc(s.appScriptUrl,s.deviceToken));reader=createRpc(s.appScriptUrl);
  await runLoad(report,rpcs,reader,testCertificate(),s.appScriptUrl,r=>{status.textContent=r.phase;out.textContent=JSON.stringify(r,null,2);});
 }catch(e){status.textContent='未完成：'+e.message;}finally{rpcs.forEach(r=>r.destroy());reader?.destroy();button.disabled=false;}};

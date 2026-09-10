@@ -61,6 +61,6 @@
     "change": "Reject requests whose existing certificate row is deleted before any file creation; new request IDs can still issue a new certificate.",
     "localEvidence": "Regression test failed with Missing expected exception before fix. After fix all 47 tests passed, including old token remains invalid and new request succeeds.",
     "liveEvidence": "Apps Script UI confirmed version 4 deployment success. Post-deployment getBoard succeeded with original player, ten stations, totalMs 249000, version 6.",
-    "liveDeletedRetry": "Await actual scheduled deletion before retrying original test request."
+    "liveDeletedRetry": "2026-09-10 17:04 HKT, backend v6: reused original request ID and original player/version through the existing live-google.html upload harness. Actual response was Error: 證書已到期，請重新拍攝; no download link was produced. This follows verified scheduled deletion and H2 deleted status."
   }
 }

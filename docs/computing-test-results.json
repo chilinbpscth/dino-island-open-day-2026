@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-09-10T03:18:33.445Z",
+  "testedAt": "2026-09-10T06:56:15.623Z",
   "environment": "Desktop Chromium with simulated 390px phone; demo mode, no backend requests",
   "passed": [
     "Garden loads behind readable 4x4 grid",

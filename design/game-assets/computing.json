@@ -16,7 +16,7 @@
     {
       "id": "dino-robot",
       "file": "hub/img/games/computing/dino-robot.png",
-      "status": "needs-alpha-fix",
+      "status": "generated-integrated",
       "kind": "sprite",
       "reference": "hub/img/chars/dino-baby.png",
       "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Subject and action: dino robot. Single full-body sprite, front three-quarter view, friendly expression, centered, 8 percent clear margins, genuine transparent background. Match referenced character except new dinosaur friends which are distinct species in the same visual world. Intended for computing gameplay. No ground shadow.",
@@ -24,7 +24,7 @@
         "design/game-assets/drafts/robot-v1.png",
         "design/game-assets/drafts/robot-v2.png"
       ],
-      "review": "Identity retained; both generated outputs have painted checkerboards and no alpha. Rejected as production sprites."
+      "review": "robot-v2 processed with user-approved background cleanup. 1024x1024 RGBA; cream composite checked, metal joints retained. Integrated into coding grid, replacing plain baby and temporary panel."
     }
   ],
   "vectorAssets": [

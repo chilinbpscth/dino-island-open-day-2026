@@ -1,5 +1,5 @@
 {
-  "version": "6063f275a89e",
+  "version": "37e3dee44285",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -71,6 +71,7 @@
     "hub/img/games/chinese/mountain.png",
     "hub/img/games/chinese/river.png",
     "hub/img/games/chinese/volcano.png",
+    "hub/img/games/computing/coding-garden.png",
     "hub/img/games/general/bedtime.png",
     "hub/img/games/general/daytime.png",
     "hub/img/games/general/morning.png",

@@ -1,5 +1,5 @@
 {
-  "version": "64d2738815c8",
+  "version": "be54918c3e82",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -138,6 +138,7 @@
     "index.html",
     "setup/audio-review.html",
     "setup/enroll.js",
+    "setup/guide.html",
     "setup/index.html",
     "shared/certificate-link.js",
     "shared/config.js",

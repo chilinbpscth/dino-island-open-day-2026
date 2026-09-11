@@ -41,13 +41,13 @@ function prepareClassDevices_(){
   s.getRange(2,1,25,2).setValues(rows);
   var key=props_().getProperty('GUIDE_SETUP_KEY')||Utilities.getUuid()+Utilities.getUuid();
   props_().setProperties({DEVICE_HASHES:JSON.stringify(hashes),GUIDE_SETUP_KEY:key,GUIDE_SETUP_EXPIRES:String(Date.now()+7*86400000)});
-  s.getRange(1,4,2,1).setValues([['小導師共用入口：只發到班內'],[ScriptApp.getService().getUrl()+'?view=guides&key='+encodeURIComponent(key)]]);
+  s.getRange(1,4,2,1).setValues([['小導師共用入口：只發到班內'],['https://script.google.com/macros/s/AKfycbz0amXv0kfIBOGC4hX-4E8YShyAoukHgmMMAJoDpJ7vIwZpGWm1SWSYesakoECgU5pP/exec?view=guides&key='+encodeURIComponent(key)]]);
   console.log('25 個學號已準備好；班內入口已寫入 DeviceSetup D2。');
  });
 }
 function guidePage_(key){
  if(!key||key!==props_().getProperty('GUIDE_SETUP_KEY')||Date.now()>Number(props_().getProperty('GUIDE_SETUP_EXPIRES')||0))return HtmlService.createHtmlOutput('準備連結無效或已到期，請老師提供最新入口。');
- var rows=sheet_('DeviceSetup').getRange(2,1,25,2).getValues(),base='https://chilinbpscth.github.io/dino-island-open-day-2026/setup/';
+ var rows=sheet_('DeviceSetup').getRange(2,1,25,2).getValues(),base='https://chilinbpscth.github.io/dino-island-open-day-2026/setup/guide.html';
  var links=rows.map(function(r,i){return '<a target="_top" rel="noreferrer" href="'+base+'#'+URLSearchParams_({deviceToken:r[1],guide:String(i+1)})+'">'+String(i+1).padStart(2,'0')+' 號</a>';}).join('');
  return HtmlService.createHtmlOutput('<!doctype html><html lang="zh-HK"><head><meta name="referrer" content="no-referrer"><style>body{font:24px system-ui;background:#F6F3EC;color:#146b4d;max-width:900px;margin:30px auto;padding:20px}h1{font-size:38px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}a{display:grid;place-items:center;min-height:80px;background:#146b4d;color:white;border-radius:20px;text-decoration:none;font-weight:bold}@media(max-width:500px){.grid{grid-template-columns:repeat(3,1fr)}}p{line-height:1.6}</style></head><body><p>佛教志蓮小學 · 智取恐龍島</p><h1>小導師，揀自己學號</h1><p>每人固定用一部 iPad。用 Safari 開啟，撳自己學號；設定後唔使再揀。每位小朋友玩完，保存證書後撳「下一位探險家」。</p><div class="grid">'+links+'</div><p>呢個入口只供本班使用，請勿公開轉發。學號係小導師編號，小朋友入遊戲再填自己暱稱。</p></body></html>').setTitle('小導師學號入口｜智取恐龍島').addMetaTag('viewport','width=device-width,initial-scale=1');
 }

@@ -4,7 +4,7 @@ export function loadPoseModel(){
  if(!modelPromise)modelPromise=(async()=>{
   const {FilesetResolver,PoseLandmarker}=await import('./vendor/mediapipe/vision-bundle.js');
   const files=await FilesetResolver.forVisionTasks(new URL('./vendor/mediapipe/wasm/',import.meta.url).href);
-  return PoseLandmarker.createFromOptions(files,{baseOptions:{modelAssetPath:new URL('./models/pose-landmarker-lite-v1.task',import.meta.url).href,delegate:'CPU'},runningMode:'VIDEO',numPoses:2,minPoseDetectionConfidence:.6,minPosePresenceConfidence:.6,minTrackingConfidence:.6,outputSegmentationMasks:false});
+  return PoseLandmarker.createFromOptions(files,{baseOptions:{modelAssetPath:new URL('./models/pose-landmarker-lite-v1.task',import.meta.url).href,delegate:'CPU'},runningMode:'VIDEO',numPoses:2,minPoseDetectionConfidence:.4,minPosePresenceConfidence:.4,minTrackingConfidence:.4,outputSegmentationMasks:false});
  })().catch(error=>{modelPromise=null;throw error;});
  return modelPromise;
 }

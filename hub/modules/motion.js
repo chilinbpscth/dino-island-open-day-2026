@@ -6,7 +6,7 @@ const sequences={english:['jump','sit','stand','hands','left','right','freeze'],
 const labels={jump:'輕輕跳起，再企穩',sit:'慢慢蹲低',stand:'企返直',hands:'舉高雙手',left:'向畫面左邊移一步',right:'向畫面右邊移一步',freeze:'停定定'};
 const actionSprites={jump:'dino-jump',sit:'dino-squat',hands:'dino-hands-up',left:'dino-left',right:'dino-right'};
 const cues={jump:'↑',sit:'↓',stand:'↑',hands:'↑ ↑',left:'←',right:'→',freeze:'●'};
-const poseMessages={'no-person':'請企喺鏡頭前，讓全身入畫。',multiple:'今次一位小朋友玩，家長可以企喺畫面外陪同。',unclear:'鏡頭未睇清楚，請露出雙手同雙腳。','stand-to-calibrate':'先企直，等小志認一認位置。',calibrating:'企定一陣，準備好就開始。'};
+const poseMessages={'no-person':'請望住鏡頭，影到頭同膊頭就得。',multiple:'今次一位小朋友玩，家長可以企喺畫面外陪同。',unclear:'請將面仔放喺畫面中間，唔使影到手腳。','stand-to-calibrate':'先望住鏡頭，等小志認一認位置。',calibrating:'企定一陣，準備好就開始。'};
 export function mountMotion(root,state,save,finish,lifecycle={},subject='english'){
  const {pause=()=>{},resume=()=>{}}=lifecycle,sequence=sequences[subject],tracker=new PoseActions();state.round??=0;state.motionAttempts??=0;
  let live=true,mode=state.roundDone?'success':'choose',request=0,raf=null,last=null,remaining=5000,holdStart=null,holdPointer=null,commandStarted=false,attemptTime=0,lastPoseTime=null;
@@ -39,7 +39,7 @@ export function mountMotion(root,state,save,finish,lifecycle={},subject='english
      lastPoseTime=time;
      if(attemptTime>=8000){state.motionAttempts++;attemptTime=0;save();if(state.motionAttempts>=3)root.querySelector('#motion-family')?.classList.add('motion-help-highlight');}
     }else{lastPoseTime=null;attemptTime=0;}
-    progress(result.progress);status(poseMessages[result.status]||'跟住示範，'+labels[command()]+'。');
+    progress(result.progress);status(poseMessages[result.status]||({left:'頭仔輕輕向左移。',right:'頭仔輕輕向右移。',sit:'頭仔輕輕向下，唔使蹲到好低。',stand:'頭仔返中間，坐直或企直都得。',hands:'跟示範伸展，頭仔輕輕向上就得。',jump:'頭仔輕輕向上，唔使真係跳。',freeze:'頭仔停定一陣就得。'}[command()]));
    },()=>{if(live&&attempt===request){stop();mode='paused';render();status('鏡頭未能繼續，請再試或同家長一齊做。');pause('motion-setup');}});
   }catch{if(live&&attempt===request){stop();mode='paused';render();status('未能使用鏡頭，可以同家長一齊做。');}}
  }

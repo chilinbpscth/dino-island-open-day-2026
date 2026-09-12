@@ -1,0 +1,31 @@
+{
+  "backendVersion": 6,
+  "deployedAt": "2026-09-10 16:59 HKT",
+  "batchId": "6918ac20-b787-4b67-b22b-28474584005a",
+  "startedAt": "2026-09-10T09:01:21.667Z",
+  "phase": "complete",
+  "zoneMs": 500,
+  "imageBytes": 116736,
+  "freshBatch": true,
+  "verified": 5,
+  "boardWithin10s": 7,
+  "uploadWithin10s": 0,
+  "passed": false,
+  "clients": [
+    {"client":1,"scoreMs":4716,"boardMs":6388,"error":"busy during upload"},
+    {"client":2,"scoreMs":3470,"boardMs":6388,"error":"upload response timeout"},
+    {"client":3,"scoreMs":3027,"boardMs":6388,"uploadMs":14063,"status":"verified"},
+    {"client":4,"error":"busy during score submission"},
+    {"client":5,"scoreMs":2083,"boardMs":6388,"error":"upload response timeout"},
+    {"client":6,"scoreMs":5603,"boardMs":6388,"error":"upload response timeout"},
+    {"client":7,"scoreMs":1480,"boardMs":1935,"uploadMs":13556,"status":"verified"},
+    {"client":8,"scoreMs":6196,"boardMs":6388,"uploadMs":12453,"status":"verified"},
+    {"client":9,"scoreMs":9106,"boardMs":13947,"uploadMs":10060,"status":"verified"},
+    {"client":10,"scoreMs":8422,"boardMs":13947,"uploadMs":12114,"status":"verified"}
+  ],
+  "scope": "Ten independent Chrome bridge connections on one computer with one saved device credential. Sequential connection preparation then concurrent final score/photo submission. Five-second non-overlapping board polling. No retries in measurement.",
+  "rankingControl": "Synthetic per-zone times were 500ms to place this new batch ahead of earlier 1000ms test data. This changes ranking position only, not wall-clock latency. Preflight checked that no outside player would displace this batch.",
+  "executionEvidence": "Apps Script Executions UI showed the v6 burst dispatch calls terminal (completed or failed), with completed calls up to 13.419 seconds. Expanded failed dispatch starting 17:02:36 HKT, duration 6.824 seconds: Error 更新繁忙，請稍後再試 at lock_(程式碼:14:80), uploadCertificate_(程式碼:23:614), dispatch(程式碼:27:160). This locates a failure at certificate reservation lock acquisition. Existing logs have no request IDs, so they cannot conclusively map each browser timeout to an individual server execution.",
+  "limits": "Not ten physical iPads, not a representative 95th percentile, not maximum-size photographs. This historical harness used a 30-second upload response timeout, while the real certificate page waits 60 seconds. Later harness revisions align that timeout; the 10-second performance target remains unchanged. Timeout alone does not prove server failure. All displayed burst executions were terminal before further work; certificate rows still need reconciliation before retries.",
+  "cleanup": "Retain exact load-<batchId>-1 through -10 and load-cert-<batchId>-1 through -10 for reconciliation and cleanup. Do not delete unrelated records."
+}

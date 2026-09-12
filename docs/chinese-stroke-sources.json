@@ -1,0 +1,85 @@
+[
+  {
+    "character": "山",
+    "officialAnimation": "https://www.edbchinese.hk/EmbziciwebRes/stkdemo_js/1001-2000/1088.html?lang=ch",
+    "status": "official animation order and direction visually reviewed; teacher typography review pending",
+    "reviewedAt": "2026-09-10",
+    "method": "Rendered official Adobe Animate timeline in Chromium at frames 24/27/30/33, 48/51/54/57, 72/75/78/81, 96/99/102/105; compared growing strokes and completed states to original interaction paths. No official artwork bundled.",
+    "observedOrder": [
+      "豎",
+      "豎折",
+      "豎"
+    ],
+    "finding": "Stroke order and writing direction agree; interaction geometry intentionally simplified, not a reproduction of brush outlines."
+  },
+  {
+    "character": "水",
+    "officialAnimation": "https://www.edbchinese.hk/EmbziciwebRes/stkdemo_js/2001-3000/2109.html?lang=ch",
+    "status": "official animation order and direction visually reviewed; teacher typography review pending",
+    "reviewedAt": "2026-09-10",
+    "method": "Rendered official Adobe Animate timeline in Chromium at frames 24/27/30/33, 48/51/54/57, 72/75/78/81, 96/99/102/105; compared growing strokes and completed states to original interaction paths. No official artwork bundled.",
+    "observedOrder": [
+      "豎鈎",
+      "橫撇",
+      "撇",
+      "捺"
+    ],
+    "finding": "Order agrees. Corrected disconnected right-side strokes to meet the central vertical at their shared junction."
+  },
+  {
+    "character": "火",
+    "officialAnimation": "https://www.edbchinese.hk/EmbziciwebRes/stkdemo_js/2001-3000/2366.html?lang=ch",
+    "status": "official animation order and direction visually reviewed; teacher typography review pending",
+    "reviewedAt": "2026-09-10",
+    "method": "Rendered official Adobe Animate timeline in Chromium at frames 24/27/30/33, 48/51/54/57, 72/75/78/81, 96/99/102/105; compared growing strokes and completed states to original interaction paths. No official artwork bundled.",
+    "observedOrder": [
+      "點",
+      "撇",
+      "撇",
+      "捺"
+    ],
+    "finding": "Stroke order and writing direction agree; interaction geometry intentionally simplified, not a reproduction of brush outlines."
+  },
+  {
+    "character": "木",
+    "officialAnimation": "https://www.edbchinese.hk/EmbziciwebRes/stkdemo_js/1001-2000/1839.html?lang=ch",
+    "status": "official animation order and direction visually reviewed; teacher typography review pending",
+    "reviewedAt": "2026-09-10",
+    "method": "Rendered official Adobe Animate timeline in Chromium at frames 24/27/30/33, 48/51/54/57, 72/75/78/81, 96/99/102/105; compared growing strokes and completed states to original interaction paths. No official artwork bundled.",
+    "observedOrder": [
+      "橫",
+      "豎",
+      "撇",
+      "捺"
+    ],
+    "finding": "Stroke order and writing direction agree; interaction geometry intentionally simplified, not a reproduction of brush outlines."
+  },
+  {
+    "character": "日",
+    "officialAnimation": "https://www.edbchinese.hk/EmbziciwebRes/stkdemo_js/1001-2000/1757.html?lang=ch",
+    "status": "official animation order and direction visually reviewed; teacher typography review pending",
+    "reviewedAt": "2026-09-10",
+    "method": "Rendered official Adobe Animate timeline in Chromium at frames 24/27/30/33, 48/51/54/57, 72/75/78/81, 96/99/102/105; compared growing strokes and completed states to original interaction paths. No official artwork bundled.",
+    "observedOrder": [
+      "豎",
+      "橫折",
+      "橫",
+      "橫"
+    ],
+    "finding": "Stroke order and writing direction agree; interaction geometry intentionally simplified, not a reproduction of brush outlines."
+  },
+  {
+    "character": "月",
+    "officialAnimation": "https://www.edbchinese.hk/EmbziciwebRes/stkdemo_js/1001-2000/1827.html?lang=ch",
+    "status": "official animation order and direction visually reviewed; teacher typography review pending",
+    "reviewedAt": "2026-09-10",
+    "method": "Rendered official Adobe Animate timeline in Chromium at frames 24/27/30/33, 48/51/54/57, 72/75/78/81, 96/99/102/105; compared growing strokes and completed states to original interaction paths. No official artwork bundled.",
+    "observedOrder": [
+      "撇",
+      "橫折鈎",
+      "橫",
+      "橫"
+    ],
+    "finding": "Stroke order and writing direction agree; interaction geometry intentionally simplified, not a reproduction of brush outlines."
+  }
+]

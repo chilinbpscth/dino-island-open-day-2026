@@ -1,4 +1,7 @@
 const paths={
+ banana:'<path fill="#f6d35b" d="M68 12l9 3C84 52 57 84 24 79Q9 75 10 60C36 75 67 46 68 12Z"/><path d="M20 68Q59 68 73 25"/><path fill="#927047" d="M68 12l1-7 9 2-1 8M10 60l7 3-3 9-5-5Z"/>',
+ strawberry:'<path fill="#e9716c" d="M17 32Q8 52 36 79q9 10 18 0Q82 52 73 32Q62 17 45 24Q26 17 17 32Z"/><path fill="#75a75b" d="M45 26L26 11l4 17-17 4 23 8 9-12 10 12 22-8-17-4 4-17Z"/><path stroke="#fff1bd" d="M29 46l2 4m27-4-2 4M44 47v4M36 62l2 4m14-4-2 4M44 73v3"/>',
+ microphone:'<rect fill="#cce4d5" x="29" y="10" width="32" height="49" rx="16"/><path d="M17 43a28 28 0 0056 0M45 71v12M30 83h30"/>',
  water:'<path fill="#7fc9db" d="M45 12Q15 45 15 61a30 30 0 0060 0Q75 45 45 12Z"/><path d="M29 57q-5 15 9 18"/>',
  apple:'<path fill="#ee937c" d="M45 32C10 8 1 63 25 83q10 7 20-1 12 8 21 0C92 51 77 14 45 32Z"/><path d="M45 31V16"/><path fill="#75a75b" d="M45 22Q53 4 71 12Q63 30 45 22Z"/>',
  leaf:'<path fill="#75a75b" d="M16 78Q1 12 77 13Q87 82 16 78Z"/><path d="M17 77L65 30m-26 26L36 36m3 20 22 2"/>',

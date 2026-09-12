@@ -2,8 +2,8 @@ import {CONFIG} from './config.js';
 import {read,write,DEMO} from './storage.js';
 export const networkSettings=()=>({...CONFIG,...read('settings',{}),...(DEMO?{appScriptUrl:'',deviceToken:''}:{})});
 export class GoogleBridge{
- constructor(){this.pending=new Map();this.channel=crypto.randomUUID();this.ready=null;this.receiver=null;}
- connect(){if(this.ready)return this.ready;const url=networkSettings().appScriptUrl;if(!url)return Promise.reject(Error('尚未設定活動連線'));if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url))return Promise.reject(Error('活動連線網址不正確'));
+ constructor(appScriptUrl=null){this.pending=new Map();this.channel=crypto.randomUUID();this.ready=null;this.receiver=null;this.appScriptUrl=appScriptUrl;}
+ connect(){if(this.ready)return this.ready;const url=this.appScriptUrl??networkSettings().appScriptUrl;if(!url)return Promise.reject(Error('尚未設定活動連線'));if(!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url))return Promise.reject(Error('活動連線網址不正確'));
  this.ready=new Promise((resolve,reject)=>{const timer=setTimeout(()=>{this.destroy();reject(Error('連線暫時未完成'));},20000);this.listener=e=>{
  const m=e.data;if(!m||m.channel!==this.channel||!/^https:\/\/(?:[a-z0-9-]+-)?script\.googleusercontent\.com$/.test(e.origin))return;
  if(m.kind==='ready'&&!this.receiver){this.receiver=e.source;this.origin=e.origin;clearTimeout(timer);resolve();return;}
@@ -14,5 +14,23 @@ export class GoogleBridge{
 }
 export const bridge=new GoogleBridge();
 export function queuePlayer(snapshot){let q=read('outbox',{});q[snapshot.id]=snapshot;write('outbox',q);}
-let flushing=false;
-export async function flushPlayers(){if(flushing)return;let settings=networkSettings();if(!navigator.onLine||!settings.appScriptUrl||!settings.deviceToken)return;flushing=true;window.dispatchEvent(new CustomEvent('syncstatus',{detail:'正在同步…'}));try{let q=read('outbox',{});for(const item of Object.values(q)){await bridge.call('savePlayer',{deviceToken:settings.deviceToken,player:item,requestId:item.id+':'+item.version});let latest=read('outbox',{});if(latest[item.id]?.version===item.version)delete latest[item.id];write('outbox',latest);}window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已同步'}));}catch(e){window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已存本機，等待同步'}));}finally{flushing=false;}}
+let flushing=null;
+export function flushPlayers(){
+ if(flushing)return flushing;
+ const settings=networkSettings();if(!navigator.onLine||!settings.appScriptUrl||!settings.deviceToken)return Promise.resolve(false);
+ flushing=Promise.resolve().then(async()=>{
+  window.dispatchEvent(new CustomEvent('syncstatus',{detail:'正在同步…'}));
+  try{
+   let queued;
+   while((queued=Object.values(read('outbox',{}))).length){
+    for(const item of queued){
+     const result=await bridge.call('savePlayer',{deviceToken:settings.deviceToken,player:item,requestId:item.id+':'+item.version});
+     if(!Number.isSafeInteger(result?.acceptedVersion)||result.acceptedVersion<item.version)throw Error('成績未被確認');
+     const latest=read('outbox',{});if(latest[item.id]?.version===item.version)delete latest[item.id];write('outbox',latest);
+    }
+   }
+   window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已同步'}));return true;
+  }catch(e){window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已存本機，等待同步'}));return false;}
+ }).finally(()=>{flushing=null;});
+ return flushing;
+}

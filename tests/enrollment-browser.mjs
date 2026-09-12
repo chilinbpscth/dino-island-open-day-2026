@@ -1,0 +1,6 @@
+import {chromium} from '@playwright/test';import assert from 'node:assert/strict';
+const browser=await chromium.launch();try{const context=await browser.newContext({serviceWorkers:'block'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.route('**/shared/network.js',route=>route.fulfill({contentType:'text/javascript',body:'export const bridge={call:async()=>({ok:true}),destroy(){}};export const networkSettings=()=>({});export const queuePlayer=()=>{};export const flushPlayers=async()=>true;'}));
+await page.goto('http://127.0.0.1:4173/setup/guide.html#deviceToken='+ 'a'.repeat(30)+'&guide=25');await page.waitForURL('**/hub/');const s=await page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:settings')));assert.equal(s.guideNumber,25);assert.equal(s.deviceToken,'a'.repeat(30));assert.equal(page.url().includes('deviceToken'),false);
+await page.goto('http://127.0.0.1:4173/setup/guide.html#deviceToken='+ 'b'.repeat(30)+'&guide=24');await page.getByText(/呢部 iPad 已有連接設定/).waitFor();assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('dino-island-20260913:settings')).guideNumber),25);assert.deepEqual(errors,[]);
+console.log('PASS: enrollment saves guide 25, strips secret URL, enters game, blocks accidental device switch, no page errors');}finally{await browser.close();}

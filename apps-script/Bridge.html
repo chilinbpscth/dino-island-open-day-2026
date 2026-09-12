@@ -1,6 +1,6 @@
 <!doctype html><html><head><meta charset="utf-8"></head><body><script>
 const parentOrigin=<?!= origin ?>,channel=<?!= channel ?>;
-const methods=new Set(['savePlayer','getBoard','uploadCertificate','getCertificate']);
+const methods=new Set(['verifyDevice','savePlayer','getBoard','uploadCertificate','getCertificate']);
 window.addEventListener('message',event=>{if(event.origin!==parentOrigin||event.source!==window.top)return;const m=event.data;if(!m||m.kind!=='request'||m.channel!==channel||typeof m.id!=='string'||!methods.has(m.method))return;const respond=(ok,data,error)=>window.top.postMessage({kind:'response',channel,id:m.id,ok,data,error},parentOrigin);google.script.run.withSuccessHandler(data=>respond(true,data)).withFailureHandler(error=>respond(false,null,error.message||'更新未完成')).dispatch(m.method,m.payload||{});});
 window.top.postMessage({kind:'ready',channel},parentOrigin);
 </script></body></html>

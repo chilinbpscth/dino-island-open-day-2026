@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-HK"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>開放日正式入口｜智取恐龍島</title><style>body{background:#F6F3EC;color:#146b4d;font:24px system-ui;max-width:700px;margin:12vh auto;padding:24px;text-align:center}button{font:inherit;padding:20px;border-radius:20px}</style><h2>佛教志蓮小學</h2><h1>智取恐龍島</h1><p id="status">正在準備開放日正式遊戲，請保持上網…</p><p>原有學號連接設定會保留。</p><button hidden id="retry" onclick="location.reload()">再試一次</button><script>
+(async()=>{
+ const status=document.querySelector('#status');
+ try{
+  if(!('serviceWorker' in navigator))throw Error('請用Safari開啟本頁。');
+  const reg=await navigator.serviceWorker.register('../sw.js',{updateViaCache:'none'});
+  await reg.update();
+  const check=worker=>new Promise(resolve=>{if(!worker)return resolve(false);const ch=new MessageChannel(),timer=setTimeout(()=>{ch.port1.close();resolve(false);},3000);ch.port1.onmessage=e=>{clearTimeout(timer);ch.port1.close();resolve(e.data?.epoch==='open-day-20260913'&&e.data?.complete===true);};worker.postMessage({type:'CHECK_OFFLINE'},[ch.port2]);});
+  const deadline=Date.now()+180000;
+  while(Date.now()<deadline){
+   if(reg.waiting)reg.waiting.postMessage({type:'ACTIVATE_OPEN_DAY'});
+   if(await check(reg.active)){status.textContent='準備完成，正在進入遊戲…';location.replace('../hub/');return;}
+   await new Promise(resolve=>setTimeout(resolve,500));
+  }
+  throw Error('遊戲下載未完成，請檢查Wi-Fi後再試。');
+ }catch(e){status.textContent=e.message;document.querySelector('#retry').hidden=false;}
+})();
+</script></html>

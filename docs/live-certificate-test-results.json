@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-10",
+  "environment": "Chrome ITSUPPORT, localhost:4173, existing production Apps Script deployment",
+  "playerId": "live-ecbb7a7a-e002-490d-97da-1a1960a0dce8",
+  "requestId": "cert-test-ca69ab18-8c1f-47d1-a4b2-26a2ddc19660",
+  "expiresAt": 1789622613777,
+  "image": {
+    "width": 1600,
+    "height": 2000,
+    "content": "Synthetic test certificate, no visitor photograph"
+  },
+  "verified": [
+    "Upload returned a valid deployment certificate link",
+    "Download request omitted device credentials",
+    "Downloaded JPEG data exactly equalled uploaded data",
+    "JPEG decoded to 1600 by 2000 pixels"
+  ],
+  "unverified": [
+    "Anonymous parent phone download page",
+    "QR scanning",
+    "Real-device photographed certificate composition",
+    "10-device load and latency target"
+  ],
+  "drivePrivacy": {
+    "account": "itsupport@chilinbps.edu.hk",
+    "evidence": "Google Drive details showed 您的私人內容 for both the certificate folder and the selected test JPEG. File details showed owner 我, size 114 KB and dimensions 1600 x 2000. Folder listing contained one test JPEG with the existing request ID after retry.",
+    "scope": "Read-only inspection of this test file and its parent folder; no sharing settings changed."
+  },
+  "downloadPage": {
+    "browser": "Codex in-app browser, separate from Chrome ITSUPPORT",
+    "result": "Actual certificate image rendered with save button and expiry 17/9/2026 13:23:33 HKT; no login prompt appeared during navigation",
+    "limits": "Existing cookie state was not inspected; this is not a clean incognito or physical-phone verification. Save-to-device and QR scanning not yet tested."
+  },
+  "retry": "Reused cert-test-ca69ab18-8c1f-47d1-a4b2-26a2ddc19660 in a fresh harness page; backend returned the same expiry and identical image. No new request ID was created.",
+  "cleanupSchedule": {
+    "evidence": "2026-09-10: Apps Script Triggers UI showed one cleanupExpired_ time-driven Head trigger, last run 16:46:58 HKT, error rate 0%. Certificates!H2 read back deleted without manual editing of that cell. Opening the exact original Drive file ID 1ZJHcdRNlUYM8Gq44uFWo-XFMHOD-dzlB in Chrome ITSUPPORT returned 很抱歉，您要求的檔案不存在。",
+    "limit": "One deliberately expired synthetic file verified. No manual cleanup wrapper or new trigger added; seven days of elapsed wall-clock time not tested."
+  },
+  "cleanup": "Existing synthetic certificate has been deliberately expired for scheduled cleanup verification. Keep its row to observe status deleted and avoid an orphan. Do not reuse this request ID for a new live certificate.",
+  "evidence": "Visible result in tests/live-google.html after real upload and getCertificate calls; not a mocked test. Browser session remained signed in to Google, so this does not prove anonymous page access.",
+  "expiryRejection": {
+    "date": "2026-09-10",
+    "account": "itsupport@chilinbps.edu.hk",
+    "requestId": "cert-test-ca69ab18-8c1f-47d1-a4b2-26a2ddc19660",
+    "range": "Certificates!G2",
+    "originalExpiresAt": 1789622613777,
+    "testExpiresAt": 1789011780000,
+    "evidence": [
+      "Before the edit, same request ID returned the existing certificate and matching 1600×2000 JPEG.",
+      "Confirmed Certificates!A2 request ID, D2 file ID and H2 ready status through Google Sheets UI.",
+      "Changed only G2 through cell paste; Sheets formula bar read back 1789011780000 and save status confirmed cloud save.",
+      "Reloaded actual Apps Script certificate page: Error: 證書已到期或連結無效. No certificate image or save button appeared."
+    ],
+    "limits": "This forces a past expiry timestamp; it does not test waiting seven wall-clock days. An image already downloaded cannot be revoked.",
+    "cleanupPending": false
+  },
+  "deletedRequestProtection": {
+    "deployedVersion": 4,
+    "deployedAt": "2026-09-10 16:32 HKT",
+    "deployment": "Existing deployment URL and execute-as-owner/Anyone settings retained",
+    "change": "Reject requests whose existing certificate row is deleted before any file creation; new request IDs can still issue a new certificate.",
+    "localEvidence": "Regression test failed with Missing expected exception before fix. After fix all 47 tests passed, including old token remains invalid and new request succeeds.",
+    "liveEvidence": "Apps Script UI confirmed version 4 deployment success. Post-deployment getBoard succeeded with original player, ten stations, totalMs 249000, version 6.",
+    "liveDeletedRetry": "2026-09-10 17:04 HKT, backend v6: reused original request ID and original player/version through the existing live-google.html upload harness. Actual response was Error: 證書已到期，請重新拍攝; no download link was produced. This follows verified scheduled deletion and H2 deleted status."
+  }
+}

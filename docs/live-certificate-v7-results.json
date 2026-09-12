@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-10",
+  "deployment": "Version 7, 17:39 HKT, existing web app URL, ITSUPPORT owner and Anyone access retained",
+  "requestId": "cert-test-24636203-91de-4757-b1ee-4cf5a38a0c74",
+  "expiresAtBeforeCleanup": 1789637995585,
+  "verified": [
+    "Synthetic 1600×2000 JPEG upload and exact downloaded image comparison passed",
+    "Repeated request with recover=true returned the same URL and expiry and passed image comparison",
+    "Certificates A16 contains this request; A17 empty; H16 ready: no duplicate row after retry",
+    "Public certificate.js matches local committed retry implementation"
+  ],
+  "cleanup": "After verification, set only G16 to zero and read it back; keep row for hourly file cleanup. Thirteen earlier expired synthetic certificates plus this one await file deletion verification.",
+  "limitations": [
+    "No artificial production lock contention or lost network response induced",
+    "Single certificate recovery does not prove ten-device performance",
+    "Synthetic image only; physical iPad and parent phone testing remains outstanding"
+  ]
+}

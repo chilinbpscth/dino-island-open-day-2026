@@ -1,0 +1,20 @@
+{
+  "testedOn": "2026-09-10",
+  "environment": "Chrome ITSUPPORT, localhost:4173, real deployed Apps Script via browser UI",
+  "readBoard": {
+    "status": "passed",
+    "successfulResponse": {"serverTime":1789011924639,"exploring":0,"players":[],"others":0},
+    "subsequentResult": "Repeated read returned the same live deployment and the write acceptance completed"
+  },
+  "savedDeviceSetup": "Existing school device credential copied through browser UI into the local teacher setup; no credential included in this report or repository",
+  "writeAcceptance": {
+    "status": "passed",
+    "attemptId": "live-ecbb7a7a-e002-490d-97da-1a1960a0dce8",
+    "displayName": "測試2806",
+    "resultCount": 7,
+    "checks": ["240000ms accepted", "240001ms rejected", "completed time immutable", "six stations exploring", "ten stations ranked", "eleventh station does not increase score"],
+    "board": {"ranked": 1, "others": 0, "exploring": 0},
+    "sheetObservation": "One test row remains for teacher review and manual removal"
+  },
+  "notTested": ["live score validation", "photo upload", "anonymous phone download", "expiry cleanup", "ten-device load"]
+}

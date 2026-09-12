@@ -1,5 +1,5 @@
 {
-  "version": "be54918c3e82",
+  "version": "21189a9848be",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -140,6 +140,7 @@
     "setup/enroll.js",
     "setup/guide.html",
     "setup/index.html",
+    "setup/open-day.html",
     "shared/certificate-link.js",
     "shared/config.js",
     "shared/core.js",

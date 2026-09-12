@@ -1,3 +1,4 @@
+export const GAME_EPOCH='open-day-20260913';
 export const SCHOOL='佛教志蓮小學', TITLE='智取恐龍島', DATE='2026.09.13', SCORE_TARGET=10, CERT_TARGET=6, MAX_ZONE_MS=240000;
 export const ZONES=[
  ['chinese','中文','write','xiaolian-write','跟筆順認識山水火木日月，連結小龍嘅生活環境。','認識山水、火山、樹木同日月，小龍學識安全生活同休息！'],
@@ -17,9 +18,9 @@ export const nameLength=s=>[...new Intl.Segmenter('zh-HK',{granularity:'grapheme
 export function cleanName(s){return String(s).normalize('NFC').trim().replace(/[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/g,'');}
 export function validName(s){return !!cleanName(s)&&nameLength(cleanName(s))<=8;}
 export const uid=()=>crypto.randomUUID();
-export function newPlayer(name){if(!validName(name))throw Error('請輸入一至八個字嘅暱稱');return {id:uid(),name:cleanName(name),version:1,zones:{},createdAt:Date.now()};}
+export function newPlayer(name){if(!validName(name))throw Error('請輸入一至八個字嘅暱稱');return {epoch:GAME_EPOCH,id:uid(),name:cleanName(name),version:1,zones:{},createdAt:Date.now()};}
 export function totals(p){const entries=Object.entries(p?.zones||{}).filter(([id,v])=>zoneById(id)&&v?.complete).slice(0,SCORE_TARGET),ids=entries.map(([id])=>id);return {zoneIds:ids,zonesCompleted:ids.length,totalMs:entries.reduce((s,[,v])=>s+Math.min(MAX_ZONE_MS,Math.max(0,v.ms||0)),0),certReady:ids.length>=CERT_TARGET,scoreReady:ids.length===SCORE_TARGET};}
-export function snapshot(p){return {id:p.id,name:p.name,version:p.version,zones:Object.fromEntries(Object.entries(p.zones).filter(([id,v])=>zoneById(id)&&v.complete).slice(0,SCORE_TARGET).map(([id,v])=>[id,Math.min(MAX_ZONE_MS,Math.round(v.ms||0))]))};}
+export function snapshot(p){return {epoch:p.epoch,id:p.id,name:p.name,version:p.version,zones:Object.fromEntries(Object.entries(p.zones).filter(([id,v])=>zoneById(id)&&v.complete).slice(0,SCORE_TARGET).map(([id,v])=>[id,Math.min(MAX_ZONE_MS,Math.round(v.ms||0))]))};}
 export function completeZone(p,id){if(!zoneById(id))throw Error('未知站點');if(p.zones[id]?.complete||totals(p).scoreReady)return false;p.zones[id]={...p.zones[id],complete:true,ms:Math.min(MAX_ZONE_MS,p.zones[id]?.ms||0)};p.version++;return true;}
 export const formatTime=ms=>`${String(Math.floor(ms/60000)).padStart(2,'0')}:${String(Math.floor(ms/1000)%60).padStart(2,'0')}`;
 export function rank(players){return [...players].sort((a,b)=>b.zonesCompleted-a.zonesCompleted||a.totalMs-b.totalMs||a.reachedAt-b.reachedAt||a.id.localeCompare(b.id));}

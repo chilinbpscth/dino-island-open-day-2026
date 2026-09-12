@@ -76,3 +76,14 @@ test('An acknowledged certificate retry can recover its original link while the 
  assert.throws(()=>c.uploadCertificate_(data),/已到期/);
  tables.Certificates[1][7]='deleted';assert.throws(()=>c.uploadCertificate_(data),/已到期/);
 });
+
+test('Reset epoch refuses old queued players and accepts new visitors on the same device',()=>{
+ const {c,tables}=env(),props=c.PropertiesService.getScriptProperties();
+ c.PropertiesService.getScriptProperties=()=>({...props,getProperty:k=>k==='GAME_EPOCH'?'open-day-20260913':props.getProperty(k)});
+ const old=player('old-offline-player',9,{math:1234});
+ assert.equal(c.savePlayer_({deviceToken:token,player:old}).resetRequired,true);
+ assert.equal(tables.Players.length,1);
+ assert.equal(c.savePlayer_({deviceToken:token,player:{...player('fresh-visitor',1,{math:2000}),epoch:'open-day-20260913'}}).score,1);
+ assert.equal(tables.Players.length,2);
+ c.savePlayer_({deviceToken:token,player:old});assert.equal(tables.Players.length,2);
+});

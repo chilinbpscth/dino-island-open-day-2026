@@ -1,5 +1,5 @@
 {
-  "version": "55994b337a2b",
+  "version": "9bb6a743b18a",
   "assets": [
     "board/board.css",
     "board/board.js",
@@ -142,6 +142,8 @@
     "setup/guide.html",
     "setup/index.html",
     "setup/open-day.html",
+    "setup/rescue.html",
+    "setup/rescue.js",
     "shared/certificate-link.js",
     "shared/config.js",
     "shared/core.js",

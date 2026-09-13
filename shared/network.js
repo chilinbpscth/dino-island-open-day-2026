@@ -25,6 +25,7 @@ export function flushPlayers(){
    while((queued=Object.values(read('outbox',{}))).length){
     for(const item of queued){
      const result=await bridge.call('savePlayer',{deviceToken:settings.deviceToken,player:item,requestId:item.id+':'+item.version});
+     if(result?.resetRequired)throw Error('請老師使用證書修復入口確認現場紀錄');
      if(!Number.isSafeInteger(result?.acceptedVersion)||result.acceptedVersion<item.version)throw Error('成績未被確認');
      const latest=read('outbox',{});if(latest[item.id]?.version===item.version)delete latest[item.id];write('outbox',latest);
     }

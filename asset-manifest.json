@@ -1,10 +1,11 @@
 {
-  "version": "da907891ed39",
+  "version": "55994b337a2b",
   "assets": [
     "board/board.css",
     "board/board.js",
     "board/img/board-skin.png",
     "board/index.html",
+    "board/open.html",
     "hub/app.js",
     "hub/audio/en/actions/freeze.wav",
     "hub/audio/en/actions/hands.wav",

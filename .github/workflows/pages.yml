@@ -2,6 +2,8 @@ name: Deploy dinosaur island
 
 on:
   workflow_dispatch:
+  push:
+    branches: [game-update-v2]
 
 permissions:
   contents: read
@@ -34,4 +36,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-

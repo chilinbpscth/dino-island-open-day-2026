@@ -1,0 +1,80 @@
+{
+  "game": "general",
+  "existingAssets": [
+    "hub/img/chars/dino-baby-sleep.png",
+    "hub/img/chars/dino-baby-eat.png"
+  ],
+  "requiredAssets": [
+    {
+      "id": "morning",
+      "file": "hub/img/games/general/morning.png",
+      "status": "generated-integrated",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: morning. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons.",
+      "source": "/Users/cthair/.codex/generated_images/01a07267-e66d-7c02-951c-16341dacbb5d/exec-b5265591-cf86-445e-aa5a-d9412f5d408a.png",
+      "promptFile": "design/game-assets/general-scenes-prompts.md"
+    },
+    {
+      "id": "daytime",
+      "file": "hub/img/games/general/daytime.png",
+      "status": "generated-integrated",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: daytime. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons.",
+      "source": "/Users/cthair/.codex/generated_images/01a07267-e66d-7c02-951c-16341dacbb5d/exec-59e9e944-2b9c-4d76-9b56-c86563c0523c.png",
+      "promptFile": "design/game-assets/general-scenes-prompts.md"
+    },
+    {
+      "id": "bedtime",
+      "file": "hub/img/games/general/bedtime.png",
+      "status": "generated-integrated",
+      "kind": "scene",
+      "prompt": "Match the actual supplied Dino Island website character reference: rounded preschool storybook 2D cartoon, thick dark outlines, emerald green, cream #F6F3EC and gold #b8923a, soft simple shading, large readable shapes. Preserve character face, eyes, hair, uniform, colours and proportions; never redesign the identity. Child-friendly age 3–5. No embedded text, no emoji, no watermark, no realistic scales, no scary teeth, no third-party photo background. Scene: bedtime. Wide landscape 3:2, simple background with clear central interaction space, no characters, soft daytime lighting except night/bedtime scenes. Intended as layered general game background. No text or buttons.",
+      "source": "/Users/cthair/.codex/generated_images/01a07267-e66d-7c02-951c-16341dacbb5d/exec-b0cc7bb8-9e65-418c-ba2a-6b9299d40b77.png",
+      "promptFile": "design/game-assets/general-scenes-prompts.md"
+    },
+    {
+      "id": "dino-waking",
+      "file": "hub/img/games/general/dino-waking.png",
+      "status": "generated-integrated",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "rejectedDraft": "design/game-assets/drafts/dino-waking-identity-rejected.png",
+      "review": "First generic draft rejected. Replacement references approved baby; user approved programmatic background removal on 2026-09-10. Matched draft processed with scripts/prepare-waking-sprite.py; RGBA 1024x1024, cream composite inspected. Integrated waking pose only; original palette and face pixels preserved.",
+      "prompt": "Use the approved dino-baby.png as the identity reference. Preserve its round head, cream muzzle and belly, pink cheeks, rounded golden crest, emerald colour and short limbs. Change only the pose to a gentle waking stretch. Genuine transparent background, no ground shadow."
+    },
+    {
+      "id": "dino-playing",
+      "file": "hub/img/games/general/dino-playing.png",
+      "status": "generated-and-integrated",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Use case identity-preserve. Input is locked original Dino Island baby. SAME baby PLAYING WITH A BALL: full body, one little hand guiding one large cream-and-gold soft round ball at waist level on image-left, other hand reaching to catch, knees slightly bent, lively happy smile. One ball only, no background. Preserve huge round emerald head, huge black-white highlighted eyes, pink circle cheeks, cream muzzle/plain belly, three rounded gold crest lobes, tiny plump body, short tail gold bumps, thick black outlines and restrained flat 2D shading. Do not change species, no 3D, no text, sharp teeth, scenery or ground shadow. Centered full body and ball, 8 percent clear margins, approx1024 square. Pure solid magenta #FF00FF production matte background for approved removal, no magenta on baby or ball.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/general-dino-playing-matte.png",
+      "review": "Original baby identity preserved. Approved matte removal; 1024px RGBA and cream composite inspected. Used for play/bath routine actions."
+    },
+    {
+      "id": "dino-washing",
+      "file": "hub/img/games/general/dino-washing.png",
+      "status": "generated-and-integrated",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Use case identity-preserve. Reference is locked original Dino Island baby. SAME baby happily WASHING in a small round cream bathtub with golden rim: upper body and huge head visible above tub, one little hand holds a soft cream washcloth on cheek, other rests on tub rim, a few simple white soap bubbles inside tub and on head. Tail may peek behind tub. Preserve exact huge round emerald head, large black-white highlighted eyes, pink round cheeks, cream muzzle, three gold rounded crest lobes, tiny plump torso, thick black outlines and flat 2D restrained shading. No human, no bathroom scene, floor, text, sharp teeth, 3D or cast shadow. Entire baby and bathtub centered, square approx1024, 8 percent margin. Solid pure magenta #FF00FF production matte background for approved removal, no magenta on baby/tub.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/general-dino-washing-matte.png",
+      "review": "Original baby identity preserved. Approved matte removal; 1024px RGBA and cream composite inspected. Used for play/bath routine actions."
+    }
+  ],
+  "vectorAssets": [
+    {
+      "id": "sequence-slots",
+      "status": "implemented",
+      "implementation": "Runtime sequence slot markup and CSS in hub/modules/general.js and shared/style.css; no raster"
+    },
+    {
+      "id": "time-of-day-symbols",
+      "status": "implemented",
+      "implementation": "Runtime visual() symbols from hub/modules/general.js using shared/icons.js icons and CSS; no raster"
+    }
+  ]
+}

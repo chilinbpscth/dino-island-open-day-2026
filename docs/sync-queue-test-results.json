@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-10",
+  "environment": "Desktop Chromium with controlled backend replies; not live Apps Script or physical iPads",
+  "reproducedBeforeFix": "Second flushPlayers caller resolved before the existing score request completed",
+  "passed": [
+    "Concurrent callers wait for the same running sync",
+    "A newer version queued during an earlier request is sent before sync reports completion",
+    "An older or invalid acceptedVersion does not remove the local queued record",
+    "Busy errors retain progress; subsequent valid acknowledgement clears it",
+    "Offline sync returns unconfirmed without submitting",
+    "Certificate confirmation waits for an in-flight score request",
+    "Failed score confirmation prevents photo upload and preserves the IndexedDB certificate",
+    "After score acknowledgement, certificate upload uses the existing request ID",
+    "Photo upload failure preserves the pending certificate"
+  ],
+  "commands": ["node tests/sync-queue.mjs", "node tests/network.mjs", "npm test", "npm run test:browser"],
+  "limits": "This fixes ordering and acknowledgement handling, not Apps Script lock contention or the ten-client latency target. Live backend remains v6; load tests still below acceptance."
+}

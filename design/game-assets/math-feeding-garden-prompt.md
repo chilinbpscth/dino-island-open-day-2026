@@ -1,0 +1,6 @@
+# 數學餵食花園：實際生成提示
+
+工具：內建 image_gen。身份／風格參考：hub/img/chars/dino-baby.png（本專案原創角色）。
+輸出：hub/img/games/math/feeding-garden.png。
+
+Create one original game background illustration for the preschool Dino Island feeding garden. Landscape 3:2. Style reference is the attached project's ORIGINAL baby dinosaur: match its thick smooth dark outlines, emerald green, warm cream #F6F3EC, gold #b8923a, rounded cheerful simple shapes and restrained soft shading. Do NOT include that character or any character in this background. Composition: wide open pale cream-sage meadow occupying lower 70%, nearly empty central interaction area for five large dinosaur sprites. Top and outer corners contain rounded orchard trees, a few golden fruit shapes and broad friendly prehistoric leaves, distant low hills and very light cream sky. Keep important decoration in top 25% and left/right outermost 10%. No food on the meadow (would confuse game counting), no plates, no numbers, no text, no symbols, no interface, no watermark, no buildings, no fences, no people, no scary elements. A finished clean 2D children's storybook game environment, not a poster, not photo or 3D. Opaque full-bleed background, NOT transparent. Generate only this single landscape asset.

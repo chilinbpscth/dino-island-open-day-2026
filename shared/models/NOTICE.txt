@@ -1,0 +1,16 @@
+MediaPipe Pose Landmarker Lite, float16, version 1
+Publisher: Google / MediaPipe
+Model card authors: Valentin Bazarevsky, Ivan Grishchenko, Eduard Gabriel Bazavan (Google).
+The bundled model is unmodified.
+
+Source:
+https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task
+
+Google's Pose Landmarker guide links the Lite bundle to this model card:
+https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker
+https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf
+
+Model card page 2 states "LICENSED UNDER Apache License, Version 2.0".
+See LICENSE in this directory. Publisher documentation checked 2026-09-09.
+This attribution records the publisher's model terms; it is not a claim of
+independent training-data audit or accuracy for preschool children.

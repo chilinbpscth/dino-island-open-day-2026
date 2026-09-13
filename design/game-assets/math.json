@@ -1,0 +1,70 @@
+{
+  "game": "math",
+  "existingAssets": [
+    "hub/img/chars/dino-baby.png",
+    "hub/img/chars/dino-baby-eat.png"
+  ],
+  "requiredAssets": [
+    {
+      "id": "feeding-garden",
+      "file": "hub/img/games/math/feeding-garden.png",
+      "status": "generated-and-integrated",
+      "kind": "scene",
+      "prompt": "Create one original game background illustration for the preschool Dino Island feeding garden. Landscape 3:2. Style reference is the attached project original baby dinosaur: thick smooth dark outlines, emerald green, warm cream #F6F3EC, gold #b8923a, rounded cheerful simple shapes and restrained soft shading. No characters in background. Wide open pale cream-sage meadow occupying lower 70%, empty central interaction area for five large dinosaur sprites. Top and outer corners contain rounded orchard trees, a few golden fruit shapes and broad friendly prehistoric leaves, distant low hills and very light cream sky. Important decoration in top 25% and outermost 10%. No food on meadow, plates, numbers, text, symbols, interface, watermark, buildings, fences, people or scary elements. Finished clean 2D children storybook environment, not poster, photo or 3D. Opaque full-bleed background.",
+      "generator": "built-in image_gen",
+      "reference": "hub/img/chars/dino-baby.png",
+      "review": "Inspected: clean open centre, no text or characters, original thick-outline cream/green/gold environment. Touch and completion overlay checked separately."
+    },
+    {
+      "id": "friend-longneck",
+      "file": "hub/img/games/math/friend-longneck.png",
+      "status": "retained-not-used-in-current-math",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Style reference: original dino-baby, thick black outlines, cream/green/gold, pink cheeks, flat preschool 2D. Distinct friendly baby golden longneck, curved tall neck and green back markings. Full body, no props, no text, no scenery, solid magenta production matte. Preserve the main baby as a separate character.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/math-friend-longneck-matte.png",
+      "review": "Approved programmatic matte removal; true RGBA 1024px; cream composite checked; distinct baby species, retained before and after feeding."
+    },
+    {
+      "id": "friend-triceratops",
+      "file": "hub/img/games/math/friend-triceratops.png",
+      "status": "retained-not-used-in-current-math",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Style reference: original dino-baby, thick black outlines, cream/green/gold, pink cheeks, flat preschool 2D. Distinct friendly baby green triceratops, rounded head shield with gold edge and three blunt cream horns. Full body, no props, no text, no scenery, solid magenta production matte. Preserve the main baby as a separate character.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/math-friend-triceratops-matte.png",
+      "review": "Approved programmatic matte removal; true RGBA 1024px; cream composite checked; distinct baby species, retained before and after feeding."
+    },
+    {
+      "id": "dino-hungry",
+      "file": "hub/img/games/math/dino-hungry.png",
+      "status": "generated-and-integrated",
+      "kind": "sprite",
+      "reference": "hub/img/chars/dino-baby.png",
+      "prompt": "Use case identity-preserve. Input is locked original Dino Island baby. SAME character feeling gently HUNGRY and waiting for food: two little hands rest on round cream belly, head tilts a little, eyebrows slightly raised, small round open mouth, big hopeful friendly eyes. No tears, distress, sick appearance or anger. Preserve exact enormous rounded emerald head, large black-white highlighted eyes, pink circular cheeks, cream muzzle and plain cream belly, three golden rounded crest lobes, tiny plump body, short gold-bumped tail, blunt cream claws, thick black outlines and simple flat 2D shading. Full body centered, square approx1024 with 8 percent margins. No food yet, no objects, text, symbols, scenery, cast shadow, sharp teeth or 3D. Solid pure magenta #FF00FF production matte background for approved removal, no magenta character details.",
+      "generator": "built-in image_gen",
+      "source": "design/game-assets/drafts/math-dino-hungry-matte.png",
+      "review": "Original baby identity checked, mild hungry expression; approved matte removal, 1024 RGBA cream composite checked. First feeding target uses this before receiving food, then existing eating pose."
+    }
+  ],
+  "vectorAssets": [
+    {
+      "id": "apple",
+      "status": "implemented",
+      "implementation": "Original SVG in shared/icons.js; one-piece food picker and quantity order display in hub/modules/math.js"
+    },
+    {
+      "id": "banana",
+      "status": "implemented",
+      "implementation": "Original SVG in shared/icons.js; one-piece food picker and quantity order display in hub/modules/math.js"
+    },
+    {
+      "id": "strawberry",
+      "status": "implemented",
+      "implementation": "Original SVG in shared/icons.js; one-piece food picker and quantity order display in hub/modules/math.js"
+    }
+  ],
+  "update": "2026-09-10: user requested three-fruit recognition and separate quantity orders; one baby dinosaur. Existing friend sprites and plate retired from this game, retained as historical assets."
+}

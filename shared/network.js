@@ -31,7 +31,7 @@ export function flushPlayers(){
     }
    }
    window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已同步'}));return true;
-  }catch(e){window.dispatchEvent(new CustomEvent('syncstatus',{detail:'進度已存本機，等待同步'}));return false;}
+  }catch(e){window.dispatchEvent(new CustomEvent('syncstatus',{detail:e.message==='請老師使用證書修復入口確認現場紀錄'?'成績未上榜：請老師開成績補傳入口':'進度已存本機，等待同步'}));return false;}
  }).finally(()=>{flushing=null;});
  return flushing;
 }

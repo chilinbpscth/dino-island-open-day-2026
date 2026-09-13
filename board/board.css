@@ -21,3 +21,5 @@ body{overflow:hidden;background:#F6F3EC}.board{width:1920px;height:1080px;transf
 .board-row:nth-child(1){box-shadow:inset 5px 0 #b8923a}
 .board-row:nth-child(2){box-shadow:inset 5px 0 #9aa7a5}
 .board-row:nth-child(3){box-shadow:inset 5px 0 #b78e68}
+
+.board-row.placeholder{background:#e9eddf;box-shadow:inset 5px 0 #b9c8aa;color:#61735a}.placeholder-label{font-size:25px;margin-left:18px;vertical-align:middle;border:1px solid #a8b89d;border-radius:9px;padding:3px 8px}.board-row.placeholder .player-name{font-size:56px}
